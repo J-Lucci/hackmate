@@ -1,0 +1,140 @@
+{
+    "services": [
+        {
+            "port": "20 21",
+            "name": "FTP",
+            "tools": [
+                {"name": "Nmap", "link": "tools.json#ftp-nmap"},
+                {"name": "Hydra", "link": "tools.json#ftp-hydra"},
+                {"name": "Metasploit", "link": "tools.json#ftp-metasploit"},
+                {"name": "Wireshark", "link": "tools.json#ftp-wireshark"},
+                {"name": "FileZilla", "link": "tools.json#ftp-filezilla"},
+                {"name": "Burp Suite", "link": "tools.json#ftp-burpsuite"},
+                {"name": "Nikto", "link": "tools.json#ftp-nikto"},
+                {"name": "ftp-anon", "link": "tools.json#ftp-ftp-anon"},
+                {"name": "Wfuzz", "link": "tools.json#ftp-wfuzz"},
+                {"name": "Gobuster", "link": "tools.json#ftp-gobuster"}
+            ]
+        },
+        {
+            "port": "22",
+            "name": "SSH",
+            "tools": [
+                {"name": "Nmap", "link": "tools.json#ssh-nmap"},
+                {"name": "Hydra", "link": "tools.json#ssh-hydra"},
+                {"name": "Metasploit", "link": "tools.json#ssh-metasploit"},
+                {"name": "Wireshark", "link": "tools.json#ssh-wireshark"},
+                {"name": "Ncrack", "link": "tools.json#ssh-ncrack"},
+                {"name": "Medusa", "link": "tools.json#ssh-medusa"},
+                {"name": "CrackMapExec", "link": "tools.json#ssh-crackmapexec"},
+                {"name": "Patator", "link": "tools.json#ssh-patator"},
+                {"name": "Enum4linux", "link": "tools.json#ssh-enum4linux"},
+                {"name": "John the Ripper", "link": "tools.json#ssh-johntheripper"}
+            ]
+        },
+        {
+            "port": "23",
+            "name": "Telnet",
+            "tools": [
+                {"name": "Nmap", "link": "tools.json#telnet-nmap"},
+                {"name": "Hydra", "link": "tools.json#telnet-hydra"},
+                {"name": "Metasploit", "link": "tools.json#telnet-metasploit"},
+                {"name": "Wireshark", "link": "tools.json#telnet-wireshark"},
+                {"name": "Medusa", "link": "tools.json#telnet-medusa"},
+                {"name": "CrackMapExec", "link": "tools.json#telnet-crackmapexec"},
+                {"name": "Patator", "link": "tools.json#telnet-patator"},
+                {"name": "Enum4linux", "link": "tools.json#telnet-enum4linux"},
+                {"name": "Nikto", "link": "tools.json#telnet-nikto"},
+                {"name": "Wfuzz", "link": "tools.json#telnet-wfuzz"}
+            ]
+        },
+        {
+            "port": "25",
+            "name": "SMTP",
+            "tools": [
+                {"name": "Nmap", "link": "tools.json#smtp-nmap"},
+                {"name": "SMTP-user-enum", "link": "tools.json#smtp-user-enum"},
+                {"name": "Hydra", "link": "tools.json#smtp-hydra"},
+                {"name": "Metasploit", "link": "tools.json#smtp-metasploit"},
+                {"name": "SMTPTX", "link": "tools.json#smtp-smtptx"}
+            ]
+        },
+        {
+            "port": "53",
+            "name": "DNS",
+            "tools": [
+                {"name": "Nmap", "link": "tools.json#dns-nmap"},
+                {"name": "Dig", "link": "tools.json#dns-dig"},
+                {"name": "Wireshark", "link": "tools.json#dns-wireshark"},
+                {"name": "nslookup", "link": "tools.json#dns-nslookup"},
+                {"name": "dnsrecon", "link": "tools.json#dns-dnsrecon"},
+                {"name": "DNSEnum", "link": "tools.json#dns-dnsenum"},
+                {"name": "Dnsmasq", "link": "tools.json#dns-dnsmasq"},
+                {"name": "enum4linux", "link": "tools.json#dns-enum4linux"},
+                {"name": "fierce", "link": "tools.json#dns-fierce"},
+                {"name": "Nikto", "link": "tools.json#dns-nikto"}
+            ]
+        },
+        {
+            "port": "80",
+            "name": "HTTP",
+            "tools": [
+                {"name": "Nikto", "link": "tools.json#http-nikto"},
+                {"name": "Burp Suite", "link": "tools.json#http-burpsuite"},
+                {"name": "OWASP ZAP", "link": "tools.json#http-owaspzap"},
+                {"name": "Nessus", "link": "tools.json#http-nessus"},
+                {"name": "Acunetix", "link": "tools.json#http-acunetix"},
+                {"name": "Gobuster", "link": "tools.json#http-gobuster"},
+                {"name": "Wfuzz", "link": "tools.json#http-wfuzz"},
+                {"name": "sqlmap", "link": "tools.json#http-sqlmap"},
+                {"name": "W3af", "link": "tools.json#http-w3af"},
+                {"name": "BeEF", "link": "tools.json#http-beef"}
+            ]
+        },
+        
+        {
+            "port": "443",
+            "name": "HTTPS",
+            "tools": [
+                {"name": "Nikto", "link": "tools.json#https"},
+                {"name": "Burp Suite", "link": "tools.json#https"},
+                {"name": "OWASP ZAP", "link": "tools.json#https"},
+                {"name": "Nessus", "link": "tools.json#https"},
+                {"name": "Acunetix", "link": "tools.json#https"}
+            ]
+        },
+        {
+            "port": "3306",
+            "name": "MySQL",
+            "tools": [
+                {"name": "SQLMap", "link": "tools.json#mysql"},
+                {"name": "Nmap", "link": "tools.json#mysql"},
+                {"name": "Metasploit", "link": "tools.json#mysql"},
+                {"name": "Hydra", "link": "tools.json#mysql"},
+                {"name": "John the Ripper", "link": "tools.json#mysql"}
+            ]
+        },
+        {
+            "port": "3389",
+            "name": "RDP",
+            "tools": [
+                {"name": "Ncrack", "link": "tools.json#rdp"},
+                {"name": "Hydra", "link": "tools.json#rdp"},
+                {"name": "Medusa", "link": "tools.json#rdp"},
+                {"name": "Nmap", "link": "tools.json#rdp"},
+                {"name": "FreeRDP", "link": "tools.json#rdp"}
+            ]
+        },
+        {
+            "port": "5432",
+            "name": "PostgreSQL",
+            "tools": [
+                {"name": "Metasploit", "link": "tools.json#postgresql"},
+                {"name": "Nmap", "link": "tools.json#postgresql"},
+                {"name": "Hydra", "link": "tools.json#postgresql"},
+                {"name": "SQLMap", "link": "tools.json#postgresql"},
+                {"name": "John the Ripper", "link": "tools.json#postgresql"}
+            ]
+        }
+    ]
+}
