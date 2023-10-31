@@ -1,0 +1,107 @@
+{
+  "tools": [
+    {
+      "name": "Hydra",
+      "sections": [
+        {
+          "title": "FTP",
+          "port": "20 21",
+          "description": "Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against FTP servers.",
+          "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] ftp",
+          "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp",
+          "additionalOptions": [
+            "-V: Verbose mode (show detailed output)",
+            "-t [threads]: Specify the number of parallel threads to use",
+            "-o [output_file]: Save results to a file"
+          ],
+          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities."
+        },
+        {
+          "title": "SSH (Secure Shell)",
+          "port": "22",
+          "description": "Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against SSH servers.",
+          "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] ssh",
+          "example": "hydra -l user -P /path/to/wordlist.txt 192.168.1.200 ssh",
+          "additionalOptions": [
+            "-o [output_file]: Save results to a file",
+            "-t [threads]: Specify the number of parallel threads to use"
+          ],
+          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities."
+        },
+        {
+          "title": "HTTP",
+          "description": "Hydra can be used to perform HTTP login attacks, such as brute-forcing web application logins.",
+          "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] http-post-form \"/login.php:[parameters]:[error_message]\"",
+          "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\"",
+          "additionalOptions": [
+            "-o [output_file]: Save results to a file",
+            "-t [threads]: Specify the number of parallel threads to use"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Nmap",
+      "sections": [
+        {
+          "title": "Everything",
+          "port": "All",
+          "description": "Nmap is a powerful network scanning tool commonly used in penetration testing to discover open ports, services running on those ports, and gather information about network hosts.",
+          "basicCommand": "nmap [target]",
+          "example": "nmap 192.168.1.0/24",
+          "additionalOptions": [
+            "-p [ports]: Specify specific ports to scan",
+            "-A: Enable OS detection and version detection",
+            "-oN [output_file]: Save results to a file in normal format",
+            "-T [timing]: Set the timing template for the scan"
+          ],
+          "advancedUsage": "Nmap provides various scan techniques and customization options for advanced network reconnaissance. Refer to Nmap's documentation to explore its full capabilities.",
+          "scriptExamples": [
+            {
+              "title": "Service Version Detection",
+              "description": "Use the '-sV' option to detect the version of services running on open ports.",
+              "example": "nmap -sV 192.168.1.100"
+            },
+            {
+              "title": "Operating System Detection",
+              "description": "Use the '-O' option to perform operating system detection.",
+              "example": "nmap -O 192.168.1.100"
+            },
+            {
+              "title": "Common Vulnerabilities and Exposures (CVE) Scanning",
+              "description": "Use the '--script vuln' option to scan for common vulnerabilities and exposures on open ports.",
+              "example": "nmap --script vuln 192.168.1.100"
+            },
+            {
+              "title": "List Available NSE Scripts",
+              "description": "To list available Nmap Scripting Engine (NSE) scripts, use the '--script-help all' option.",
+              "example": "nmap --script-help all"
+            }
+          ],
+          "additionalFlags": [
+            {
+              "flag": "-sS",
+              "description": "Perform a TCP SYN scan (Stealth Scan) to identify open ports."
+            },
+            {
+              "flag": "-sU",
+              "description": "Perform a UDP scan to identify open UDP ports."
+            },
+            {
+              "flag": "-v",
+              "description": "Increase verbosity for more detailed output."
+            },
+            {
+              "flag": "--traceroute",
+              "description": "Perform traceroute to discover the route to the target."
+            },
+            {
+              "flag": "--top-ports [number]",
+              "description": "Scan the top [number] most common ports."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
