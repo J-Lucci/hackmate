@@ -9,12 +9,36 @@
           "description": "Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against FTP servers.",
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] ftp",
           "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp",
-          "additionalOptions": [
-            "-V: Verbose mode (show detailed output)",
-            "-t [threads]: Specify the number of parallel threads to use",
-            "-o [output_file]: Save results to a file"
+          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities.",
+          "scriptExamples": [
+            {
+              "title": "FTP Brute-Force Attack",
+              "description": "Use Hydra to perform a brute-force attack on an FTP server with a custom username list and wordlist.",
+              "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp"
+            },
+            {
+              "title": "FTP Dictionary Attack",
+              "description": "Perform a dictionary attack on an FTP server using Hydra.",
+              "example": "hydra -l [username] -P /path/to/wordlist.txt [target] ftp"
+            }
           ],
-          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities."
+          "usefulFlags": [
+            {
+              "flag": "-V",
+              "description": "Enable verbose mode (show detailed output).",
+              "example": "hydra -V -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp"
+            },
+            {
+              "flag": "-t [threads]",
+              "description": "Specify the number of parallel threads to use.",
+              "example": "hydra -t 4 -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp"
+            },
+            {
+              "flag": "-o [output_file]",
+              "description": "Save results to a file.",
+              "example": "hydra -o /path/to/output.txt -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp"
+            }
+          ]
         },
         {
           "title": "SSH (Secure Shell)",
@@ -22,24 +46,62 @@
           "description": "Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against SSH servers.",
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] ssh",
           "example": "hydra -l user -P /path/to/wordlist.txt 192.168.1.200 ssh",
-          "additionalOptions": [
-            "-o [output_file]: Save results to a file",
-            "-t [threads]: Specify the number of parallel threads to use"
+          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities.",
+          "scriptExamples": [
+            {
+              "title": "SSH Brute-Force Attack",
+              "description": "Use Hydra to perform a brute-force attack on an SSH server with a custom username list and wordlist.",
+              "example": "hydra -l user -P /path/to/wordlist.txt 192.168.1.200 ssh"
+            },
+            {
+              "title": "SSH Dictionary Attack",
+              "description": "Perform a dictionary attack on an SSH server using Hydra.",
+              "example": "hydra -l [username] -P /path/to/wordlist.txt [target] ssh"
+            }
           ],
-          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities."
+          "usefulFlags": [
+            {
+              "flag": "-o [output_file]",
+              "description": "Save results to a file.",
+              "example": "hydra -o /path/to/output.txt -l user -P /path/to/wordlist.txt 192.168.1.200 ssh"
+            },
+            {
+              "flag": "-t [threads]",
+              "description": "Specify the number of parallel threads to use.",
+              "example": "hydra -t 4 -l user -P /path/to/wordlist.txt 192.168.1.200 ssh"
+            }
+          ]
         },
         {
           "title": "HTTP",
           "description": "Hydra can be used to perform HTTP login attacks, such as brute-forcing web application logins.",
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] http-post-form \"/login.php:[parameters]:[error_message]\"",
           "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\"",
-          "additionalOptions": [
-            "-o [output_file]: Save results to a file",
-            "-t [threads]: Specify the number of parallel threads to use"
+          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities.",
+          "scriptExamples": [
+            {
+              "title": "HTTP Login Brute-Force Attack",
+              "description": "Use Hydra to perform a brute-force attack on an HTTP login form with custom parameters.",
+              "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\""
+            }
+          ],
+          "usefulFlags": [
+            {
+              "flag": "-o [output_file]",
+              "description": "Save results to a file.",
+              "example": "hydra -o /path/to/output.txt -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\""
+            },
+            {
+              "flag": "-t [threads]",
+              "description": "Specify the number of parallel threads to use.",
+              "example": "hydra -t 4 -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\""
+            }
           ]
         }
       ]
-    },
+    }
+    
+,
     {
       "title": "Nmap",
       "sections": [
@@ -49,12 +111,6 @@
           "description": "Nmap is a powerful network scanning tool commonly used in penetration testing to discover open ports, services running on those ports, and gather information about network hosts.",
           "basicCommand": "nmap [target]",
           "example": "nmap 192.168.1.0/24",
-          "additionalOptions": [
-            "-p [ports]: Specify specific ports to scan",
-            "-A: Enable OS detection and version detection",
-            "-oN [output_file]: Save results to a file in normal format",
-            "-T [timing]: Set the timing template for the scan"
-          ],
           "advancedUsage": "Nmap provides various scan techniques and customization options for advanced network reconnaissance. Refer to Nmap's documentation to explore its full capabilities.",
           "scriptExamples": [
             {
@@ -78,7 +134,23 @@
               "example": "nmap --script-help all"
             }
           ],
-          "additionalFlags": [
+          "usefulFlags": [
+            {
+              "flag": "-p [ports]",
+              "description": "Specify specific ports to scan."
+            },
+            {
+              "flag": "-A",
+              "description": "Enable OS detection, version detection, script scanning, and traceroute."
+            },
+            {
+              "flag": "-oN [output_file]",
+              "description": "Save results to a file in normal format."
+            },
+            {
+              "flag": "-T [timing]",
+              "description": "Set the timing template for the scan (e.g., -T4 for aggressive scan)."
+            },
             {
               "flag": "-sS",
               "description": "Perform a TCP SYN scan (Stealth Scan) to identify open ports."
@@ -98,10 +170,291 @@
             {
               "flag": "--top-ports [number]",
               "description": "Scan the top [number] most common ports."
+            },
+            {
+              "flag": "-iL [file]",
+              "description": "Read target IP addresses from a file."
+            },
+            {
+              "flag": "--exclude [hosts]",
+              "description": "Exclude specified hosts from the scan."
+            },
+            {
+              "flag": "--exclude-file [file]",
+              "description": "Exclude hosts listed in a file from the scan."
+            },
+            {
+              "flag": "--dns-servers [servers]",
+              "description": "Specify custom DNS servers for name resolution."
+            },
+            {
+              "flag": "--scan-delay [time]",
+              "description": "Set the time to wait between probes (e.g., 2s, 500ms)."
             }
           ]
         }
       ]
-    }
+    },
+    {
+      "name": "Metasploit",
+      "sections": [
+        {
+          "title": "Overview",
+          "description": "Metasploit is a popular penetration testing and exploitation framework that provides a comprehensive suite of tools for assessing the security of networks, systems, and applications. It is widely used by security professionals to identify vulnerabilities and exploit them for testing and defensive purposes.",
+          "basicCommand": "msfconsole",
+          "example": "msfconsole",
+          "advancedUsage": "Metasploit offers advanced features, including payload creation, exploit development, post-exploitation modules, and extensive database integration. Users can customize and automate their tests using Metasploit's scripting and module framework.",
+          "scriptExamples": [
+            {
+              "title": "Basic Usage",
+              "description": "Launch the Metasploit console with 'msfconsole' to access various modules, exploits, payloads, and auxiliary tools.",
+              "example": "msfconsole"
+            },
+            {
+              "title": "Exploit a Vulnerability",
+              "description": "Identify and exploit vulnerabilities using available modules and payloads.",
+              "example": "use exploit/windows/smb/ms08_067_netapi"
+            },
+            {
+              "title": "Payload Generation",
+              "description": "Generate custom payloads for remote access and control of compromised systems.",
+              "example": "generate -t exe -o /path/to/output/payload.exe"
+            },
+            {
+              "title": "Post-Exploitation",
+              "description": "Leverage post-exploitation modules for privilege escalation, lateral movement, and data exfiltration.",
+              "example": "use post/windows/manage/migrate"
+            }
+          ],
+          "usefulFlags": [
+            {
+              "flag": "--version",
+              "description": "Display the Metasploit Framework version."
+            },
+            {
+              "flag": "--help",
+              "description": "Show the help message and list available options."
+            },
+            {
+              "flag": "-q",
+              "description": "Run Metasploit in quiet mode, suppressing banner and startup information."
+            },
+            {
+              "flag": "-y",
+              "description": "Accept the Metasploit End-User License Agreement (EULA) during startup."
+            }
+          ]
+        },
+        {
+          "title": "Resources",
+          "description": "Metasploit offers a wealth of resources for learning and mastering its capabilities:",
+          "resourceLinks": [
+            {
+              "title": "Official Metasploit Framework Documentation",
+              "link": "https://metasploitunleashed.com/"
+            },
+            {
+              "title": "Metasploit Unleashed (MSFU)",
+              "link": "https://metasploitunleashed.com/"
+            },
+            {
+              "title": "Metasploit Community",
+              "link": "https://www.metasploitunleashed.com/"
+            },
+            {
+              "title": "Metasploit Blog",
+              "link": "https://www.metasploitunleashed.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+    "name": "Gobuster",
+    "sections": [
+      {
+        "title": "Overview",
+        "description": "Gobuster is a widely-used directory and file brute-forcing tool designed for web application penetration testing. It helps testers discover hidden files and directories on web servers by performing dictionary and brute-force attacks on URLs.",
+        "basicCommand": "gobuster dir -u [target] -w [wordlist]",
+        "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt",
+        "advancedUsage": "Gobuster supports various modes, including directory brute-forcing, file extensions enumeration, and DNS subdomain discovery. It provides extensive customization options for testing different aspects of a web application.",
+        "scriptExamples": [
+          {
+            "title": "Basic Directory Brute-Forcing",
+            "description": "Perform directory brute-forcing against a target URL using a specified wordlist.",
+            "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt"
+          },
+          {
+            "title": "File Extension Enumeration",
+            "description": "Enumerate file extensions on a target URL using a specified wordlist.",
+            "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -x .php,.html,.txt"
+          },
+          {
+            "title": "DNS Subdomain Discovery",
+            "description": "Discover subdomains of a domain using DNS brute-forcing.",
+            "example": "gobuster dns -d example.com -w /path/to/wordlist.txt"
+          }
+        ],
+        "usefulFlags": [
+          {
+            "flag": "-u [target]",
+            "description": "Specify the target URL or IP address.",
+            "example": "-u http://example.com"
+          },
+          {
+            "flag": "-w [wordlist]",
+            "description": "Provide the path to the wordlist file containing directories or file names to test.",
+            "example": "-w /path/to/wordlist.txt"
+          },
+          {
+            "flag": "-t [threads]",
+            "description": "Set the number of concurrent threads to use for the scan.",
+            "example": "-t 10"
+          },
+          {
+            "flag": "-e",
+            "description": "Include extra file extensions when performing file extension enumeration.",
+            "example": "-e"
+          },
+          {
+            "flag": "-x [.ext1,.ext2]",
+            "description": "Specify a comma-separated list of file extensions to test during file extension enumeration.",
+            "example": "-x .php,.html,.txt"
+          },
+          {
+            "flag": "-d [domain]",
+            "description": "Specify the target domain for DNS subdomain discovery.",
+            "example": "-d example.com"
+          },
+          {
+            "flag": "-l [output_file]",
+            "description": "Save results to a specified output file.",
+            "example": "-l /path/to/output.txt"
+          },
+          {
+            "flag": "--timeout [seconds]",
+            "description": "Set the request timeout in seconds.",
+            "example": "--timeout 30"
+          },
+          {
+            "flag": "--user-agent [user_agent]",
+            "description": "Set a custom User-Agent header for HTTP requests.",
+            "example": "--user-agent 'Mozilla/5.0'"
+          },
+          {
+            "flag": "--cookies [cookies]",
+            "description": "Specify cookies to include in HTTP requests.",
+            "example": "--cookies 'sessionid=12345'"
+          },
+          {
+            "flag": "--wildcard",
+            "description": "Handle wildcard responses (common in web applications).",
+            "example": "--wildcard"
+          },
+          {
+            "flag": "--ignore-length",
+            "description": "Ignore responses with different lengths.",
+            "example": "--ignore-length"
+          },
+          {
+            "flag": "--follow-redirects",
+            "description": "Follow HTTP redirects.",
+            "example": "--follow-redirects"
+          },
+          {
+            "flag": "--insecuressl",
+            "description": "Ignore SSL certificate errors.",
+            "example": "--insecuressl"
+          },
+          {
+            "flag": "--no-error",
+            "description": "Suppress 404 error messages.",
+            "example": "--no-error"
+          },
+          {
+            "flag": "--threads [num]",
+            "description": "Specify the number of threads to use.",
+            "example": "--threads 5"
+          },
+          {
+            "flag": "--q",
+            "description": "Quiet mode (suppress banner and status messages).",
+            "example": "--q"
+          },
+          {
+            "flag": "--help",
+            "description": "Show help and available options.",
+            "example": "--help"
+          },
+          {
+            "flag": "--version",
+            "description": "Display Gobuster version.",
+            "example": "--version"
+          },
+          {
+            "flag": "--no-status",
+            "description": "Do not display progress status.",
+            "example": "--no-status"
+          },
+          {
+            "flag": "--proxy [proxy]",
+            "description": "Specify a proxy for requests.",
+            "example": "--proxy http://127.0.0.1:8080"
+          },
+          {
+            "flag": "--vhost [hostname]",
+            "description": "Use virtual host (HTTP/1.1 host header).",
+            "example": "--vhost example.com"
+          },
+          {
+            "flag": "--quiet",
+            "description": "Quiet mode (suppress all output except results).",
+            "example": "--quiet"
+          },
+          {
+            "flag": "--expanded",
+            "description": "Expanded mode (show full URLs in output).",
+            "example": "--expanded"
+          },
+          {
+            "flag": "--noprogress",
+            "description": "No progress (disable progress indicators).",
+            "example": "--noprogress"
+          },
+          {
+            "flag": "--enum-suffixes",
+            "description": "Enumerate file extensions from a predefined list.",
+            "example": "--enum-suffixes"
+          },
+          {
+            "flag": "--enum-slash",
+            "description": "Append a trailing slash to each directory request.",
+            "example": "--enum-slash"
+          },
+          {
+            "flag": "--enum-case",
+            "description": "Force uppercase and lowercase enumeration of directories.",
+            "example": "--enum-case"
+          },
+          {
+            "flag": "--wildcard",
+            "description": "Handle wildcard responses as valid entries.",
+            "example": "--wildcard"
+          },
+          {
+            "flag": "--noproxy",
+            "description": "Disable the use of system proxy settings.",
+            "example": "--noproxy"
+          },
+          {
+            "flag": "--include-all",
+            "description": "Include all responses in the output (including 403 and 401 responses).",
+            "example": "--include-all"
+          }
+        ]
+      }
+    ]
+  }
+    
   ]
 }

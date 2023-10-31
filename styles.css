@@ -27,7 +27,7 @@ h3 {
 
 h4 {
     color: #f1fa8c;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 pre {
@@ -35,6 +35,10 @@ pre {
     padding: 10px;
     border-radius: 5px;
     overflow-x: auto;
+}
+
+p {
+    margin: auto;
 }
 
 a {
@@ -54,12 +58,6 @@ a:visited {
 
 a:hover {
     text-decoration: underline;
-}
-
-
-h4, h5, p {
-    margin: 0;
-    padding: 0;
 }
 
 h2::before {
@@ -103,4 +101,37 @@ pre {
 pre code:hover {
     background-color: #555b6e; /* Slightly darker shade for hover effect */
     cursor: pointer;
+}
+
+.port-table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.port-table th,
+.port-table td {
+    border: 1px solid #44475a;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.port-table th {
+    background-color: #44475a;
+    color: #f8f8f2;
+}
+
+.port-table tr:nth-child(even) {
+    background-color: #373844;
+}
+
+.port-table tr:hover {
+    background-color: #50515e;
+}
+
+.port-style {
+    font-size: 0.6em;
+    color: #ff5555;
 }
