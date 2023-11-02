@@ -9,7 +9,6 @@
           "description": "Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against FTP servers.",
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] ftp",
           "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp",
-          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities.",
           "scriptExamples": [
             {
               "title": "FTP Brute-Force Attack",
@@ -20,6 +19,21 @@
               "title": "FTP Dictionary Attack",
               "description": "Perform a dictionary attack on an FTP server using Hydra.",
               "example": "hydra -l [username] -P /path/to/wordlist.txt [target] ftp"
+            },
+            {
+              "title": "FTP Anonymous Login",
+              "description": "Attempt anonymous login on an FTP server using Hydra.",
+              "example": "hydra -l anonymous -P /path/to/wordlist.txt 192.168.1.100 ftp"
+            },
+            {
+              "title": "FTP Brute-Force with Custom Port",
+              "description": "Perform a brute-force attack on a non-standard FTP port (e.g., 2121) using Hydra.",
+              "example": "hydra -l admin -P /path/to/wordlist.txt -s 2121 192.168.1.100 ftp"
+            },
+            {
+              "title": "FTP Brute-Force with Delay",
+              "description": "Add a delay between login attempts (e.g., 5 seconds) during a brute-force attack using Hydra on FTP.",
+              "example": "hydra -l admin -P /path/to/wordlist.txt -s 21 -o /path/to/output.txt -t 4 -w 5 192.168.1.100 ftp"
             }
           ],
           "usefulFlags": [
@@ -37,16 +51,21 @@
               "flag": "-o [output_file]",
               "description": "Save results to a file.",
               "example": "hydra -o /path/to/output.txt -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp"
+            },
+            {
+              "flag": "-w [delay_seconds]",
+              "description": "Set a delay between login attempts (e.g., 5 seconds).",
+              "example": "hydra -l admin -P /path/to/wordlist.txt -s 21 -o /path/to/output.txt -t 4 -w 5 192.168.1.100 ftp"
             }
           ]
-        },
+        }
+        ,
         {
           "title": "SSH (Secure Shell)",
           "port": "22",
           "description": "Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against SSH servers.",
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] ssh",
           "example": "hydra -l user -P /path/to/wordlist.txt 192.168.1.200 ssh",
-          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities.",
           "scriptExamples": [
             {
               "title": "SSH Brute-Force Attack",
@@ -57,6 +76,21 @@
               "title": "SSH Dictionary Attack",
               "description": "Perform a dictionary attack on an SSH server using Hydra.",
               "example": "hydra -l [username] -P /path/to/wordlist.txt [target] ssh"
+            },
+            {
+              "title": "SSH Key-Based Attack",
+              "description": "Attempt to crack SSH server using key-based authentication.",
+              "example": "hydra -L /path/to/usernames.txt -p /path/to/keys.txt 192.168.1.200 ssh"
+            },
+            {
+              "title": "SSH Brute-Force with Custom Port",
+              "description": "Perform a brute-force attack on a non-standard SSH port (e.g., 2222) using Hydra.",
+              "example": "hydra -l user -P /path/to/wordlist.txt -s 2222 192.168.1.200 ssh"
+            },
+            {
+              "title": "SSH Password Spray Attack",
+              "description": "Perform a password spray attack on an SSH server using a list of passwords.",
+              "example": "hydra -l user -P /path/to/passwords.txt 192.168.1.200 ssh"
             }
           ],
           "usefulFlags": [
@@ -69,20 +103,51 @@
               "flag": "-t [threads]",
               "description": "Specify the number of parallel threads to use.",
               "example": "hydra -t 4 -l user -P /path/to/wordlist.txt 192.168.1.200 ssh"
+            },
+            {
+              "flag": "-L [usernames_file]",
+              "description": "Provide a file with a list of usernames to test.",
+              "example": "hydra -L /path/to/usernames.txt -P /path/to/wordlist.txt 192.168.1.200 ssh"
+            },
+            {
+              "flag": "-p [passwords_file]",
+              "description": "Provide a file with a list of passwords to test.",
+              "example": "hydra -l user -p /path/to/passwords.txt 192.168.1.200 ssh"
+            },
+            {
+              "flag": "-s [port]",
+              "description": "Specify a custom SSH port to attack.",
+              "example": "hydra -l user -P /path/to/wordlist.txt -s 2222 192.168.1.200 ssh"
             }
           ]
-        },
+        }
+        ,
         {
           "title": "HTTP",
+          "port": "80",
           "description": "Hydra can be used to perform HTTP login attacks, such as brute-forcing web application logins.",
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] http-post-form \"/login.php:[parameters]:[error_message]\"",
           "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\"",
-          "advancedUsage": "Hydra can be used for more advanced tasks, such as attacking different services and protocols. Explore Hydra's documentation to learn more about its capabilities.",
           "scriptExamples": [
             {
               "title": "HTTP Login Brute-Force Attack",
               "description": "Use Hydra to perform a brute-force attack on an HTTP login form with custom parameters.",
               "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\""
+            },
+            {
+              "title": "HTTP Basic Authentication",
+              "description": "Brute-force HTTP Basic Authentication using Hydra.",
+              "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-get /protected-resource"
+            },
+            {
+              "title": "HTTP POST Request with Custom Headers",
+              "description": "Perform HTTP POST requests with custom headers in a brute-force attack.",
+              "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\" -H 'User-Agent: Mozilla/5.0'"
+            },
+            {
+              "title": "HTTP Form Parameter Enumeration",
+              "description": "Perform a password enumeration attack by brute-forcing different form parameters.",
+              "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\" -d 'param=user&param2=password'"
             }
           ],
           "usefulFlags": [
@@ -95,9 +160,20 @@
               "flag": "-t [threads]",
               "description": "Specify the number of parallel threads to use.",
               "example": "hydra -t 4 -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\""
+            },
+            {
+              "flag": "-H [header]",
+              "description": "Add custom headers to HTTP requests.",
+              "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\" -H 'User-Agent: Mozilla/5.0'"
+            },
+            {
+              "flag": "-d [data]",
+              "description": "Specify POST data for HTTP requests in the 'name=value' format.",
+              "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\" -d 'param=user&param2=password'"
             }
           ]
         }
+        
       ]
     }
     
@@ -107,11 +183,10 @@
       "sections": [
         {
           "title": "Everything",
-          "port": "All",
+          "port": "All Ports",
           "description": "Nmap is a powerful network scanning tool commonly used in penetration testing to discover open ports, services running on those ports, and gather information about network hosts.",
           "basicCommand": "nmap [target]",
           "example": "nmap 192.168.1.0/24",
-          "advancedUsage": "Nmap provides various scan techniques and customization options for advanced network reconnaissance. Refer to Nmap's documentation to explore its full capabilities.",
           "scriptExamples": [
             {
               "title": "Service Version Detection",
@@ -203,7 +278,6 @@
           "description": "Metasploit is a popular penetration testing and exploitation framework that provides a comprehensive suite of tools for assessing the security of networks, systems, and applications. It is widely used by security professionals to identify vulnerabilities and exploit them for testing and defensive purposes.",
           "basicCommand": "msfconsole",
           "example": "msfconsole",
-          "advancedUsage": "Metasploit offers advanced features, including payload creation, exploit development, post-exploitation modules, and extensive database integration. Users can customize and automate their tests using Metasploit's scripting and module framework.",
           "scriptExamples": [
             {
               "title": "Basic Usage",
@@ -277,7 +351,6 @@
         "description": "Gobuster is a widely-used directory and file brute-forcing tool designed for web application penetration testing. It helps testers discover hidden files and directories on web servers by performing dictionary and brute-force attacks on URLs.",
         "basicCommand": "gobuster dir -u [target] -w [wordlist]",
         "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt",
-        "advancedUsage": "Gobuster supports various modes, including directory brute-forcing, file extensions enumeration, and DNS subdomain discovery. It provides extensive customization options for testing different aspects of a web application.",
         "scriptExamples": [
           {
             "title": "Basic Directory Brute-Forcing",
