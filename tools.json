@@ -6,7 +6,7 @@
         {
           "title": "FTP",
           "port": "20 21",
-          "description": "Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against FTP servers.",
+          "description": "WAX# Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against FTP servers.",
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] ftp",
           "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp",
           "scriptExamples": [
