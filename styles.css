@@ -135,3 +135,13 @@ pre code:hover {
     font-size: 0.6em;
     color: #ff5555;
 }
+
+.step-checkbox {
+    margin-inline: 20px;
+    margin-block: 10px;
+}
+
+.strike-through {
+    text-decoration: line-through;
+    color: #ffb86c;
+  }

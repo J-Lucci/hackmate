@@ -32,6 +32,9 @@
 
 <body>
     <h1>Ports, Services, and Penetration Testing Tools</h1>
+    <p>Click a service to view some tips on how to pentest that service.</p>
+    <br>
+    <p>Click a tool to view the tool's page which has tons of examples, flags, and information on how to use that tool to pentest specific services</p>
 
     <table class="port-table">
         <thead>
@@ -56,14 +59,15 @@
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${service.port}</td>
-                        <td>${service.name}</td>
-                        <td>${service.tools.map(tool => `<a href="tool.html#${tool.name}">${tool.name}</a>`).join(' || ')}</td>
+                        <td><a href="guide.html#${service.name.toLowerCase()}">${service.name}</a></td>
+                        <td>${service.tools.map(tool => `<a href="tool.html#${tool.name.toLowerCase()}">${tool.name}</a>`).join(' || ')}</td>
                     `;
                     tableBody.appendChild(row);
                 });
             })
             .catch(error => console.error('Error fetching data:', error));
     </script>
+    
 </body>
 
 </html>

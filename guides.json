@@ -1,0 +1,36 @@
+{
+    "guides": [
+        {
+            "service": "FTP",
+            "title": "FTP Pentest Guide",
+            "introduction": "This reference sheet provides a structured approach to testing the FTP (File Transfer Protocol) service for vulnerabilities and misconfigurations.",
+            "steps": [
+                "Scan the target system with Nmap to identify open FTP ports (usually 20 and 21).",
+                "Enumerate FTP services using Nmap scripts (e.g., `nmap -sV`) to gather information about the FTP server's software and version.",
+                "Check for anonymous access using FTP clients like FileZilla or automated scripts.",
+                "Attempt to connect to the FTP server using common default credentials (e.g., 'anonymous:anonymous' or 'ftp:ftp') with tools like Hydra or Medusa.",
+                "Test for weak or default credentials using Hydra or Medusa.",
+                "Perform banner grabbing (e.g., `telnet [target] 21`) to collect information about the FTP server software and version.",
+                "Enumerate FTP directories using tools like Gobuster or Dirb to discover hidden files or directories.",
+                "Check for misconfigured permissions on FTP directories using tools like Nikto or manually with `ls -l`.",
+                "Use Hydra, Medusa, or Ncrack to conduct a brute-force attack on FTP credentials.",
+                "Look for FTP bounce attacks by testing the server's ability to relay FTP commands to other hosts with Nmap (e.g., `nmap -Pn -p 21 --script ftp-bounce [target]`).",
+                "Check for weak encryption and authentication methods (e.g., plain text passwords) during FTP sessions using Wireshark or Snort.",
+                "Test for FTP server vulnerabilities by running known exploits against the detected FTP software and version.",
+                "Verify whether the FTP server supports secure FTP (FTP over SSL/TLS) and test its configuration using tools like OpenSSL or Nmap (e.g., `nmap --script ftp-ssl-enum-ciphers [target]`).",
+                "Examine FTP logs for any suspicious activities or signs of unauthorized access.",
+                "Attempt to upload malicious files or malware to the FTP server to test its security controls with tools like FileZilla or cURL.",
+                "Perform a directory traversal attack using tools like DirBuster to access files outside the FTP root directory.",
+                "Check for default files and directories (e.g., README, backups) that may contain sensitive information using tools like Nikto or manually with `ls -a`.",
+                "Evaluate the FTP server's response to various commands, including LIST, RETR, STOR, DELE, and others, using tools like Telnet or Netcat.",
+                "Inspect the FTP server's response codes for potential vulnerabilities or misconfigurations.",
+                "Document all findings, vulnerabilities, and remediation recommendations in a detailed report."
+            ],
+            "tips": [
+                "While testing FTP services, remember to check for common vulnerabilities such as weak credentials, anonymous access, and misconfigurations.",
+                "Always ensure you have proper authorization to conduct penetration testing on the target system."
+            ],
+            "conclusion": "FTP pentesting is a critical step in identifying and mitigating potential security risks in FTP services."
+        }
+    ]
+}
