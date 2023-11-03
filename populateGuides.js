@@ -62,7 +62,7 @@ function fetchAndPopulateGuide() {
 function linkifyTools(text, tools) {
     tools.forEach(tool => {
         if (tool && tool.name) { // Check if tool and tool.name are not undefined
-            const toolLink = `<a href="/tool.html#${encodeURIComponent(tool.name.toLowerCase())}">${tool.name}</a>`;
+            const toolLink = `<a href="tool.html#${encodeURIComponent(tool.name.toLowerCase())}">${tool.name}</a>`;
             const regex = new RegExp(`\\b${tool.name}\\b`, 'gi');
             text = text.replace(regex, toolLink);
         }
