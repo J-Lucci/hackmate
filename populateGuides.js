@@ -10,7 +10,7 @@ function fetchAndPopulateGuide() {
         const guideContainer = document.getElementById('guide-info');
 
         if (guideContainer && guide) {
-            guideContainer.innerHTML = `<h1>${guide.title}</h1><h4>${linkifyTools(guide.introduction, toolsData.tools)}</h4>`;
+            guideContainer.innerHTML = `<h1>${guide.title}</h1><p>${linkifyTools(guide.introduction, toolsData.tools)}</p>`;
 
             guide.steps.forEach((step, index) => {
                 const stepId = `step-${index}`;
@@ -24,25 +24,25 @@ function fetchAndPopulateGuide() {
             });
 
             if (guide.tips && guide.tips.length > 0) {
-                guideContainer.innerHTML += `<h2>Tips</h2>`;
+                guideContainer.innerHTML += `<h5>Tips</h5>`;
                 guide.tips.forEach(tip => {
                     guideContainer.innerHTML += `<p>${linkifyTools(tip, toolsData.tools)}</p>`;
                 });
             }
 
             if (guide.conclusion) {
-                guideContainer.innerHTML += `<h2>Conclusion</h2><p>${linkifyTools(guide.conclusion, toolsData.tools)}</p>`;
+                guideContainer.innerHTML += `<h5>Conclusion</h5><p>${linkifyTools(guide.conclusion, toolsData.tools)}</p><h5>Tools:</h5>`;
             }
 
             // Populate tool details based on the service name in their sections
             toolsData.tools.forEach(tool => {
                 tool.sections.forEach(section => {
-                    if (section.title.toLowerCase() === serviceName) {
+                    if (section.title.toLowerCase() === serviceName || section.title.toLowerCase() === 'everything') {
                         // Check if the section has a port and add it next to the header
                         const portInfo = section.port ? `<span class="port-style">${section.port}</span>` : '';
                         guideContainer.innerHTML += `
                             <div class="tool-section">
-                                <h2>Tool: ${tool.name} ${portInfo}</h2>
+                                <h4>${tool.name} ${portInfo}</h4>
                                 <p>Description: ${linkifyTools(section.description, toolsData.tools)}</p>
                                 // You can add more details here as needed
                             </div>
@@ -63,12 +63,15 @@ function linkifyTools(text, tools) {
     tools.forEach(tool => {
         if (tool && tool.name) { // Check if tool and tool.name are not undefined
             const toolLink = `<a href="tool.html#${encodeURIComponent(tool.name.toLowerCase())}">${tool.name}</a>`;
-            const regex = new RegExp(`\\b${tool.name}\\b`, 'gi');
+            // Look for the tool name with a capital letter at the start, and it's a whole word
+            const regex = new RegExp(`\\b${tool.name.charAt(0)}${tool.name.slice(1)}\\b`, 'g');
+            console.log(regex);
             text = text.replace(regex, toolLink);
         }
     });
     return text;
 }
+
 
 // Event listener for DOMContentLoaded
 document.addEventListener('DOMContentLoaded', (event) => {

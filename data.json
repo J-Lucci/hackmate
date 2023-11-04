@@ -1,140 +1,1701 @@
 {
     "services": [
         {
-            "port": "20 21",
+            "port": "21",
             "name": "FTP",
             "tools": [
-                {"name": "Nmap", "link": "tools.json#ftp-nmap"},
-                {"name": "Hydra", "link": "tools.json#ftp-hydra"},
-                {"name": "Metasploit", "link": "tools.json#ftp-metasploit"},
-                {"name": "Wireshark", "link": "tools.json#ftp-wireshark"},
-                {"name": "FileZilla", "link": "tools.json#ftp-filezilla"},
-                {"name": "Burp Suite", "link": "tools.json#ftp-burpsuite"},
-                {"name": "Nikto", "link": "tools.json#ftp-nikto"},
-                {"name": "ftp-anon", "link": "tools.json#ftp-ftp-anon"},
-                {"name": "Wfuzz", "link": "tools.json#ftp-wfuzz"},
-                {"name": "Gobuster", "link": "tools.json#ftp-gobuster"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Ftpmap",
+                    "link": "tools.json#ftpmap"
+                },
+                {
+                    "name": "FTPEnum",
+                    "link": "tools.json#ftpenum"
+                },
+                {
+                    "name": "FTPSurgeon",
+                    "link": "tools.json#ftpsurgeon"
+                }
             ]
         },
         {
             "port": "22",
             "name": "SSH",
             "tools": [
-                {"name": "Nmap", "link": "tools.json#ssh-nmap"},
-                {"name": "Hydra", "link": "tools.json#ssh-hydra"},
-                {"name": "Metasploit", "link": "tools.json#ssh-metasploit"},
-                {"name": "Wireshark", "link": "tools.json#ssh-wireshark"},
-                {"name": "Ncrack", "link": "tools.json#ssh-ncrack"},
-                {"name": "Medusa", "link": "tools.json#ssh-medusa"},
-                {"name": "CrackMapExec", "link": "tools.json#ssh-crackmapexec"},
-                {"name": "Patator", "link": "tools.json#ssh-patator"},
-                {"name": "Enum4linux", "link": "tools.json#ssh-enum4linux"},
-                {"name": "John the Ripper", "link": "tools.json#ssh-johntheripper"}
+                {
+                    "name": "OpenSSH",
+                    "link": "tools.json#openssh"
+                },
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "SSH-audit",
+                    "link": "tools.json#ssh-audit"
+                },
+                {
+                    "name": "Putty",
+                    "link": "tools.json#putty"
+                }
             ]
         },
         {
             "port": "23",
             "name": "Telnet",
             "tools": [
-                {"name": "Nmap", "link": "tools.json#telnet-nmap"},
-                {"name": "Hydra", "link": "tools.json#telnet-hydra"},
-                {"name": "Metasploit", "link": "tools.json#telnet-metasploit"},
-                {"name": "Wireshark", "link": "tools.json#telnet-wireshark"},
-                {"name": "Medusa", "link": "tools.json#telnet-medusa"},
-                {"name": "CrackMapExec", "link": "tools.json#telnet-crackmapexec"},
-                {"name": "Patator", "link": "tools.json#telnet-patator"},
-                {"name": "Enum4linux", "link": "tools.json#telnet-enum4linux"},
-                {"name": "Nikto", "link": "tools.json#telnet-nikto"},
-                {"name": "Wfuzz", "link": "tools.json#telnet-wfuzz"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Telnet-brute",
+                    "link": "tools.json#telnet-brute"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "Inetutils-telnet",
+                    "link": "tools.json#inetutils-telnet"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                }
             ]
         },
         {
             "port": "25",
             "name": "SMTP",
             "tools": [
-                {"name": "Nmap", "link": "tools.json#smtp-nmap"},
-                {"name": "SMTP-user-enum", "link": "tools.json#smtp-user-enum"},
-                {"name": "Hydra", "link": "tools.json#smtp-hydra"},
-                {"name": "Metasploit", "link": "tools.json#smtp-metasploit"},
-                {"name": "SMTPTX", "link": "tools.json#smtp-smtptx"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "SMTP-user-enum",
+                    "link": "tools.json#smtp-user-enum"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Swaks",
+                    "link": "tools.json#swaks"
+                },
+                {
+                    "name": "MailSniper",
+                    "link": "tools.json#mailsniper"
+                },
+                {
+                    "name": "SMTPScan",
+                    "link": "tools.json#smtpscan"
+                }
             ]
         },
         {
             "port": "53",
             "name": "DNS",
             "tools": [
-                {"name": "Nmap", "link": "tools.json#dns-nmap"},
-                {"name": "Dig", "link": "tools.json#dns-dig"},
-                {"name": "Wireshark", "link": "tools.json#dns-wireshark"},
-                {"name": "nslookup", "link": "tools.json#dns-nslookup"},
-                {"name": "dnsrecon", "link": "tools.json#dns-dnsrecon"},
-                {"name": "DNSEnum", "link": "tools.json#dns-dnsenum"},
-                {"name": "Dnsmasq", "link": "tools.json#dns-dnsmasq"},
-                {"name": "enum4linux", "link": "tools.json#dns-enum4linux"},
-                {"name": "fierce", "link": "tools.json#dns-fierce"},
-                {"name": "Nikto", "link": "tools.json#dns-nikto"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Dnsenum",
+                    "link": "tools.json#dnsenum"
+                },
+                {
+                    "name": "Dnsmap",
+                    "link": "tools.json#dnsmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Fierce",
+                    "link": "tools.json#fierce"
+                },
+                {
+                    "name": "DNSSpoof",
+                    "link": "tools.json#dnsspoof"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "DNSRecon",
+                    "link": "tools.json#dnsrecon"
+                },
+                {
+                    "name": "Dig",
+                    "link": "tools.json#dig"
+                }
             ]
         },
         {
             "port": "80",
             "name": "HTTP",
             "tools": [
-                {"name": "Nikto", "link": "tools.json#http-nikto"},
-                {"name": "Burp Suite", "link": "tools.json#http-burpsuite"},
-                {"name": "OWASP ZAP", "link": "tools.json#http-owaspzap"},
-                {"name": "Nessus", "link": "tools.json#http-nessus"},
-                {"name": "Acunetix", "link": "tools.json#http-acunetix"},
-                {"name": "Gobuster", "link": "tools.json#http-gobuster"},
-                {"name": "Wfuzz", "link": "tools.json#http-wfuzz"},
-                {"name": "sqlmap", "link": "tools.json#http-sqlmap"},
-                {"name": "W3af", "link": "tools.json#http-w3af"},
-                {"name": "BeEF", "link": "tools.json#http-beef"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nikto",
+                    "link": "tools.json#nikto"
+                },
+                {
+                    "name": "Dirbuster",
+                    "link": "tools.json#dirbuster"
+                },
+                {
+                    "name": "OWASP ZAP",
+                    "link": "tools.json#owasp zap"
+                },
+                {
+                    "name": "Burp Suite",
+                    "link": "tools.json#burp suite"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "SQLMap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "Webscarab",
+                    "link": "tools.json#webscarab"
+                }
             ]
         },
-        
+        {
+            "port": "110",
+            "name": "POP3",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "POP3-brute",
+                    "link": "tools.json#pop3-brute"
+                },
+                {
+                    "name": "MailSniper",
+                    "link": "tools.json#mailsniper"
+                },
+                {
+                    "name": "POPScan",
+                    "link": "tools.json#popscan"
+                }
+            ]
+        },
+        {
+            "port": "111",
+            "name": "RPCbind",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Rpcinfo",
+                    "link": "tools.json#rpcinfo"
+                },
+                {
+                    "name": "Nfsenum",
+                    "link": "tools.json#nfsenum"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Rpcbind-brute",
+                    "link": "tools.json#rpcbind-brute"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                },
+                {
+                    "name": "Rpcdump",
+                    "link": "tools.json#rpcdump"
+                }
+            ]
+        },
+        {
+            "port": "135",
+            "name": "MSRPC",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Rpcdump",
+                    "link": "tools.json#rpcdump"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Rpcenum",
+                    "link": "tools.json#rpcenum"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                },
+                {
+                    "name": "Cain & Abel",
+                    "link": "tools.json#cain & abel"
+                }
+            ]
+        },
+        {
+            "port": "139",
+            "name": "NetBIOS",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Nbtscan",
+                    "link": "tools.json#nbtscan"
+                },
+                {
+                    "name": "Smbclient",
+                    "link": "tools.json#smbclient"
+                },
+                {
+                    "name": "Enum4linux",
+                    "link": "tools.json#enum4linux"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                },
+                {
+                    "name": "Responder",
+                    "link": "tools.json#responder"
+                }
+            ]
+        },
+        {
+            "port": "143",
+            "name": "IMAP",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "IMAPScan",
+                    "link": "tools.json#imapscan"
+                },
+                {
+                    "name": "MailSniper",
+                    "link": "tools.json#mailsniper"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                }
+            ]
+        },
+        {
+            "port": "161",
+            "name": "SNMP",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Snmpwalk",
+                    "link": "tools.json#snmpwalk"
+                },
+                {
+                    "name": "Snmpcheck",
+                    "link": "tools.json#snmpcheck"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Onesixtyone",
+                    "link": "tools.json#onesixtyone"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "SNMPenum",
+                    "link": "tools.json#snmpenum"
+                },
+                {
+                    "name": "Snmp-brute",
+                    "link": "tools.json#snmp-brute"
+                }
+            ]
+        },
+        {
+            "port": "162",
+            "name": "SNMPTRAP",
+            "tools": [
+                {
+                    "name": "Snmptrap",
+                    "link": "tools.json#snmptrap"
+                },
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Snmpwalk",
+                    "link": "tools.json#snmpwalk"
+                },
+                {
+                    "name": "Snmpcheck",
+                    "link": "tools.json#snmpcheck"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "SNMPenum",
+                    "link": "tools.json#snmpenum"
+                },
+                {
+                    "name": "Snmptrapd",
+                    "link": "tools.json#snmptrapd"
+                },
+                {
+                    "name": "Snmptrap-brute",
+                    "link": "tools.json#snmptrap-brute"
+                }
+            ]
+        },
+        {
+            "port": "389",
+            "name": "LDAP",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "JXplorer",
+                    "link": "tools.json#jxplorer"
+                },
+                {
+                    "name": "LDAP Admin",
+                    "link": "tools.json#ldap admin"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                },
+                {
+                    "name": "Ldapenum",
+                    "link": "tools.json#ldapenum"
+                },
+                {
+                    "name": "Softerra LDAP Browser",
+                    "link": "tools.json#softerra ldap browser"
+                }
+            ]
+        },
         {
             "port": "443",
             "name": "HTTPS",
             "tools": [
-                {"name": "Nikto", "link": "tools.json#https"},
-                {"name": "Burp Suite", "link": "tools.json#https"},
-                {"name": "OWASP ZAP", "link": "tools.json#https"},
-                {"name": "Nessus", "link": "tools.json#https"},
-                {"name": "Acunetix", "link": "tools.json#https"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "OpenSSL",
+                    "link": "tools.json#openssl"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Burp Suite",
+                    "link": "tools.json#burp suite"
+                },
+                {
+                    "name": "OWASP ZAP",
+                    "link": "tools.json#owasp zap"
+                },
+                {
+                    "name": "Nikto",
+                    "link": "tools.json#nikto"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "SQLMap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "SSLScan",
+                    "link": "tools.json#sslscan"
+                }
+            ]
+        },
+        {
+            "port": "445",
+            "name": "SMB",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Smbclient",
+                    "link": "tools.json#smbclient"
+                },
+                {
+                    "name": "Enum4linux",
+                    "link": "tools.json#enum4linux"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                },
+                {
+                    "name": "CrackMapExec",
+                    "link": "tools.json#crackmapexec"
+                },
+                {
+                    "name": "Responder",
+                    "link": "tools.json#responder"
+                },
+                {
+                    "name": "SMBMap",
+                    "link": "tools.json#smbmap"
+                }
+            ]
+        },
+        {
+            "port": "512",
+            "name": "exec",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Rexec",
+                    "link": "tools.json#rexec"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Rsh-client",
+                    "link": "tools.json#rsh-client"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "Rexec.py",
+                    "link": "tools.json#rexec.py"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                }
+            ]
+        },
+        {
+            "port": "513",
+            "name": "rlogin",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Rlogin",
+                    "link": "tools.json#rlogin"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Rsh-client",
+                    "link": "tools.json#rsh-client"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                }
+            ]
+        },
+        {
+            "port": "514",
+            "name": "rsh",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Rsh-client",
+                    "link": "tools.json#rsh-client"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                },
+                {
+                    "name": "Rsh.py",
+                    "link": "tools.json#rsh.py"
+                }
+            ]
+        },
+        {
+            "port": "515",
+            "name": "LPR",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Lpd",
+                    "link": "tools.json#lpd"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "Ncrack",
+                    "link": "tools.json#ncrack"
+                },
+                {
+                    "name": "LPRng",
+                    "link": "tools.json#lprng"
+                },
+                {
+                    "name": "LPR-brute",
+                    "link": "tools.json#lpr-brute"
+                }
+            ]
+        },
+        {
+            "port": "587",
+            "name": "SMTP",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "SendEmail",
+                    "link": "tools.json#sendemail"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "MailSniper",
+                    "link": "tools.json#mailsniper"
+                },
+                {
+                    "name": "SWAKS",
+                    "link": "tools.json#swaks"
+                },
+                {
+                    "name": "Postfix",
+                    "link": "tools.json#postfix"
+                },
+                {
+                    "name": "SMTP-user-enum",
+                    "link": "tools.json#smtp-user-enum"
+                }
+            ]
+        },
+        {
+            "port": "5900",
+            "name": "VNC",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Vinagre",
+                    "link": "tools.json#vinagre"
+                },
+                {
+                    "name": "TightVNC",
+                    "link": "tools.json#tightvnc"
+                },
+                {
+                    "name": "RealVNC",
+                    "link": "tools.json#realvnc"
+                },
+                {
+                    "name": "VNCsnapshot",
+                    "link": "tools.json#vncsnapshot"
+                },
+                {
+                    "name": "SSVNC",
+                    "link": "tools.json#ssvnc"
+                },
+                {
+                    "name": "VNCrack",
+                    "link": "tools.json#vncrack"
+                }
+            ]
+        },
+        {
+            "port": "6001",
+            "name": "X11",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "XSpy",
+                    "link": "tools.json#xspy"
+                },
+                {
+                    "name": "XWinSpector",
+                    "link": "tools.json#xwinspector"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Xrdp",
+                    "link": "tools.json#xrdp"
+                },
+                {
+                    "name": "X11Probe",
+                    "link": "tools.json#x11probe"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "X11C",
+                    "link": "tools.json#x11c"
+                },
+                {
+                    "name": "Xnest",
+                    "link": "tools.json#xnest"
+                }
+            ]
+        },
+        {
+            "port": "6667",
+            "name": "IRC",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "HexChat",
+                    "link": "tools.json#hexchat"
+                },
+                {
+                    "name": "mIRC",
+                    "link": "tools.json#mirc"
+                },
+                {
+                    "name": "Irssi",
+                    "link": "tools.json#irssi"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Irssistats",
+                    "link": "tools.json#irssistats"
+                },
+                {
+                    "name": "Smuxi",
+                    "link": "tools.json#smuxi"
+                },
+                {
+                    "name": "LostIRC",
+                    "link": "tools.json#lostirc"
+                }
+            ]
+        },
+        {
+            "port": "6697",
+            "name": "IRC SSL",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "HexChat",
+                    "link": "tools.json#hexchat"
+                },
+                {
+                    "name": "mIRC",
+                    "link": "tools.json#mirc"
+                },
+                {
+                    "name": "Irssi",
+                    "link": "tools.json#irssi"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Smuxi",
+                    "link": "tools.json#smuxi"
+                },
+                {
+                    "name": "Quassel",
+                    "link": "tools.json#quassel"
+                },
+                {
+                    "name": "KVIrc",
+                    "link": "tools.json#kvirc"
+                }
+            ]
+        },
+        {
+            "port": "8080",
+            "name": "HTTP-Proxy",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Burp Suite",
+                    "link": "tools.json#burp suite"
+                },
+                {
+                    "name": "OWASP ZAP",
+                    "link": "tools.json#owasp zap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Charon",
+                    "link": "tools.json#charon"
+                },
+                {
+                    "name": "Fiddler",
+                    "link": "tools.json#fiddler"
+                },
+                {
+                    "name": "Squid",
+                    "link": "tools.json#squid"
+                },
+                {
+                    "name": "Paros",
+                    "link": "tools.json#paros"
+                },
+                {
+                    "name": "Tinyproxy",
+                    "link": "tools.json#tinyproxy"
+                }
+            ]
+        },
+        {
+            "port": "8443",
+            "name": "HTTPS-Alt",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "OpenSSL",
+                    "link": "tools.json#openssl"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Burp Suite",
+                    "link": "tools.json#burp suite"
+                },
+                {
+                    "name": "OWASP ZAP",
+                    "link": "tools.json#owasp zap"
+                },
+                {
+                    "name": "Nikto",
+                    "link": "tools.json#nikto"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "SQLMap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "SSLScan",
+                    "link": "tools.json#sslscan"
+                }
+            ]
+        },
+        {
+            "port": "10000",
+            "name": "Network Data Management Protocol",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "NDMPcopy",
+                    "link": "tools.json#ndmpcopy"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "NDMPSend",
+                    "link": "tools.json#ndmpsend"
+                },
+                {
+                    "name": "NDMPTest",
+                    "link": "tools.json#ndmptest"
+                },
+                {
+                    "name": "NDMPEnum",
+                    "link": "tools.json#ndmpenum"
+                }
+            ]
+        },
+        {
+            "port": "12345",
+            "name": "NetBus",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "NetBuster",
+                    "link": "tools.json#netbuster"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "NetBus Detectors",
+                    "link": "tools.json#netbus detectors"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "NetBusHound",
+                    "link": "tools.json#netbushound"
+                },
+                {
+                    "name": "Tini",
+                    "link": "tools.json#tini"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                }
+            ]
+        },
+        {
+            "port": "31337",
+            "name": "Elite",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "BO2K",
+                    "link": "tools.json#bo2k"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "BOProbe",
+                    "link": "tools.json#boprobe"
+                },
+                {
+                    "name": "BOClient",
+                    "link": "tools.json#boclient"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Tini",
+                    "link": "tools.json#tini"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                }
+            ]
+        },
+        {
+            "port": "32768",
+            "name": "Filenet TMS",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Enum4linux",
+                    "link": "tools.json#enum4linux"
+                },
+                {
+                    "name": "SMBClient",
+                    "link": "tools.json#smbclient"
+                },
+                {
+                    "name": "rpcinfo",
+                    "link": "tools.json#rpcinfo"
+                },
+                {
+                    "name": "showmount",
+                    "link": "tools.json#showmount"
+                }
             ]
         },
         {
             "port": "3306",
             "name": "MySQL",
             "tools": [
-                {"name": "SQLMap", "link": "tools.json#mysql"},
-                {"name": "Nmap", "link": "tools.json#mysql"},
-                {"name": "Metasploit", "link": "tools.json#mysql"},
-                {"name": "Hydra", "link": "tools.json#mysql"},
-                {"name": "John the Ripper", "link": "tools.json#mysql"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Aircrack-ng",
+                    "link": "tools.json#aircrack-ng"
+                },
+                {
+                    "name": "Sqlmap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                }
             ]
         },
         {
-            "port": "3389",
-            "name": "RDP",
+            "port": "1433",
+            "name": "MS SQL Server",
             "tools": [
-                {"name": "Ncrack", "link": "tools.json#rdp"},
-                {"name": "Hydra", "link": "tools.json#rdp"},
-                {"name": "Medusa", "link": "tools.json#rdp"},
-                {"name": "Nmap", "link": "tools.json#rdp"},
-                {"name": "FreeRDP", "link": "tools.json#rdp"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Cain & Abel",
+                    "link": "tools.json#cain & abel"
+                },
+                {
+                    "name": "Sqlmap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                }
+            ]
+        },
+        {
+            "port": "1434",
+            "name": "MS SQL Monitor",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Cain & Abel",
+                    "link": "tools.json#cain & abel"
+                },
+                {
+                    "name": "Sqlmap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                }
+            ]
+        },
+        {
+            "port": "1521",
+            "name": "Oracle Database",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Sqlmap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                },
+                {
+                    "name": "Ophcrack",
+                    "link": "tools.json#ophcrack"
+                }
+            ]
+        },
+        {
+            "port": "5000",
+            "name": "UPnP/Various services",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                },
+                {
+                    "name": "Cain & Abel",
+                    "link": "tools.json#cain & abel"
+                },
+                {
+                    "name": "Nikto",
+                    "link": "tools.json#nikto"
+                },
+                {
+                    "name": "OpenVAS",
+                    "link": "tools.json#openvas"
+                }
             ]
         },
         {
             "port": "5432",
             "name": "PostgreSQL",
             "tools": [
-                {"name": "Metasploit", "link": "tools.json#postgresql"},
-                {"name": "Nmap", "link": "tools.json#postgresql"},
-                {"name": "Hydra", "link": "tools.json#postgresql"},
-                {"name": "SQLMap", "link": "tools.json#postgresql"},
-                {"name": "John the Ripper", "link": "tools.json#postgresql"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Sqlmap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                },
+                {
+                    "name": "OpenVAS",
+                    "link": "tools.json#openvas"
+                }
+            ]
+        },
+        {
+            "port": "27017",
+            "name": "MongoDB",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Sqlmap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                },
+                {
+                    "name": "OpenVAS",
+                    "link": "tools.json#openvas"
+                }
+            ]
+        },
+        {
+            "port": "50000",
+            "name": "IBM DB2",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Sqlmap",
+                    "link": "tools.json#sqlmap"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                },
+                {
+                    "name": "OpenVAS",
+                    "link": "tools.json#openvas"
+                }
+            ]
+        },
+        {
+            "port": "8080",
+            "name": "HTTP Proxy/HTTP Alt",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Cain & Abel",
+                    "link": "tools.json#cain & abel"
+                },
+                {
+                    "name": "Nikto",
+                    "link": "tools.json#nikto"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                }
+            ]
+        },
+        {
+            "port": "8443",
+            "name": "HTTPS Alt",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Cain & Abel",
+                    "link": "tools.json#cain & abel"
+                },
+                {
+                    "name": "Nikto",
+                    "link": "tools.json#nikto"
+                },
+                {
+                    "name": "John the Ripper",
+                    "link": "tools.json#john the ripper"
+                },
+                {
+                    "name": "Tcpdump",
+                    "link": "tools.json#tcpdump"
+                }
             ]
         }
-    ]
-}
+    ]}
