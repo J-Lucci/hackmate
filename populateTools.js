@@ -26,42 +26,7 @@ function fetchAndPopulateTools() {
 
                 // Make sure to check for undefined properties before calling toLowerCase()
                 const checkAndLower = (text) => text && text.toLowerCase();
-
-                if (checkAndLower(toolInfo.name) === "nmap" || checkAndLower(toolInfo.title) === "nmap") {
-                    toolInfo.sections.forEach(section => {
-                        if (section.usefulFlags) {
-                            section.usefulFlags.forEach(flagItem => {
-                                uniqueFlagsSet.add(JSON.stringify(flagItem)); // Use stringified object for uniqueness
-                            });
-                        }
-    
-                        toolInfoContainer.innerHTML += `
-                            <h2>${section.title} <span class="port-style">-p-</span></h2>
-                            <div class="section">
-                                <p>${section.description}</p>
-                                ${section.basicCommand ? `<h4>Basic Commands:</h4><pre><code>${section.basicCommand}</code></pre>` : ""}
-                                ${section.example ? `<pre><code>${section.example}</code></pre>` : ""}
-                                ${section.advancedUsage ? `<h4>Advanced Usage:</h4><blockquote><p>${section.advancedUsage}</p></blockquote>` : ""}
-                                ${section.scriptExamples ? section.scriptExamples.map(script => `<h4>${script.title}:</h4><blockquote><p>${script.description}</p><pre><code>${script.example}</code></pre></blockquote>`).join('') : ""}
-                                ${section.usefulFlags ? `
-                                <table class="port-table">
-                                    <h4>Useful Flags</h4>
-                                    <thead>
-                                        <tr>
-                                            <th>Flag</th>
-                                            <th>Description</th>
-                                            <th>Example</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${section.usefulFlags.map(flagItem => `<tr><td>${flagItem.flag}</td><td>${flagItem.description}</td><td>${flagItem.example}</td></tr>`).join('')}
-                                    </tbody>
-                                </table>
-                                ` : ""}
-                            </div>
-                        `;
-                    });
-                } else {                
+             
                     toolInfo.sections.forEach(section => {
                         if (section.usefulFlags) {
                             section.usefulFlags.forEach(flagItem => {
@@ -95,7 +60,7 @@ function fetchAndPopulateTools() {
                             </div>
                         `;
                     });
-                }
+                
 
                 // Create combined flags table
                 const combinedFlags = Array.from(uniqueFlagsSet).map(item => JSON.parse(item));
