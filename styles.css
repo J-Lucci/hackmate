@@ -19,15 +19,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-h5 {
-    color: #50fa7b;
-    border-bottom: 1px dashed #6272a4;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-}
-
-
 h3 {
     color: #ff5555;
     margin-top: 20px;
@@ -36,6 +27,14 @@ h3 {
 h4 {
     color: #f1fa8c;
     margin-bottom: 0px;
+}
+
+h5 {
+    color: #50fa7b;
+    border-bottom: 1px dashed #6272a4;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
 }
 
 pre {
@@ -60,7 +59,7 @@ a:link {
 }
 
 a:visited {
-    color: #ffb86c;
+    color:#ff5555;
     text-decoration: none;
 }
 
@@ -107,13 +106,13 @@ pre {
 }
 
 pre code:hover {
-    background-color: #555b6e; /* Slightly darker shade for hover effect */
+    background-color: #555b6e;
+    /* Slightly darker shade for hover effect */
     cursor: pointer;
 }
 
 .port-table {
-    width: 100%;
-    max-width: 1000px;
+    width: auto;
     margin: 30px auto;
     border-collapse: collapse;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
@@ -122,8 +121,18 @@ pre code:hover {
 .port-table th,
 .port-table td {
     border: 1px solid #44475a;
-    padding: 10px 20px;
-    text-align: left;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+/* Styles for service links */
+.service-link {
+    color:#50fa7b !important; /* Replace with the specific green color you want */
+}
+
+/* Styles for tool links */
+.tool-link {
+    color:#ffb86c !important; /* Replace with the specific yellow color you want */
 }
 
 .port-table th {
@@ -144,12 +153,96 @@ pre code:hover {
     color: #ff5555;
 }
 
+.step {
+    color:#f8f8f2;
+    font-size: .9em;
+}
+
 .step-checkbox {
-    margin-inline: 20px;
-    margin-block: 10px;
+    margin-left: 40px;
+    margin-top: 5px;
 }
 
 .strike-through {
     text-decoration: line-through;
     color: #ffb86c;
-  }
+}
+
+.tool-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.tool:not(:last-child)::after {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.dropdown-top-right {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    display: inline-block;
+}
+
+#dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    max-height: 800px; /* Adjust this value as needed */
+    overflow-y: auto; /* This makes the content scrollable */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-decoration: none;
+    background-color: #6272a4;
+}
+
+#dropdown-content label {
+    color:#ffb86c ;
+    padding: auto;
+    text-decoration: none;
+    display: flex; /* Change this from block to flex */
+    align-items: center; /* Align the checkbox and text vertically */
+}
+
+#dropdown-content input {
+    display: block;
+    margin-right: 10px;
+}
+
+.dropdown-top-right:hover #dropdown-content {
+    display: block;
+}
+
+#dropdown-content {
+    /* ...existing styles... */
+    padding: 12px; /* Add some padding to the dropdown content */
+}
+
+#search {
+    width: calc(100% - 24px); /* Subtract the padding from the width */
+    /* ...existing styles... */
+}
+
+#dropdown-button {
+    font-size: 1.5em;
+    background-color: #6272a4;
+    color: #ffb86c;
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    outline: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#dropdown-button:after {
+    content: ' ▼';
+}
+
+#dropdown-button:hover, #dropdown-button:focus {
+    background-color: #ffb86c;
+    color: #6272a4;
+}

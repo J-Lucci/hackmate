@@ -34,7 +34,8 @@
     <h1>Ports, Services, and Penetration Testing Tools</h1>
     <p>Click a service to view some tips on how to pentest that service.</p>
     <br>
-    <p>Click a tool to view the tool's page which has tons of examples, flags, and information on how to use that tool to pentest specific services</p>
+    <p>Click a tool to view the tool's page which has tons of examples, flags, and information on how to use that tool
+        to pentest specific services</p>
 
     <table class="port-table">
         <thead>
@@ -49,25 +50,137 @@
         </tbody>
     </table>
 
+    <div id="tool-dropdown" class="dropdown-top-right">
+        <div id="dropdown-button">Select tools to display</div>
+        <div id="dropdown-content" class="dropdown-content">
+            <input type="text" id="search" placeholder="Search for tools...">
+            <!-- Checkboxes will be added here by JavaScript -->
+        </div>
+    </div>
+
     <script>
-        // JavaScript to fetch and populate data from JSON
+        // After fetching and displaying the data
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
                 const tableBody = document.getElementById('port-table-body');
+                const dropdownContent = document.getElementById('dropdown-content');
+                const toolsSet = new Set();
+
                 data.services.forEach(service => {
                     const row = document.createElement('tr');
+                    const toolContainer = document.createElement('div');
+                    toolContainer.className = 'tool-container';
+
+                    service.tools.forEach((tool, index) => {
+                        toolsSet.add(tool.name);
+
+                        // Create a tool link
+                        const toolLink = document.createElement('a');
+                        toolLink.className = 'tool-link';
+                        toolLink.href = `tool.html#${tool.name.toLowerCase()}`;
+                        toolLink.textContent = tool.name;
+                        toolContainer.appendChild(toolLink);
+
+                        // Add a separator after each tool except the last one
+                        if (index < service.tools.length - 1) {
+                            const separator = document.createElement('span');
+                            separator.className = 'tool-separator';
+                            separator.textContent = ' * ';
+                            toolContainer.appendChild(separator);
+                        }
+                    });
+
                     row.innerHTML = `
-                        <td>${service.port}</td>
-                        <td><a href="guide.html#${service.name.toLowerCase()}">${service.name}</a></td>
-                        <td>${service.tools.map(tool => `<a href="tool.html#${tool.name.toLowerCase()}">${tool.name}</a>`).join(' || ')}</td>
-                    `;
+    <td>${service.port}</td>
+    <td><a class="service-link" href="guide.html#${service.name.toLowerCase()}">${service.name}</a></td>
+    <td></td>
+`;
+
+                    row.children[2].appendChild(toolContainer);
                     tableBody.appendChild(row);
                 });
-            })
-            .catch(error => console.error('Error fetching data:', error));
+
+                // Add event listener to search field
+                const searchField = document.getElementById('search');
+                searchField.addEventListener('input', function () {
+                    const searchValue = this.value.toLowerCase();
+                    const labels = dropdownContent.querySelectorAll('label');
+                    labels.forEach(label => {
+                        const labelText = label.textContent.toLowerCase();
+                        label.style.display = labelText.includes(searchValue) ? '' : 'none';
+                    });
+                });
+
+                // Add checkbox to hide/unhide all tools
+                const allLabel = document.createElement('label');
+                const allCheckbox = document.createElement('input');
+                allCheckbox.type = 'checkbox';
+                allCheckbox.value = 'All tools'; // Assign a value to the 'All tools' checkbox
+                allCheckbox.checked = true;
+                allLabel.appendChild(allCheckbox);
+                allLabel.appendChild(document.createTextNode('All tools'));
+                dropdownContent.appendChild(allLabel);
+
+                // Add checkboxes for each tool
+                toolsSet.forEach(tool => {
+                    const label = document.createElement('label');
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = tool;
+                    checkbox.checked = true;
+                    label.appendChild(checkbox);
+                    label.appendChild(document.createTextNode(tool));
+                    dropdownContent.appendChild(label);
+                });
+
+                // Add event listener to checkboxes
+                dropdownContent.addEventListener('change', function (e) {
+                    if (e.target.type === 'checkbox') {
+                        const selectedTool = e.target.value;
+                        const tools = document.querySelectorAll('.tool-link');
+                        const separators = document.querySelectorAll('.tool-separator');
+                        const checkboxes = dropdownContent.querySelectorAll('input[type="checkbox"]');
+                        if (selectedTool === 'All tools') {
+                            tools.forEach(tool => {
+                                tool.style.display = e.target.checked ? '' : 'none';
+                            });
+                            checkboxes.forEach(checkbox => {
+                                if (checkbox.value !== 'All tools') {
+                                    checkbox.checked = e.target.checked;
+                                }
+                            });
+                        } else {
+                            tools.forEach(tool => {
+                                if (tool.textContent === selectedTool) {
+                                    tool.style.display = e.target.checked ? '' : 'none';
+                                }
+                            });
+                            // If any individual tool is unchecked, uncheck 'All tools' checkbox
+                            if (!e.target.checked) {
+                                allCheckbox.checked = false;
+                            }
+                        }
+
+                        // Update separators
+                        separators.forEach(separator => {
+                            separator.style.display = 'none';
+                        });
+                        const visibleTools = [...tools].filter(tool => tool.style.display !== 'none');
+                        visibleTools.forEach((tool, index) => {
+                            if (index < visibleTools.length - 1) {
+                                const nextSibling = tool.nextSibling;
+                                if (nextSibling && nextSibling.className === 'tool-separator') {
+                                    nextSibling.style.display = '';
+                                }
+                            }
+                        });
+                    }
+                });
+            });
     </script>
-    
+
+
 </body>
 
 </html>
