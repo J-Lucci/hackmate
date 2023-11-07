@@ -10,7 +10,7 @@ function fetchAndPopulateGuide() {
         const guideContainer = document.getElementById('guide-info');
 
         if (guideContainer && guide) {
-            guideContainer.innerHTML = `<h1>${guide.title}</h1><h4>${linkifyTools(guide.introduction, toolsData.tools)}</h4>`;
+            guideContainer.innerHTML = `<h1>${guide.title}</h1><p>${linkifyTools(guide.introduction, toolsData.tools)}</p>`;
 
             guide.steps.forEach((step, index) => {
                 const stepId = `step-${index}`;
@@ -74,6 +74,6 @@ function linkifyTools(text, tools) {
 
 
 // Event listener for DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (event) => {
     fetchAndPopulateGuide();
 });
