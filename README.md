@@ -1,1 +1,1 @@
-# [Hackmate](J-Lucci.github.io/hackmate)
+# [Hackmate](https://j-lucci.github.io/hackmate/)
