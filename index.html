@@ -7,26 +7,6 @@
     <title>Ports, Services, and Penetration Testing Tools</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #282a36;
-            color: #f8f8f2;
-            padding: 20px;
-        }
-
-        h2 {
-            border-bottom: 2px solid #6272a4;
-            display: inline-block;
-        }
-
-        h2::before,
-        h1::before {
-            content: "";
-            display: inline-block;
-            margin-right: 5px;
-        }
-    </style>
     <script src="displayTools.js"></script>
 </head>
 
@@ -134,6 +114,7 @@
                     dropdownContent.appendChild(label);
                 });
 
+                // Add event listener to checkboxes
                 // Add event listener to checkboxes
                 dropdownContent.addEventListener('change', function (e) {
                     if (e.target.type === 'checkbox') {

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family:monospace;
     background-color: #282a36;
     color: #f8f8f2;
     padding: 2em;
@@ -136,7 +136,8 @@ pre code:hover {
 
 /* Styles for service links */
 .service-link {
-    color:#50fa7b !important; /* Replace with the specific green color you want */
+    color:#ff5555 !important;
+    font-weight:bold;
 }
 
 /* Styles for tool links */
@@ -149,8 +150,8 @@ pre code:hover {
     color: #f8f8f2;
 }
 
-.port-table tr:nth-child(even) {
-    background-color: #373844;
+.port-table tr {
+    background-color: #37384470;
 }
 
 .port-table tr:hover {
@@ -254,4 +255,8 @@ pre code:hover {
 #dropdown-button:hover, #dropdown-button:focus {
     background-color: #ffb86c;
     color: #6272a4;
+}
+
+.tips-style {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -27,10 +27,21 @@
                 "Document all findings, vulnerabilities, and remediation recommendations in a detailed report."
             ],
             "tips": [
-                "While testing FTP services, remember to check for common vulnerabilities such as weak credentials, anonymous access, and misconfigurations.",
-                "Always ensure you have proper authorization to conduct penetration testing on the target system."
+                "Weak or default credentials are common in FTP services. Always test for these.",
+                "FTP servers often have misconfigurations that can be exploited. Be thorough in your examination.",
+                "Anonymous access can lead to unauthorized access to sensitive files. Always check for this vulnerability.",
+                "FTP does not encrypt its data, making it susceptible to data interception. Keep this in mind during your testing.",
+                "Many FTP servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these."
             ],
-            "conclusion": "FTP pentesting is a critical step in identifying and mitigating potential security risks in FTP services."
+            "conclusion": "FTP is a protocol that, due to its age and design, is inherently insecure. It lacks the ability to encrypt data, making any transferred data potentially visible to anyone who can capture the traffic. Additionally, it's common to find FTP servers with weak or default credentials, or even anonymous access enabled. These factors make FTP servers a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=FTP",
+                "https://www.exploit-db.com/search?port=21",
+                "https://book.hacktricks.xyz/pentesting/pentesting-ftp",
+                "https://owasp.org/search/?searchString=FTP",
+                "https://tools.ietf.org/html/rfc959",
+                "https://www.acunetix.com/blog/articles/ftp-vulnerabilities-pen-testing/"
+            ]
         },
         {
             "service": "SSH",
@@ -59,11 +70,19 @@
                 "Document all findings, test evidence, and recommendations in a comprehensive report, ensuring to detail the use of tools like Dradis or Faraday for reporting."
             ],
             "tips": [
-                "Document each step taken during the SSH pentest, including the tools used and the output they provide.",
-                "Incorporate both automated and manual testing techniques to cover a wide range of potential vulnerabilities.",
-                "Regularly update and patch the tools used for testing to utilize their latest features and vulnerability checks."
+                "Weak or default credentials are common in SSH services. Always test for these.",
+                "SSH keys can sometimes be weak or insecurely configured. Always check for this vulnerability.",
+                "SSH services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "SSH tunneling can sometimes be exploited for unauthorized access. Be aware of this possibility.",
+                "SSH services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
             ],
-            "conclusion": "Thorough testing of SSH services involves using a combination of tools and techniques to identify vulnerabilities, weak configurations, and potential entry points for attackers. By following this structured approach, security professionals can ensure that the SSH services are configured securely and are resistant to unauthorized access."
+            "conclusion": "SSH is a secure protocol, but it can still be vulnerable to attacks if not properly configured. Weak or default credentials, insecure SSH keys, and user enumeration vulnerabilities are common issues. These factors make SSH services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=SSH",
+                "https://www.exploit-db.com/search?port=22",
+                "https://book.hacktricks.xyz/pentesting/pentesting-ssh",
+                "https://owasp.org/search/?searchString=SSH"
+            ]
         },
         {
             "service": "Telnet",
@@ -92,11 +111,19 @@
                 "Document all findings comprehensively, including potential misconfigurations, absence of encryption, and any credentials or sensitive information captured during the assessment."
             ],
             "tips": [
-                "Telnet communicates over the network in plaintext, making it inherently insecure; always prioritize replacing Telnet with more secure protocols like SSH.",
-                "Even if Telnet appears secure, always consider the network context and potential for man-in-the-middle (MitM) attacks.",
-                "Ensure you have legal authorization before engaging in penetration testing on any network or system."
+                "Telnet services often have weak or default credentials. Always test for these.",
+                "Telnet does not encrypt its data, making it susceptible to data interception. Keep this in mind during your testing.",
+                "Many Telnet servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "Telnet services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Telnet services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
             ],
-            "conclusion": "Telnet is inherently insecure due to its lack of encryption, providing numerous avenues for potential exploitation. A thorough penetration test of Telnet services is essential to identify and address these vulnerabilities, securing the network from unauthorized access and data interception."
+            "conclusion": "Telnet is an insecure protocol due to its lack of encryption. Weak or default credentials, data interception, and user enumeration vulnerabilities are common issues. These factors make Telnet services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=Telnet",
+                "https://www.exploit-db.com/search?port=23",
+                "https://book.hacktricks.xyz/pentesting/pentesting-telnet",
+                "https://owasp.org/search/?searchString=Telnet"
+            ]
         },
         {
             "service": "SMTP",
@@ -123,11 +150,19 @@
                 "Check for the SSL/TLS certificate validity and configuration using SSLScan or SSLyze to ensure encryption standards meet current best practices."
             ],
             "tips": [
-                "Always verify that you have permission to conduct penetration tests against the SMTP server to avoid legal issues.",
-                "Ensure that you are testing not only the SMTP server but also the associated email processing infrastructure, such as anti-spam filters and webmail interfaces.",
-                "Pay attention to the SMTP server's configuration regarding relay and authentication, as misconfigurations here are common security issues."
+                "SMTP services often have weak or default credentials. Always test for these.",
+                "SMTP services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Many SMTP servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "SMTP services can sometimes be vulnerable to mail relay attacks. Be aware of this possibility.",
+                "SMTP services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
             ],
-            "conclusion": "SMTP servers are complex and can be configured in a variety of ways, some of which may lead to critical vulnerabilities. Thorough testing and assessment are required to ensure that the email infrastructure is secure against both misuse and targeted attacks."
+            "conclusion": "SMTP is a protocol that can be vulnerable to attacks if not properly configured. Weak or default credentials, user enumeration, and mail relay vulnerabilities are common issues. These factors make SMTP services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=SMTP",
+                "https://www.exploit-db.com/search?port=25",
+                "https://book.hacktricks.xyz/pentesting/pentesting-smtp",
+                "https://owasp.org/search/?searchString=SMTP"
+            ]
         },
         {
             "service": "DNS",
@@ -152,11 +187,19 @@
                 "Test for potential information leakage through DNS TXT records or verbose error messages."
             ],
             "tips": [
-                "Always ensure that you have explicit permission before attempting to conduct a penetration test on a DNS server.",
-                "Document each step of the penetration test, including the tools used, commands run, and the responses received from the DNS server.",
-                "Consider not only direct attacks on the DNS service but also the role of DNS in wider attack strategies such as phishing or malware distribution."
+                "DNS servers can sometimes be vulnerable to zone transfer attacks. Always test for these.",
+                "DNS cache poisoning can lead to serious security issues. Be aware of this possibility.",
+                "DNS servers can sometimes be vulnerable to amplification attacks. Keep this in mind during your testing.",
+                "DNS spoofing can lead to serious security issues. Always test for these.",
+                "DNS servers can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
             ],
-            "conclusion": "Penetration testing for DNS requires meticulous attention to detail and a comprehensive understanding of both the DNS protocol and the associated risks. A secure and properly configured DNS infrastructure is essential for the overall security posture of an organization."
+            "conclusion": "DNS is a fundamental service that can be vulnerable to attacks if not properly configured. Zone transfer, cache poisoning, and DNS spoofing vulnerabilities are common issues. These factors make DNS services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=DNS",
+                "https://www.exploit-db.com/search?port=53",
+                "https://book.hacktricks.xyz/pentesting/pentesting-dns",
+                "https://owasp.org/search/?searchString=DNS"
+            ]
         },
         {
             "service": "HTTP",
@@ -185,11 +228,22 @@
                 "Investigate the server’s adherence to HTTP Strict Transport Security (HSTS) and whether it forces encrypted connections over HTTPS."
             ],
             "tips": [
-                "During testing, always be sure to remain within the scope of your permission to avoid legal repercussions.",
-                "Regularly update the tools used for penetration testing to their latest versions to exploit the latest known vulnerabilities.",
-                "Keep in mind that while automated tools can find many vulnerabilities, they cannot replace the insight and adaptability of manual testing."
+                "HTTP services often have weak or default credentials. Always test for these.",
+                "HTTP services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Many HTTP servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "HTTP services can sometimes be vulnerable to Cross-Site Scripting (XSS) attacks. Be aware of this possibility.",
+                "HTTP services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
             ],
-            "conclusion": "HTTP penetration testing is a critical component in identifying web application vulnerabilities. A thorough and systematic approach using a variety of tools can help ensure that web services are secure against a wide array of potential attacks."
+            "conclusion": "HTTP is a protocol that can be vulnerable to attacks if not properly configured. Weak or default credentials, user enumeration, and XSS vulnerabilities are common issues. These factors make HTTP services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=HTTP",
+                "https://www.exploit-db.com/search?port=80",
+                "https://book.hacktricks.xyz/pentesting/pentesting-web",
+                "https://owasp.org/search/?searchString=HTTP",
+                "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+                "https://tools.ietf.org/html/rfc2616",
+                "https://www.w3schools.com/tags/ref_httpmethods.asp"
+            ]
         },
         {
             "service": "HTTPS",
@@ -217,11 +271,22 @@
                 "Verify that all third-party plugins and services integrated with the web application are also using secure connections."
             ],
             "tips": [
-                "Remember to obtain proper authorization before conducting any penetration testing on live systems to avoid legal consequences.",
-                "Stay up to date on the latest security best practices for HTTPS, including strong encryption, proper certificate management, and security headers.",
-                "Manual testing should complement automated scans to identify issues that automated tools may not detect."
+                "HTTPS services often have weak or default credentials. Always test for these.",
+                "HTTPS services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Many HTTPS servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "HTTPS services can sometimes be vulnerable to Cross-Site Scripting (XSS) attacks. Be aware of this possibility.",
+                "HTTPS services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
             ],
-            "conclusion": "Penetration testing for HTTPS services should ensure the confidentiality and integrity of data. Given the complexity and importance of encryption in web security, a meticulous and methodical approach utilizing a mix of tools and techniques is imperative for identifying vulnerabilities and strengthening the security posture of HTTPS services."
+            "conclusion": "HTTPS is a secure protocol that can still be vulnerable to attacks if not properly configured. Weak or default credentials, user enumeration, and XSS vulnerabilities are common issues. These factors make HTTPS services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=HTTPS",
+                "https://www.exploit-db.com/search?port=443",
+                "https://book.hacktricks.xyz/pentesting/pentesting-web",
+                "https://owasp.org/search/?searchString=HTTPS",
+                "https://www.ssllabs.com/ssltest/",
+                "https://tools.ietf.org/html/rfc2818",
+                "https://www.w3.org/2001/tag/doc/web-https"
+            ]
         },
         {
             "service": "MySQL",
@@ -245,11 +310,22 @@
                 "Conduct a binary log analysis if the MySQL server has binary logging enabled to investigate past queries for potential security issues or signs of tampering."
             ],
             "tips": [
-                "Always ensure that the MySQL server is patched and up to date to prevent exploitation of known vulnerabilities.",
-                "Pay close attention to the configuration and hardening of the MySQL server to mitigate the risk of successful attacks.",
-                "Consider the security of the entire environment where the MySQL server operates, including the operating system, network, and applications interacting with it."
+                "MySQL servers can sometimes be vulnerable to SQL injection attacks. Always test for these.",
+                "Weak or default credentials are common in MySQL services. Always test for these.",
+                "MySQL servers can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Many MySQL servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "MySQL servers can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
             ],
-            "conclusion": "A thorough penetration test of MySQL services should cover various aspects of security, from network-level access to application-layer vulnerabilities. Ensuring the security of MySQL involves not only testing for common weaknesses but also verifying that the database configurations adhere to industry best practices."
+            "conclusion": "MySQL is a popular database management system that can be vulnerable to attacks if not properly configured. SQL injection, weak or default credentials, and user enumeration vulnerabilities are common issues. These factors make MySQL services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=MySQL",
+                "https://www.exploit-db.com/search?port=3306",
+                "https://book.hacktricks.xyz/pentesting/pentesting-mysql",
+                "https://owasp.org/search/?searchString=MySQL",
+                "https://dev.mysql.com/doc/refman/8.0/en/security-guidelines.html",
+                "https://www.cisecurity.org/benchmark/mysql/",
+                "https://www.sans.org/reading-room/whitepapers/application/secure-configuration-mysql-1659"
+            ]
         },
         {
             "service": "RDP",
@@ -273,11 +349,22 @@
                 "Investigate event logs for signs of past successful breaches or failed login attempts to the RDP service, which could indicate that the service is being targeted by attackers."
             ],
             "tips": [
-                "Continuous monitoring and logging of RDP connections are vital for identifying potential breaches or misuse of the RDP service.",
-                "Ensure two-factor authentication is in place for an additional layer of security beyond just username and password.",
-                "Limit RDP access to networks via VPNs or firewall rules to reduce the attack surface."
+                "RDP services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Weak or default credentials are common in RDP services. Always test for these.",
+                "RDP services can sometimes be vulnerable to man-in-the-middle attacks. Be aware of this possibility.",
+                "Many RDP services do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "RDP services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
             ],
-            "conclusion": "Penetration testing of RDP services involves comprehensive steps to uncover and exploit vulnerabilities that could potentially lead to unauthorized remote access. Security best practices, such as strong authentication measures, encryption, and regular patching, are key to protecting RDP services."
+            "conclusion": "RDP is a widely used protocol for remote access and can be vulnerable to attacks if not properly configured. User enumeration, weak or default credentials, and man-in-the-middle vulnerabilities are common issues. These factors make RDP services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=RDP",
+                "https://www.exploit-db.com/search?port=3389",
+                "https://book.hacktricks.xyz/pentesting/pentesting-rdp",
+                "https://owasp.org/search/?searchString=RDP",
+                "https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq",
+                "https://www.cisecurity.org/benchmark/microsoft_windows_desktop/",
+                "https://www.sans.org/reading-room/whitepapers/testing/penetration-testing-terminal-services-33889"
+            ]
         },
         {
             "service": "PostgreSQL",
@@ -301,13 +388,283 @@
                 "Search for sensitive information leakage by reviewing database metadata, comments, and configuration files."
             ],
             "tips": [
-                "Always ensure that database configurations follow the principle of least privilege, granting users and roles only the permissions they need to function.",
-                "Regularly update and patch PostgreSQL installations to protect against known vulnerabilities.",
-                "Consider using a database firewall that can monitor SQL queries and block malicious activity."
+                "PostgreSQL servers can sometimes be vulnerable to SQL injection attacks. Always test for these.",
+                "Weak or default credentials are common in PostgreSQL services. Always test for these.",
+                "PostgreSQL servers can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Many PostgreSQL servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "PostgreSQL servers can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
             ],
-            "conclusion": "Through diligent testing and regular maintenance, potential security issues within PostgreSQL databases can be identified and mitigated. It is crucial to adopt a multi-layered security approach that includes both system-level and database-level protections to ensure data integrity and confidentiality."
+            "conclusion": "PostgreSQL is a powerful open-source database management system that can be vulnerable to attacks if not properly configured. SQL injection, weak or default credentials, and user enumeration vulnerabilities are common issues. These factors make PostgreSQL services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=RDP",
+                "https://www.exploit-db.com/search?port=3389",
+                "https://book.hacktricks.xyz/pentesting/pentesting-rdp",
+                "https://owasp.org/search/?searchString=RDP",
+                "https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq",
+                "https://www.cisecurity.org/benchmark/microsoft_windows_desktop/",
+                "https://www.sans.org/reading-room/whitepapers/testing/penetration-testing-terminal-services-33889"
+            ]
+        },
+        {
+            "service": "POP3",
+            "title": "POP3 Pentest Guide",
+            "introduction": "Post Office Protocol version 3 (POP3) is an internet standard protocol used by local email clients to retrieve mail from a remote server over a TCP/IP connection. This guide outlines steps for penetration testing of POP3 services to identify potential security risks.",
+            "steps": [
+                "Use Nmap to conduct a port scan to identify open POP3 ports, which are typically on port 110 for non-encrypted and 995 for SSL/TLS encrypted connections.",
+                "Employ the 'nmap -sV --script=pop3-brute' command with the appropriate Nmap NSE scripts to attempt brute-forcing POP3 accounts.",
+                "Check for default credentials using a POP3 client or automated tools like Metasploit’s 'pop3_login' module.",
+                "Apply the 'pop3-brute' Nmap script to test for weak passwords on known POP3 user accounts.",
+                "Test the robustness of POP3 passwords using John the Ripper with a custom wordlist tailored to the target environment.",
+                "Inspect the security of the authentication process by attempting to connect to the POP3 service using a client such as Thunderbird or Outlook.",
+                "Investigate misconfigurations in the server settings which control the client authentication, ensuring it is properly set up to avoid unauthorized access.",
+                "Utilize tools such as Wireshark to analyze the network traffic for unencrypted passwords or other sensitive information.",
+                "Analyze the server's response to invalid commands or inputs to identify potential vulnerabilities or misconfigurations.",
+                "Employ the Metasploit Framework, specifically modules such as 'pop3_version' to assess the system for known vulnerabilities.",
+                "Review the POP3 logs for any unusual activity or signs of previous attacks which can be indicative of security weaknesses.",
+                "Use the 'sslscan' tool to test the SSL/TLS security settings of the POP3 server if it is configured to use SSL connections."
+            ],
+            "tips": [
+                "POP3 services often have weak or default credentials. Always test for these.",
+                "POP3 does not encrypt its data, making it susceptible to data interception. Keep this in mind during your testing.",
+                "Many POP3 servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "POP3 services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "POP3 services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
+            ],
+            "conclusion": "POP3 is an email protocol that can be vulnerable to attacks if not properly configured. Weak or default credentials, data interception, and user enumeration vulnerabilities are common issues. These factors make POP3 services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=POP3",
+                "https://www.exploit-db.com/search?port=110",
+                "https://book.hacktricks.xyz/pentesting/pentesting-pop3",
+                "https://owasp.org/search/?searchString=POP3",
+                "https://tools.ietf.org/html/rfc1939",
+                "https://www.cisecurity.org/benchmark/microsoft_windows_server/",
+                "https://www.sans.org/reading-room/whitepapers/testing/penetration-testing-mail-server-33920"
+            ]
+        },
+        {
+            "service": "RPCbind",
+            "title": "RPCbind Pentest Guide",
+            "introduction": "RPCbind is a server that converts RPC program numbers into universal addresses. It must be running on the host to be able to make RPC calls on a server on that machine. This guide outlines steps for penetration testing of RPCbind services to identify potential security risks.",
+            "steps": [
+                "Use Nmap to conduct a port scan to identify open RPCbind ports, which are typically on port 111 for both TCP and UDP.",
+                "Employ the 'nmap -p 111 --script=rpcinfo' command to enumerate RPC services.",
+                "Use the 'rpcclient' command-line tool to connect to the RPC service and enumerate RPC endpoints.",
+                "Check for misconfigurations or vulnerabilities using tools like Metasploit’s 'auxiliary/scanner/nfs/nfsmount' module.",
+                "Test for insecure file sharing configurations using the 'showmount -e' command on Unix-based systems.",
+                "Inspect the security of the authentication process by attempting to connect to the RPCbind service using a client such as rpcinfo or rpcclient.",
+                "Investigate misconfigurations in the server settings which control the client authentication, ensuring it is properly set up to avoid unauthorized access.",
+                "Utilize tools such as Wireshark to analyze the network traffic for unencrypted passwords or other sensitive information.",
+                "Analyze the server's response to invalid commands or inputs to identify potential vulnerabilities or misconfigurations.",
+                "Employ the Metasploit Framework, specifically modules such as 'auxiliary/scanner/nfs/nfsmount' to assess the system for known vulnerabilities.",
+                "Review the RPCbind logs for any unusual activity or signs of previous attacks which can be indicative of security weaknesses."
+            ],
+            "tips": [
+                "RPCbind services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Weak or default credentials are common in RPCbind services. Always test for these.",
+                "RPCbind services can sometimes be vulnerable to man-in-the-middle attacks. Be aware of this possibility.",
+                "Many RPCbind services do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "RPCbind services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
+            ],
+            "conclusion": "RPCbind is a server that converts RPC program numbers into universal addresses. It can be vulnerable to attacks if not properly configured. User enumeration, weak or default credentials, and man-in-the-middle vulnerabilities are common issues. These factors make RPCbind services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=RPCbind",
+                "https://www.exploit-db.com/search?port=111",
+                "https://book.hacktricks.xyz/pentesting/pentesting-rpcbind",
+                "https://owasp.org/search/?searchString=RPCbind",
+                "https://tools.ietf.org/html/rfc1833",
+                "https://www.cisecurity.org/benchmark/nfs/",
+                "https://www.sans.org/reading-room/whitepapers/testing/penetration-testing-nfs-33921"
+            ]
+        },
+        {
+            "service": "MSRPC",
+            "title": "MSRPC Pentest Guide",
+            "introduction": "Microsoft Remote Procedure Call (MSRPC) is a modified version of DCE/RPC. MSRPC is used for remote management and access to services on Windows machines. This guide outlines steps for penetration testing of MSRPC services to identify potential security risks.",
+            "steps": [
+                "Use Nmap to conduct a port scan to identify open MSRPC ports, which are typically on port 135.",
+                "Employ the 'nmap -p 135 --script=msrpc-enum' command to enumerate MSRPC endpoints.",
+                "Use the 'rpcclient' command-line tool to connect to the MSRPC service and enumerate MSRPC endpoints.",
+                "Check for misconfigurations or vulnerabilities using tools like Metasploit’s 'auxiliary/scanner/dcerpc/hidden' module.",
+                "Test for insecure file sharing configurations using the 'smbclient' command on Unix-based systems.",
+                "Inspect the security of the authentication process by attempting to connect to the MSRPC service using a client such as rpcclient.",
+                "Investigate misconfigurations in the server settings which control the client authentication, ensuring it is properly set up to avoid unauthorized access.",
+                "Utilize tools such as Wireshark to analyze the network traffic for unencrypted passwords or other sensitive information.",
+                "Analyze the server's response to invalid commands or inputs to identify potential vulnerabilities or misconfigurations.",
+                "Employ the Metasploit Framework, specifically modules such as 'auxiliary/scanner/dcerpc/hidden' to assess the system for known vulnerabilities.",
+                "Review the MSRPC logs for any unusual activity or signs of previous attacks which can be indicative of security weaknesses."
+            ],
+            "tips": [
+                "MSRPC services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Weak or default credentials are common in MSRPC services. Always test for these.",
+                "MSRPC services can sometimes be vulnerable to man-in-the-middle attacks. Be aware of this possibility.",
+                "Many MSRPC services do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "MSRPC services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
+            ],
+            "conclusion": "Microsoft Remote Procedure Call (MSRPC) is used for remote management and access to services on Windows machines. It can be vulnerable to attacks if not properly configured. User enumeration, weak or default credentials, and man-in-the-middle vulnerabilities are common issues. These factors make MSRPC services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=SMB",
+                "https://www.exploit-db.com/search?port=445",
+                "https://book.hacktricks.xyz/pentesting/pentesting-smb",
+                "https://owasp.org/search/?searchString=SMB",
+                "https://docs.microsoft.com/en-us/windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3",
+                "https://www.cisecurity.org/benchmark/microsoft_windows_server/",
+                "https://www.sans.org/reading-room/whitepapers/testing/penetration-testing-smb-33922"
+            ]
+        },
+        {
+            "service": "NetBIOS",
+            "title": "NetBIOS Pentest Guide",
+            "introduction": "NetBIOS (Network Basic Input/Output System) provides services related to the session layer of the OSI model, allowing applications on separate computers to communicate over a local area network. This guide outlines steps for penetration testing of NetBIOS services to identify potential security risks.",
+            "steps": [
+                "Use Nmap to conduct a port scan to identify open NetBIOS ports, which are typically on port 137-139.",
+                "Employ the 'nmap -p 137-139 --script=nbstat' command to enumerate NetBIOS services.",
+                "Use the 'nbtstat' command-line tool to display protocol statistics and current TCP/IP connections using NBT (NetBIOS over TCP/IP).",
+                "Check for misconfigurations or vulnerabilities using tools like Metasploit’s 'auxiliary/scanner/netbios/nbname' module.",
+                "Test for insecure file sharing configurations using the 'smbclient' command on Unix-based systems.",
+                "Inspect the security of the authentication process by attempting to connect to the NetBIOS service using a client such as nbtstat or smbclient.",
+                "Investigate misconfigurations in the server settings which control the client authentication, ensuring it is properly set up to avoid unauthorized access.",
+                "Utilize tools such as Wireshark to analyze the network traffic for unencrypted passwords or other sensitive information.",
+                "Analyze the server's response to invalid commands or inputs to identify potential vulnerabilities or misconfigurations.",
+                "Employ the Metasploit Framework, specifically modules such as 'auxiliary/scanner/netbios/nbname' to assess the system for known vulnerabilities.",
+                "Review the NetBIOS logs for any unusual activity or signs of previous attacks which can be indicative of security weaknesses.",
+                "Use the 'enum4linux' tool to enumerate NetBIOS names and shared resources.",
+                "Test for null sessions using the 'rpcclient' command-line tool.",
+                "Use the 'nmap --script smb-enum-shares' command to enumerate SMB shares and permissions.",
+                "Employ the 'nmap --script smb-enum-users' command to enumerate SMB users."
+            ],
+            "tips": [
+                "NetBIOS services often have weak or default credentials. Always test for these.",
+                "NetBIOS services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Many NetBIOS servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "NetBIOS services can sometimes be vulnerable to man-in-the-middle attacks. Be aware of this possibility.",
+                "NetBIOS services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
+            ],
+            "conclusion": "NetBIOS is a protocol that allows applications on different computers to communicate over a local area network. It can be vulnerable to attacks if not properly configured. Weak or default credentials, user enumeration, and man-in-the-middle vulnerabilities are common issues. These factors make NetBIOS services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=NetBIOS",
+                "https://www.exploit-db.com/search?port=137",
+                "https://book.hacktricks.xyz/pentesting/pentesting-netbios",
+                "https://owasp.org/search/?searchString=NetBIOS",
+                "https://docs.microsoft.com/en-us/windows/win32/netbios/netbios-over-tcp-ip",
+                "https://www.cisecurity.org/benchmark/microsoft_windows_server/",
+                "https://www.sans.org/reading-room/whitepapers/testing/penetration-testing-netbios-33924",
+                "https://www.techrepublic.com/article/how-netbios-name-resolution-really-works/",
+                "https://www.ibm.com/docs/en/zos/2.3.0?topic=services-netbios-over-tcpip"
+            ]
+        },
+        {
+            "service": "IMAP",
+            "title": "IMAP Pentest Guide",
+            "introduction": "Internet Message Access Protocol (IMAP) is an Internet standard protocol used by email clients to retrieve messages from a mail server. This guide outlines steps for penetration testing of IMAP services to identify potential security risks.",
+            "steps": [
+                "Use Nmap to conduct a port scan to identify open IMAP ports, which are typically on port 143.",
+                "Employ the 'nmap -p 143 --script=imap-capabilities' command to enumerate IMAP capabilities.",
+                "Use the 'openssl s_client -connect target:143 -starttls imap' command to test for STARTTLS support.",
+                "Check for misconfigurations or vulnerabilities using tools like Metasploit’s 'auxiliary/scanner/imap/imap_version' module.",
+                "Test for weak or default credentials using tools like Hydra or Medusa.",
+                "Inspect the security of the authentication process by attempting to connect to the IMAP service using a client such as Thunderbird or Outlook.",
+                "Investigate misconfigurations in the server settings which control the client authentication, ensuring it is properly set up to avoid unauthorized access.",
+                "Utilize tools such as Wireshark to analyze the network traffic for unencrypted passwords or other sensitive information.",
+                "Analyze the server's response to invalid commands or inputs to identify potential vulnerabilities or misconfigurations.",
+                "Employ the Metasploit Framework, specifically modules such as 'auxiliary/scanner/imap/imap_version' to assess the system for known vulnerabilities.",
+                "Review the IMAP logs for any unusual activity or signs of previous attacks which can be indicative of security weaknesses.",
+                "Use the 'nmap --script imap-ntlm-info' command to enumerate NTLM information.",
+                "Test for insecure SSL/TLS configurations using tools like TestSSL or SSLyze.",
+                "Use the 'nmap --script imap-brute' command to brute force IMAP credentials.",
+                "Employ the 'nmap --script imap-enum-users' command to enumerate IMAP users."
+            ],
+            "tips": [
+                "IMAP services often have weak or default credentials. Always test for these.",
+                "IMAP services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Many IMAP servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "IMAP services can sometimes be vulnerable to man-in-the-middle attacks. Be aware of this possibility.",
+                "IMAP services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
+            ],
+            "conclusion": "Internet Message Access Protocol (IMAP) is an Internet standard protocol used by email clients to retrieve messages from a mail server. It can be vulnerable to attacks if not properly configured. Weak or default credentials, user enumeration, and man-in-the-middle vulnerabilities are common issues. These factors make IMAP services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=IMAP",
+                "https://www.exploit-db.com/search?port=143",
+                "https://book.hacktricks.xyz/pentesting/pentesting-imap",
+                "https://owasp.org/search/?searchString=IMAP",
+                "https://tools.ietf.org/html/rfc3501",
+                "https://www.cisecurity.org/benchmark/microsoft_windows_server/",
+                "https://www.sans.org/reading-room/whitepapers/testing/penetration-testing-imap-33925",
+                "https://www.ibm.com/docs/en/zos/2.3.0?topic=services-internet-message-access-protocol-imap4",
+                "https://www.techrepublic.com/article/imap-vs-pop3-which-email-system-is-right-for-you/"
+            ]
+        },
+        {
+            "service": "SNMP",
+            "title": "SNMP Pentest Guide",
+            "introduction": "Simple Network Management Protocol (SNMP) is an Internet Standard protocol for collecting and organizing information about managed devices on IP networks. This guide outlines steps for penetration testing of SNMP services to identify potential security risks.",
+            "steps": [
+                "Use Nmap to conduct a port scan to identify open SNMP ports, which are typically on port 161.",
+                "Employ the 'nmap -p 161 --script=snmp-info' command to enumerate SNMP information.",
+                "Use the 'snmpwalk' command-line tool to retrieve the values of all the SNMP objects from a target device.",
+                "Check for misconfigurations or vulnerabilities using tools like Metasploit’s 'auxiliary/scanner/snmp/snmp_enum' module.",
+                "Test for weak or default community strings using tools like onesixtyone or snmp-check.",
+                "Inspect the security of the authentication process by attempting to connect to the SNMP service using a client such as snmpwalk or snmp-check.",
+                "Investigate misconfigurations in the server settings which control the client authentication, ensuring it is properly set up to avoid unauthorized access.",
+                "Utilize tools such as Wireshark to analyze the network traffic for unencrypted passwords or other sensitive information.",
+                "Analyze the server's response to invalid commands or inputs to identify potential vulnerabilities or misconfigurations.",
+                "Employ the Metasploit Framework, specifically modules such as 'auxiliary/scanner/snmp/snmp_enum' to assess the system for known vulnerabilities.",
+                "Review the SNMP logs for any unusual activity or signs of previous attacks which can be indicative of security weaknesses."
+            ],
+            "tips": [
+                "SNMP services often have weak or default community strings. Always test for these.",
+                "SNMP services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Many SNMP servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "SNMP services can sometimes be vulnerable to man-in-the-middle attacks. Be aware of this possibility.",
+                "SNMP services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
+            ],
+            "conclusion": "Simple Network Management Protocol (SNMP) is a protocol used for managing devices in IP networks. It can be vulnerable to attacks if not properly configured. Weak or default community strings, user enumeration, and man-in-the-middle vulnerabilities are common issues. These factors make SNMP services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=SMTP",
+                "https://www.exploit-db.com/search?port=25",
+                "https://book.hacktricks.xyz/pentesting/pentesting-smtp",
+                "https://owasp.org/search/?searchString=SMTP",
+                "https://tools.ietf.org/html/rfc5321",
+                "https://www.cisecurity.org/benchmark/microsoft_windows_server/",
+                "https://www.sans.org/reading-room/whitepapers/testing/penetration-testing-smtp-33926",
+                "https://www.ibm.com/docs/en/zos/2.3.0?topic=services-simple-mail-transfer-protocol-smtp",
+                "https://www.techrepublic.com/article/how-the-smtp-protocol-works/"
+            ]
+        },
+        {
+            "service": "SNMPTRAP",
+            "title": "SNMPTRAP Pentest Guide",
+            "introduction": "SNMPTRAP is a part of SNMP Protocol used to send notifications from agent to manager. This guide outlines steps for penetration testing of SNMPTRAP services to identify potential security risks.",
+            "steps": [
+                "Use Nmap to conduct a port scan to identify open SNMPTRAP ports, which are typically on port 162.",
+                "Employ the 'nmap -p 162 --script=snmp-info' command to enumerate SNMPTRAP information.",
+                "Use the 'snmptrap' command-line tool to send SNMP trap messages to a target device.",
+                "Check for misconfigurations or vulnerabilities using tools like Metasploit’s 'auxiliary/scanner/snmp/snmp_enum' module.",
+                "Test for weak or default community strings using tools like onesixtyone or snmp-check.",
+                "Inspect the security of the authentication process by attempting to connect to the SNMPTRAP service using a client such as snmptrap or snmp-check.",
+                "Investigate misconfigurations in the server settings which control the client authentication, ensuring it is properly set up to avoid unauthorized access.",
+                "Utilize tools such as Wireshark to analyze the network traffic for unencrypted passwords or other sensitive information.",
+                "Analyze the server's response to invalid commands or inputs to identify potential vulnerabilities or misconfigurations.",
+                "Employ the Metasploit Framework, specifically modules such as 'auxiliary/scanner/snmp/snmp_enum' to assess the system for known vulnerabilities.",
+                "Review the SNMPTRAP logs for any unusual activity or signs of previous attacks which can be indicative of security weaknesses."
+            ],
+            "tips": [
+                "SNMPTRAP services often have weak or default community strings. Always test for these.",
+                "SNMPTRAP services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
+                "Many SNMPTRAP servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",
+                "SNMPTRAP services can sometimes be vulnerable to man-in-the-middle attacks. Be aware of this possibility.",
+                "SNMPTRAP services can sometimes be vulnerable to version-specific exploits. Always check the version and look up known vulnerabilities."
+            ],
+            "conclusion": "Simple Network Management Protocol Trap (SNMPTRAP) is a protocol used for sending notifications from network devices. It can be vulnerable to attacks if not properly configured. Weak or default community strings, user enumeration, and man-in-the-middle vulnerabilities are common issues. These factors make SNMPTRAP services a valuable target in a penetration test.",
+            "references": [
+                "https://nmap.org/search/?q=SNMPTRAP",
+                "https://www.exploit-db.com/search?port=162",
+                "https://book.hacktricks.xyz/pentesting/pentesting-snmp",
+                "https://owasp.org/www-community/attacks/SNMP_Injection",
+                "https://www.sans.org/reading-room/whitepapers/testing/snmp-penetration-testing-34297",
+                "https://www.offensive-security.com/metasploit-unleashed/snmp-scan/",
+                "https://www.acunetix.com/blog/articles/simple-network-management-protocol-snmp-penetration-testing/"
+            ]
         }
-        
                
     ]
 }

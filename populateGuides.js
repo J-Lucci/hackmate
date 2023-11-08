@@ -24,14 +24,22 @@ function fetchAndPopulateGuide() {
             });
 
             if (guide.tips && guide.tips.length > 0) {
-                guideContainer.innerHTML += `<h5>Tips</h5>`;
+                guideContainer.innerHTML += `<h5>Tips</h5><ul>`;
                 guide.tips.forEach(tip => {
-                    guideContainer.innerHTML += `<p>${linkifyTools(tip, toolsData.tools)}</p>`;
+                    guideContainer.innerHTML += `<li class="tips-style">${linkifyTools(tip, toolsData.tools)}</li>`;
                 });
+                guideContainer.innerHTML += `</ul>`;
             }
 
             if (guide.conclusion) {
-                guideContainer.innerHTML += `<h5>Conclusion</h5><p>${linkifyTools(guide.conclusion, toolsData.tools)}</p><h5>Tools:</h5>`;
+                guideContainer.innerHTML += `<h5>Conclusion</h5><p>${linkifyTools(guide.conclusion, toolsData.tools)}</p>`;
+            }
+
+            if (guide.references && guide.references.length > 0) {
+                guideContainer.innerHTML += `<h5>Additional Reading</h5>`;
+                guide.references.forEach(ref => {
+                    guideContainer.innerHTML += `<p><a href="${ref}" target="_blank">${ref}</a></p>`;
+                });
             }
 
             // Populate tool details based on the service name in their sections
