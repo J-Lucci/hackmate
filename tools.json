@@ -2,11 +2,20 @@
   "tools": [
     {
       "name": "Hydra",
+      "installationCommand": "sudo apt-get install hydra",
+      "officialSite": "https://github.com/vanhauser-thc/thc-hydra",
+      "tags": [
+        "Password Cracking",
+        "Brute-Force",
+        "Penetration Testing"
+      ],
+      "description": "Hydra is a fast and flexible login cracker which can be used on both network services and many different protocols. It's a very versatile tool in terms of brute-forcing.",
       "sections": [
         {
           "title": "FTP",
           "port": "20 21",
           "description": "Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against FTP servers.",
+          "votes": 0,
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] ftp",
           "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.100 ftp",
           "scriptExamples": [
@@ -58,12 +67,12 @@
               "example": "hydra -l admin -P /path/to/wordlist.txt -s 21 -o /path/to/output.txt -t 4 -w 5 192.168.1.100 ftp"
             }
           ]
-        }
-        ,
+        },
         {
           "title": "SSH (Secure Shell)",
           "port": "22",
           "description": "Hydra is a versatile and powerful password cracking tool commonly used in penetration testing to perform dictionary attacks or brute-force attacks against SSH servers.",
+          "votes": 0,
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] ssh",
           "example": "hydra -l user -P /path/to/wordlist.txt 192.168.1.200 ssh",
           "scriptExamples": [
@@ -120,12 +129,12 @@
               "example": "hydra -l user -P /path/to/wordlist.txt -s 2222 192.168.1.200 ssh"
             }
           ]
-        }
-        ,
+        },
         {
           "title": "HTTP",
           "port": "80",
           "description": "Hydra can be used to perform HTTP login attacks, such as brute-forcing web application logins.",
+          "votes": 0,
           "basicCommand": "hydra -l [username] -P [path_to_wordlist] [target] http-post-form \"/login.php:[parameters]:[error_message]\"",
           "example": "hydra -l admin -P /path/to/wordlist.txt 192.168.1.300 http-post-form \"/login.php:username=^USER^&password=^PASS^:Invalid login\"",
           "scriptExamples": [
@@ -173,11 +182,18 @@
             }
           ]
         }
-        
       ]
     },
     {
       "name": "Nmap",
+      "installationCommand": "sudo apt-get install nmap",
+      "officialSite": "https://nmap.org/",
+      "tags": [
+        "Network Scanning",
+        "Port Scanning",
+        "Security Auditing"
+      ],
+      "description": "Nmap ('Network Mapper') is a free and open-source network scanner designed to discover hosts and services on a computer network, thus creating a 'map' of the network. It is widely used in network security and network inventory.",
       "sections": [
         {
           "title": "Everything",
@@ -270,6 +286,14 @@
     },
     {
       "name": "Metasploit",
+      "installationCommand": "sudo apt-get install metasploit-framework",
+      "officialSite": "https://www.metasploit.com/",
+      "tags": [
+        "Exploitation",
+        "Penetration Testing",
+        "Vulnerability Assessment"
+      ],
+      "description": "Metasploit is a widely used penetration testing framework that provides a comprehensive suite of tools for assessing the security of networks, systems, and applications. It is used by security professionals to identify vulnerabilities and exploit them for testing and defensive purposes.",
       "sections": [
         {
           "title": "Overview",
@@ -316,443 +340,988 @@
               "description": "Accept the Metasploit End-User License Agreement (EULA) during startup."
             }
           ]
-        },
+        
+        }
+      ]
+    },
+    {
+      "name": "GoBuster",
+      "installationCommand": "sudo apt-get install gobuster",
+      "officialSite": "https://github.com/OJ/gobuster",
+      "tags": [
+        "Directory Enumeration",
+        "Web Penetration Testing",
+        "Brute-Forcing"
+      ],
+      "description": "GoBuster is a tool used to brute-force URIs (directories and files) in web sites and DNS subdomains. It is a directory discovery tool that makes it easy to find hidden files and directories on a web server.",
+      "sections": [
         {
-          "title": "Resources",
-          "description": "Metasploit offers a wealth of resources for learning and mastering its capabilities:",
-          "resourceLinks": [
+          "title": "Overview",
+          "description": "Gobuster is a widely-used directory and file brute-forcing tool designed for web application penetration testing. It helps testers discover hidden files and directories on web servers by performing dictionary and brute-force attacks on URLs.",
+          "basicCommand": "gobuster dir -u [target] -w [wordlist]",
+          "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt",
+          "scriptExamples": [
             {
-              "title": "Official Metasploit Framework Documentation",
-              "link": "https://metasploitunleashed.com/"
+              "title": "Basic Directory Brute-Forcing",
+              "description": "Perform directory brute-forcing against a target URL using a specified wordlist.",
+              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt"
             },
             {
-              "title": "Metasploit Unleashed (MSFU)",
-              "link": "https://metasploitunleashed.com/"
+              "title": "File Extension Enumeration",
+              "description": "Enumerate file extensions on a target URL using a specified wordlist.",
+              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -x .php,.html,.txt"
             },
             {
-              "title": "Metasploit Community",
-              "link": "https://www.metasploitunleashed.com/"
+              "title": "DNS Subdomain Discovery",
+              "description": "Discover subdomains of a domain using DNS brute-forcing.",
+              "example": "gobuster dns -d example.com -w /path/to/wordlist.txt"
             },
             {
-              "title": "Metasploit Blog",
-              "link": "https://www.metasploitunleashed.com/"
+              "title": "Virtual Host Brute-Forcing",
+              "description": "Perform virtual host brute-forcing by specifying a custom Host header.",
+              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -H 'Host: [hostname]'"
+            },
+            {
+              "title": "Multiple Threads",
+              "description": "Increase the number of concurrent threads for faster scanning.",
+              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -t 20"
+            },
+            {
+              "title": "URL Path Enumeration",
+              "description": "Enumerate different paths on a target URL.",
+              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -U /admin/,/uploads/"
+            },
+            {
+              "title": "Output to File",
+              "description": "Save scan results to an output file for later analysis.",
+              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -o /path/to/output.txt"
+            },
+            {
+              "title": "Follow Redirects",
+              "description": "Follow HTTP redirects during scanning.",
+              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -r"
+            },
+            {
+              "title": "Ignoring SSL Errors",
+              "description": "Ignore SSL certificate errors when scanning HTTPS targets.",
+              "example": "gobuster dir -u https://secure.example.com -w /path/to/wordlist.txt --insecuressl"
+            },
+            {
+              "title": "Quiet Mode",
+              "description": "Run Gobuster in quiet mode, suppressing most output.",
+              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt --quiet"
+            }
+          ],
+          "usefulFlags": [
+            {
+              "flag": "-u [target]",
+              "description": "Specify the target URL or IP address.",
+              "example": "-u http://example.com"
+            },
+            {
+              "flag": "-w [wordlist]",
+              "description": "Provide the path to the wordlist file containing directories or file names to test.",
+              "example": "-w /path/to/wordlist.txt"
+            },
+            {
+              "flag": "-t [threads]",
+              "description": "Set the number of concurrent threads to use for the scan.",
+              "example": "-t 10"
+            },
+            {
+              "flag": "-e",
+              "description": "Include extra file extensions when performing file extension enumeration.",
+              "example": "-e"
+            },
+            {
+              "flag": "-x [.ext1,.ext2]",
+              "description": "Specify a comma-separated list of file extensions to test during file extension enumeration.",
+              "example": "-x .php,.html,.txt"
+            },
+            {
+              "flag": "-d [domain]",
+              "description": "Specify the target domain for DNS subdomain discovery.",
+              "example": "-d example.com"
+            },
+            {
+              "flag": "-l [output_file]",
+              "description": "Save results to a specified output file.",
+              "example": "-l /path/to/output.txt"
+            },
+            {
+              "flag": "--timeout [seconds]",
+              "description": "Set the request timeout in seconds.",
+              "example": "--timeout 30"
+            },
+            {
+              "flag": "--user-agent [user_agent]",
+              "description": "Set a custom User-Agent header for HTTP requests.",
+              "example": "--user-agent 'Mozilla/5.0'"
+            },
+            {
+              "flag": "--cookies [cookies]",
+              "description": "Specify cookies to include in HTTP requests.",
+              "example": "--cookies 'sessionid=12345'"
+            },
+            {
+              "flag": "--wildcard",
+              "description": "Handle wildcard responses (common in web applications).",
+              "example": "--wildcard"
+            },
+            {
+              "flag": "--ignore-length",
+              "description": "Ignore responses with different lengths.",
+              "example": "--ignore-length"
+            },
+            {
+              "flag": "--follow-redirects",
+              "description": "Follow HTTP redirects.",
+              "example": "--follow-redirects"
+            },
+            {
+              "flag": "--insecuressl",
+              "description": "Ignore SSL certificate errors.",
+              "example": "--insecuressl"
+            },
+            {
+              "flag": "--no-error",
+              "description": "Suppress 404 error messages.",
+              "example": "--no-error"
+            },
+            {
+              "flag": "--threads [num]",
+              "description": "Specify the number of threads to use.",
+              "example": "--threads 5"
+            },
+            {
+              "flag": "--q",
+              "description": "Quiet mode (suppress banner and status messages).",
+              "example": "--q"
+            },
+            {
+              "flag": "--help",
+              "description": "Show help and available options.",
+              "example": "--help"
+            },
+            {
+              "flag": "--version",
+              "description": "Display Gobuster version.",
+              "example": "--version"
+            },
+            {
+              "flag": "--no-status",
+              "description": "Do not display progress status.",
+              "example": "--no-status"
+            },
+            {
+              "flag": "--proxy [proxy]",
+              "description": "Specify a proxy for requests.",
+              "example": "--proxy http://127.0.0.1:8080"
+            },
+            {
+              "flag": "--vhost [hostname]",
+              "description": "Use virtual host (HTTP/1.1 host header).",
+              "example": "--vhost example.com"
+            },
+            {
+              "flag": "--quiet",
+              "description": "Quiet mode (suppress all output except results).",
+              "example": "--quiet"
+            },
+            {
+              "flag": "--expanded",
+              "description": "Expanded mode (show full URLs in output).",
+              "example": "--expanded"
+            },
+            {
+              "flag": "--noprogress",
+              "description": "No progress (disable progress indicators).",
+              "example": "--noprogress"
+            },
+            {
+              "flag": "--enum-suffixes",
+              "description": "Enumerate file extensions from a predefined list.",
+              "example": "--enum-suffixes"
+            },
+            {
+              "flag": "--enum-slash",
+              "description": "Append a trailing slash to each directory request.",
+              "example": "--enum-slash"
+            },
+            {
+              "flag": "--enum-case",
+              "description": "Force uppercase and lowercase enumeration of directories.",
+              "example": "--enum-case"
+            },
+            {
+              "flag": "--wildcard",
+              "description": "Handle wildcard responses as valid entries.",
+              "example": "--wildcard"
+            },
+            {
+              "flag": "--noproxy",
+              "description": "Disable the use of system proxy settings.",
+              "example": "--noproxy"
+            },
+            {
+              "flag": "--include-all",
+              "description": "Include all responses in the output (including 403 and 401 responses).",
+              "example": "--include-all"
             }
           ]
         }
       ]
     },
     {
-    "name": "Gobuster",
-    "sections": [
-      {
-        "title": "Overview",
-        "description": "Gobuster is a widely-used directory and file brute-forcing tool designed for web application penetration testing. It helps testers discover hidden files and directories on web servers by performing dictionary and brute-force attacks on URLs.",
-        "basicCommand": "gobuster dir -u [target] -w [wordlist]",
-        "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt",
-        "scriptExamples": [
-          {
-              "title": "Basic Directory Brute-Forcing",
-              "description": "Perform directory brute-forcing against a target URL using a specified wordlist.",
-              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt"
-          },
-          {
-              "title": "File Extension Enumeration",
-              "description": "Enumerate file extensions on a target URL using a specified wordlist.",
-              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -x .php,.html,.txt"
-          },
-          {
-              "title": "DNS Subdomain Discovery",
-              "description": "Discover subdomains of a domain using DNS brute-forcing.",
-              "example": "gobuster dns -d example.com -w /path/to/wordlist.txt"
-          },
-          {
-              "title": "Virtual Host Brute-Forcing",
-              "description": "Perform virtual host brute-forcing by specifying a custom Host header.",
-              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -H 'Host: [hostname]'"
-          },
-          {
-              "title": "Multiple Threads",
-              "description": "Increase the number of concurrent threads for faster scanning.",
-              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -t 20"
-          },
-          {
-              "title": "URL Path Enumeration",
-              "description": "Enumerate different paths on a target URL.",
-              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -U /admin/,/uploads/"
-          },
-          {
-              "title": "Output to File",
-              "description": "Save scan results to an output file for later analysis.",
-              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -o /path/to/output.txt"
-          },
-          {
-              "title": "Follow Redirects",
-              "description": "Follow HTTP redirects during scanning.",
-              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt -r"
-          },
-          {
-              "title": "Ignoring SSL Errors",
-              "description": "Ignore SSL certificate errors when scanning HTTPS targets.",
-              "example": "gobuster dir -u https://secure.example.com -w /path/to/wordlist.txt --insecuressl"
-          },
-          {
-              "title": "Quiet Mode",
-              "description": "Run Gobuster in quiet mode, suppressing most output.",
-              "example": "gobuster dir -u http://example.com -w /path/to/wordlist.txt --quiet"
-          }
+      "name": "CrackMapExec",
+      "installationCommand": "sudo apt-get install crackmapexec",
+      "officialSite": "https://github.com/byt3bl33d3r/CrackMapExec",
+      "tags": [
+        "Enumeration",
+        "SMB",
+        "Scanning",
+        "Pentesting"
       ],
-        "usefulFlags": [
-          {
-            "flag": "-u [target]",
-            "description": "Specify the target URL or IP address.",
-            "example": "-u http://example.com"
-          },
-          {
-            "flag": "-w [wordlist]",
-            "description": "Provide the path to the wordlist file containing directories or file names to test.",
-            "example": "-w /path/to/wordlist.txt"
-          },
-          {
-            "flag": "-t [threads]",
-            "description": "Set the number of concurrent threads to use for the scan.",
-            "example": "-t 10"
-          },
-          {
-            "flag": "-e",
-            "description": "Include extra file extensions when performing file extension enumeration.",
-            "example": "-e"
-          },
-          {
-            "flag": "-x [.ext1,.ext2]",
-            "description": "Specify a comma-separated list of file extensions to test during file extension enumeration.",
-            "example": "-x .php,.html,.txt"
-          },
-          {
-            "flag": "-d [domain]",
-            "description": "Specify the target domain for DNS subdomain discovery.",
-            "example": "-d example.com"
-          },
-          {
-            "flag": "-l [output_file]",
-            "description": "Save results to a specified output file.",
-            "example": "-l /path/to/output.txt"
-          },
-          {
-            "flag": "--timeout [seconds]",
-            "description": "Set the request timeout in seconds.",
-            "example": "--timeout 30"
-          },
-          {
-            "flag": "--user-agent [user_agent]",
-            "description": "Set a custom User-Agent header for HTTP requests.",
-            "example": "--user-agent 'Mozilla/5.0'"
-          },
-          {
-            "flag": "--cookies [cookies]",
-            "description": "Specify cookies to include in HTTP requests.",
-            "example": "--cookies 'sessionid=12345'"
-          },
-          {
-            "flag": "--wildcard",
-            "description": "Handle wildcard responses (common in web applications).",
-            "example": "--wildcard"
-          },
-          {
-            "flag": "--ignore-length",
-            "description": "Ignore responses with different lengths.",
-            "example": "--ignore-length"
-          },
-          {
-            "flag": "--follow-redirects",
-            "description": "Follow HTTP redirects.",
-            "example": "--follow-redirects"
-          },
-          {
-            "flag": "--insecuressl",
-            "description": "Ignore SSL certificate errors.",
-            "example": "--insecuressl"
-          },
-          {
-            "flag": "--no-error",
-            "description": "Suppress 404 error messages.",
-            "example": "--no-error"
-          },
-          {
-            "flag": "--threads [num]",
-            "description": "Specify the number of threads to use.",
-            "example": "--threads 5"
-          },
-          {
-            "flag": "--q",
-            "description": "Quiet mode (suppress banner and status messages).",
-            "example": "--q"
-          },
-          {
-            "flag": "--help",
-            "description": "Show help and available options.",
-            "example": "--help"
-          },
-          {
-            "flag": "--version",
-            "description": "Display Gobuster version.",
-            "example": "--version"
-          },
-          {
-            "flag": "--no-status",
-            "description": "Do not display progress status.",
-            "example": "--no-status"
-          },
-          {
-            "flag": "--proxy [proxy]",
-            "description": "Specify a proxy for requests.",
-            "example": "--proxy http://127.0.0.1:8080"
-          },
-          {
-            "flag": "--vhost [hostname]",
-            "description": "Use virtual host (HTTP/1.1 host header).",
-            "example": "--vhost example.com"
-          },
-          {
-            "flag": "--quiet",
-            "description": "Quiet mode (suppress all output except results).",
-            "example": "--quiet"
-          },
-          {
-            "flag": "--expanded",
-            "description": "Expanded mode (show full URLs in output).",
-            "example": "--expanded"
-          },
-          {
-            "flag": "--noprogress",
-            "description": "No progress (disable progress indicators).",
-            "example": "--noprogress"
-          },
-          {
-            "flag": "--enum-suffixes",
-            "description": "Enumerate file extensions from a predefined list.",
-            "example": "--enum-suffixes"
-          },
-          {
-            "flag": "--enum-slash",
-            "description": "Append a trailing slash to each directory request.",
-            "example": "--enum-slash"
-          },
-          {
-            "flag": "--enum-case",
-            "description": "Force uppercase and lowercase enumeration of directories.",
-            "example": "--enum-case"
-          },
-          {
-            "flag": "--wildcard",
-            "description": "Handle wildcard responses as valid entries.",
-            "example": "--wildcard"
-          },
-          {
-            "flag": "--noproxy",
-            "description": "Disable the use of system proxy settings.",
-            "example": "--noproxy"
-          },
-          {
-            "flag": "--include-all",
-            "description": "Include all responses in the output (including 403 and 401 responses).",
-            "example": "--include-all"
-          }
+      "description": "CrackMapExec (CME) is a versatile post-exploitation tool that helps automate assessing the security of large Active Directory networks.",
+      "sections": [
+        {
+          "title": "SMB",
+          "description": "CrackMapExec (CME) provides a wide range of capabilities for enumerating and exploiting SMB services on Windows hosts. It is an essential tool for penetration testers and security professionals.",
+          "basicCommand": "crackmapexec smb [options] [targets]",
+          "example": "crackmapexec smb 192.168.1.100 -u usernames.txt -p passwords.txt",
+          "scriptExamples": [
+            {
+              "title": "SMB Session Enumeration",
+              "description": "List active sessions on target SMB servers.",
+              "example": "crackmapexec smb 192.168.1.100 --sessions"
+            },
+            {
+              "title": "SMB Loggedin Users",
+              "description": "Enumerate users logged into target SMB servers.",
+              "example": "crackmapexec smb 192.168.1.100 --loggedon-users"
+            },
+            {
+              "title": "SMB RID Bruteforce",
+              "description": "Enumerate users by bruteforcing RIDs (Relative Identifiers).",
+              "example": "crackmapexec smb 192.168.1.100 --rid-brute"
+            },
+            {
+              "title": "SMB Password Spraying",
+              "description": "Attempt to login to multiple accounts using a common password.",
+              "example": "crackmapexec smb 192.168.1.0/24 -u users.txt -p Password1"
+            },
+            {
+              "title": "SMB Command Execution",
+              "description": "Execute a command on the target host via SMB.",
+              "example": "crackmapexec smb 192.168.1.100 -u username -p password -x 'whoami'"
+            },
+            {
+              "title": "SMB PowerShell Script Execution",
+              "description": "Execute a PowerShell script on the target host via SMB.",
+              "example": "crackmapexec smb 192.168.1.100 -u username -p password --ps-exec 'Get-Process'"
+            },
+            {
+              "title": "SMB Spider Shares",
+              "description": "Recursively browse shares to discover files or directories.",
+              "example": "crackmapexec smb 192.168.1.100 --spider Shares"
+            },
+            {
+              "title": "SMB File Download",
+              "description": "Download a file from the SMB share.",
+              "example": "crackmapexec smb 192.168.1.100 -u username -p password --download 'C:\\Users\\Public\\file.txt'"
+            },
+            {
+              "title": "SMB File Upload",
+              "description": "Upload a file to the SMB share.",
+              "example": "crackmapexec smb 192.168.1.100 -u username -p password --upload 'localfile.txt:C:\\Remote\\Path\\remotefile.txt'"
+            },
+            {
+              "title": "SMB Mimikatz Execution",
+              "description": "Execute Mimikatz on the target host to extract credentials.",
+              "example": "crackmapexec smb 192.168.1.100 -u username -p password --mimikatz"
+            },
+            {
+              "title": "SMB Pass-the-Hash",
+              "description": "Perform pass-the-hash to authenticate with NTLM hash.",
+              "example": "crackmapexec smb 192.168.1.100 -u username --pass-the-hash aad3b435b51404eeaad3b435b51404ee:8846f7eaee8fb117ad06bdd830b7586c"
+            },
+            {
+              "title": "SMB Kerberos Ticket Pass",
+              "description": "Use Kerberos ticket to authenticate to the target host.",
+              "example": "crackmapexec smb 192.168.1.100 --kdcHost 192.168.1.2 --ticket 'ticket.kirbi'"
+            },
+            {
+              "title": "SMB Local Admin Check",
+              "description": "Check if provided credentials have local admin access.",
+              "example": "crackmapexec smb 192.168.1.100 -u username -p password --local-auth"
+            },
+            {
+              "title": "SMB NULL Session",
+              "description": "Attempt to authenticate using a NULL session.",
+              "example": "crackmapexec smb 192.168.1.100 -u '' -p ''"
+            },
+            {
+              "title": "SMB List Group Members",
+              "description": "List members of a specific group on the SMB server.",
+              "example": "crackmapexec smb 192.168.1.100 --group 'Domain Admins'"
+            },
+            {
+              "title": "SMB System Info",
+              "description": "Gather system information from the SMB server.",
+              "example": "crackmapexec smb 192.168.1.100 --system-info"
+            },
+            {
+              "title": "SMB WMI Query",
+              "description": "Perform WMI queries on the SMB server.",
+              "example": "crackmapexec smb 192.168.1.100 --wmi 'SELECT * FROM Win32_Process'"
+            },
+            {
+              "title": "SMB SAM Dump",
+              "description": "Dump SAM hashes from the SMB server.",
+              "example": "crackmapexec smb 192.168.1.100 --sam"
+            },
+            {
+              "title": "SMB LSA Secrets Dump",
+              "description": "Dump LSA secrets from the SMB server.",
+              "example": "crackmapexec smb 192.168.1.100 --lsa"
+            },
+            {
+              "title": "SMB NTDS Dump",
+              "description": "Attempt to dump NTDS.dit from the target domain controller.",
+              "example": "crackmapexec smb 192.168.1.100 --ntds vss"
+            }
+          ],
+          "usefulFlags": [
+            {
+              "flag": "[options]",
+              "description": "Various options for customizing SMB attacks.",
+              "example": "--shares, --users, --exploit"
+            },
+            {
+              "flag": "[targets]",
+              "description": "Specify target hosts or IP addresses.",
+              "example": "192.168.1.100"
+            }
+          ]
+        },
+        {
+          "title": "SSH Attack",
+          "description": "CrackMapExec allows security professionals to assess and secure Linux/Unix systems by automating SSH enumeration and exploitation tasks.",
+          "basicCommand": "crackmapexec ssh [options] [targets]",
+          "example": "crackmapexec ssh 192.168.1.200 -u users.txt -p passwords.txt",
+          "scriptExamples": [
+            {
+              "title": "SSH User Enumeration",
+              "description": "Enumerate SSH users on target hosts.",
+              "example": "crackmapexec ssh 192.168.1.200 --users"
+            },
+            {
+              "title": "SSH Bruteforce",
+              "description": "Bruteforce SSH logins using a specified wordlist.",
+              "example": "crackmapexec ssh 192.168.1.200 -u users.txt -p passwords.txt"
+            },
+            {
+              "title": "SSH Key-Based Attack",
+              "description": "Attempt to crack SSH servers using key-based authentication.",
+              "example": "crackmapexec ssh 192.168.1.200 --key-based"
+            }
+          ],
+          "usefulFlags": [
+            {
+              "flag": "[options]",
+              "description": "Various options for customizing SSH attacks.",
+              "example": "--users, --key-based"
+            },
+            {
+              "flag": "[targets]",
+              "description": "Specify target hosts or IP addresses.",
+              "example": "192.168.1.200"
+            }
+          ]
+        },
+        {
+          "title": "HTTP Attack",
+          "description": "CrackMapExec supports HTTP services enumeration and exploitation, making it a valuable tool for web application penetration testing.",
+          "basicCommand": "crackmapexec http [options] [targets]",
+          "example": "crackmapexec http 192.168.1.300",
+          "scriptExamples": [
+            {
+              "title": "HTTP Enumeration",
+              "description": "Enumerate HTTP services and vulnerabilities on target hosts.",
+              "example": "crackmapexec http 192.168.1.300 --enumerate"
+            },
+            {
+              "title": "HTTP Bruteforce",
+              "description": "Bruteforce HTTP logins using a specified wordlist.",
+              "example": "crackmapexec http 192.168.1.300 -u users.txt -p passwords.txt"
+            }
+          ],
+          "usefulFlags": [
+            {
+              "flag": "[options]",
+              "description": "Various options for customizing HTTP attacks.",
+              "example": "--enumerate"
+            },
+            {
+              "flag": "[targets]",
+              "description": "Specify target hosts or IP addresses.",
+              "example": "192.168.1.300"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ftpenum",
+      "installationCommand": "sudo apt-get install ftpenum",
+      "officialSite": "https://ftpenum.example/docs",
+      "tags": [
+        "Enumeration",
+        "FTP",
+        "Scanning"
+      ],
+      "description": "ftpenum is a tool used for scanning and enumerating FTP servers.",
+      "sections": [
+        {
+          "title": "FTP",
+          "description": "ftpenum is a tool used for scanning and enumerating FTP servers.",
+          "basicCommand": "ftpenum [options] [target]",
+          "example": "ftpenum -u anonymous -p anonymous 192.168.1.100",
+          "scriptExamples": [
+            {
+              "title": "Anonymous Login",
+              "description": "Attempt to login to the FTP server with anonymous credentials.",
+              "example": "ftpenum -u anonymous -p anonymous 192.168.1.100"
+            },
+            {
+              "title": "Brute Force Login",
+              "description": "Attempt to brute force the FTP login using a wordlist.",
+              "example": "ftpenum -u users.txt -p passwords.txt 192.168.1.100"
+            },
+            {
+              "title": "Passive Recon",
+              "description": "Check for the presence of an FTP service without logging in.",
+              "example": "ftpenum --passive 192.168.1.100"
+            },
+            {
+              "title": "Version Check",
+              "description": "Determine the version of the FTP server software.",
+              "example": "ftpenum --version 192.168.1.100"
+            },
+            {
+              "title": "Directory Listing",
+              "description": "List directories and files if anonymous access is enabled.",
+              "example": "ftpenum --list --username anonymous --password anonymous 192.168.1.100"
+            },
+            {
+              "title": "Vulnerability Scan",
+              "description": "Scan the FTP server for known vulnerabilities.",
+              "example": "ftpenum --vuln-scan 192.168.1.100"
+            },
+            {
+              "title": "Permission Check",
+              "description": "Enumerate permissions available to the anonymous user.",
+              "example": "ftpenum --check-perms --username anonymous --password anonymous 192.168.1.100"
+            },
+            {
+              "title": "Secure Connection Test",
+              "description": "Attempt to establish a secure FTP connection using explicit TLS.",
+              "example": "ftpenum --tls 192.168.1.100"
+            },
+            {
+              "title": "Specific Port Scan",
+              "description": "Scan a specific port for FTP service.",
+              "example": "ftpenum --port 2121 192.168.1.100"
+            },
+            {
+              "title": "FTP Bounce Attack",
+              "description": "Check if the FTP server is vulnerable to FTP Bounce attacks.",
+              "example": "ftpenum --bounce 192.168.1.100"
+            },
+            {
+              "title": "Download Files",
+              "description": "Download specific files if anonymous access is enabled.",
+              "example": "ftpenum --download /path/to/file --username anonymous --password anonymous 192.168.1.100"
+            },
+            {
+              "title": "Upload Test",
+              "description": "Test if anonymous users can upload files to the server.",
+              "example": "ftpenum --upload-test --username anonymous --password anonymous 192.168.1.100"
+            },
+            {
+              "title": "Banner Grabbing",
+              "description": "Grab the banner of the FTP server to identify software and version.",
+              "example": "ftpenum --banner 192.168.1.100"
+            },
+            {
+              "title": "IP Range Scan",
+              "description": "Scan a range of IPs for FTP services.",
+              "example": "ftpenum --range 192.168.1.0/24"
+            },
+            {
+              "title": "User Enumeration",
+              "description": "Attempt to enumerate valid FTP usernames from a list.",
+              "example": "ftpenum --enumerate-users users.txt 192.168.1.100"
+            }
+          ],
+          "usefulFlags": [
+            {
+              "flag": "-u [username]",
+              "description": "Specify the username for login.",
+              "example": "-u anonymous"
+            },
+            {
+              "flag": "-p [password]",
+              "description": "Specify the password for login.",
+              "example": "-p anonymous"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Netcat",
+      "installationCommand": "sudo apt-get install netcat",
+      "officialSite": "http://netcat.sourceforge.net/",
+      "tags": ["Networking", "TCP/IP", "Debugging", "Port Scanning"],
+      "description": "Netcat is a versatile networking tool that can read and write data across network connections, using the TCP/IP protocol. It's designed to be a reliable back-end tool that can be used directly or easily driven by other programs and scripts.",
+      "sections": [
+        {
+          "title": "Basic Usage",
+          "port": "1234",
+          "description": "Netcat can be used for simple tasks like checking if a port is open.",
+          "basicCommand": "nc -vz 192.168.1.1 1234",
+          "example": "nc -vz 192.168.1.1 1234",
+          "scriptExamples": [
+            {
+              "title": "Simple Chat Server",
+              "description": "Setting up a simple chat server with Netcat.",
+              "example": "nc -l 1234"
+            }
+          ],
+          "usefulFlags": [
+            {
+              "flag": "-l",
+              "description": "Tells Netcat to listen for an incoming connection.",
+              "example": "nc -l 1234"
+            },
+            {
+              "flag": "-v",
+              "description": "Makes Netcat give more verbose output.",
+              "example": "nc -v 192.168.1.1 80"
+            },
+            {
+              "flag": "-n",
+              "description": "Tells Netcat not to do any DNS or service lookups on any addresses, hostnames or ports.",
+              "example": "nc -n 192.168.1.1 80"
+            },
+            {
+              "flag": "-z",
+              "description": "Tells Netcat to just scan for listening daemons, without sending any data to them.",
+              "example": "nc -z 192.168.1.1 80"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "John the Ripper",
+      "installationCommand": "sudo apt-get install john",
+      "officialSite": "https://www.openwall.com/john/",
+      "tags": ["Password Cracking", "Security Auditing", "Penetration Testing"],
+      "description": "John the Ripper is a fast password cracker, currently available for many flavors of Unix, Windows, DOS, and OpenVMS. Its primary purpose is to detect weak Unix passwords.",
+      "sections": [
+        {
+          "title": "Basic Usage",
+          "port": "",
+          "description": "John the Ripper can be used for simple tasks like cracking a password hash.",
+          "basicCommand": "john --format=descrypt passwordhash.txt",
+          "example": "john --format=descrypt passwordhash.txt",
+          "scriptExamples": [
+            {
+              "title": "Cracking a Password Hash",
+              "description": "Cracking a password hash with John the Ripper.",
+              "example": "john --format=descrypt passwordhash.txt"
+            }
+          ],
+          "usefulFlags": [
+            {
+              "flag": "--format",
+              "description": "Tells John the Ripper the format of the password hash.",
+              "example": "john --format=descrypt passwordhash.txt"
+            },
+            {
+              "flag": "--wordlist",
+              "description": "Specifies a wordlist for John the Ripper to use when cracking password hashes.",
+              "example": "john --wordlist=password.lst --format=descrypt passwordhash.txt"
+            },
+            {
+              "flag": "--show",
+              "description": "Tells John the Ripper to show the cracked passwords.",
+              "example": "john --show passwordhash.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Medusa",
+      "installationCommand": "sudo apt-get install medusa",
+      "officialSite": "https://www.foofus.net/jmk/medusa/medusa.html",
+      "tags": ["Password Cracking", "Network Auditing", "Penetration Testing"],
+      "description": "Medusa is a speedy, parallel, and modular, login brute-forcer. The goal is to support as many services which allow remote authentication as possible.",
+      "sections": [
+        {
+          "title": "Basic Usage",
+          "port": "",
+          "description": "Medusa can be used for tasks like brute-forcing a password for a specific user.",
+          "basicCommand": "medusa -h 192.168.1.1 -u admin -P passwordlist.txt -M http",
+          "example": "medusa -h 192.168.1.1 -u admin -P passwordlist.txt -M http",
+          "scriptExamples": [
+            {
+              "title": "Brute-Force a Password",
+              "description": "Brute-forcing a password for a specific user with Medusa.",
+              "example": "medusa -h 192.168.1.1 -u admin -P passwordlist.txt -M http"
+            }
+          ],
+          "usefulFlags": [
+            {
+                "flag": "-h",
+                "description": "Target hostname or IP address.",
+                "example": "medusa -h 192.168.1.1 -M ftp"
+            },
+            {
+                "flag": "-u",
+                "description": "Username to test.",
+                "example": "medusa -h 192.168.1.1 -u admin -M ftp"
+            },
+            {
+                "flag": "-p",
+                "description": "Password to test.",
+                "example": "medusa -h 192.168.1.1 -p password -M ftp"
+            },
+            {
+                "flag": "-P",
+                "description": "File containing passwords to test.",
+                "example": "medusa -h 192.168.1.1 -P passfile.txt -M ftp"
+            },
+            {
+                "flag": "-e",
+                "description": "Additional password checks, 'n' for No Password, 's' for Password = Username.",
+                "example": "medusa -h 192.168.1.1 -u admin -e ns -M ftp"
+            },
+            {
+                "flag": "-M",
+                "description": "Specifies the module to use, for FTP use 'ftp'.",
+                "example": "medusa -h 192.168.1.1 -u admin -P passfile.txt -M ftp"
+            },
+            {
+                "flag": "-n",
+                "description": "Use for non-default TCP port number.",
+                "example": "medusa -h 192.168.1.1 -u admin -P passfile.txt -M ftp -n 2121"
+            },
+            {
+                "flag": "-f",
+                "description": "Stop scanning host after first valid username/password found.",
+                "example": "medusa -h 192.168.1.1 -U users.txt -P passfile.txt -M ftp -f"
+            }
         ]
-      }
-    ]
+        }
+      ]
+    },
+    {
+      "name": "FtpMap",
+      "installationCommand": "git clone https://github.com/ZhengLinLei/ftpmap.git",
+      "officialSite": "https://zhenglinlei.github.io/ftpmap/",
+      "tags": [
+          "FTP",
+          "Brute Force",
+          "Security Audit"
+      ],
+      "description": "FtpMap uses various methods to identify, fingerprint, and brute force credentials of an FTP server.",
+      "sections": [
+          {
+              "title": "FTP",
+              "port": "21",
+              "description": "Scans and identifies the FTP server software and version.",
+              "basicCommand": "ftpmap -s [Target IP]",
+              "example": "ftpmap -s 192.168.1.1",
+              "scriptExamples": [
+                  {
+                      "title": "Passive Server Software Identification",
+                      "description": "Identifies server software without logging in.",
+                      "example": "ftpmap -s 192.168.1.1 -P"
+                  },
+                  {
+                      "title": "Verbose Mode Scan",
+                      "description": "Performs the scan in verbose mode for detailed information.",
+                      "example": "ftpmap -s 192.168.1.1 -v"
+                  }
+              ],
+              "usefulFlags": [
+                {
+                    "flag": "-psw, --password",
+                    "description": "Password to connect to the FTP server.",
+                    "example": "ftpmap --password=password"
+                },
+                {
+                    "flag": "-u, --username",
+                    "description": "Username to connect to the FTP server. Defaults to 'anonymous'.",
+                    "example": "ftpmap --username=admin"
+                },
+                {
+                    "flag": "-kf, --keyfile",
+                    "description": "Key file to brute force the FTP server. Defaults to './keyfile'.",
+                    "example": "ftpmap --keyfile=./keyfile"
+                },
+                {
+                    "flag": "-s, --show",
+                    "description": "Show every attempt during brute force. Defaults to 'false'.",
+                    "example": "ftpmap --show"
+                },
+                {
+                    "flag": "-c, --continue",
+                    "description": "Continue to ./keyfile after the user provided key file is not found or EOF. Defaults to 'false'.",
+                    "example": "ftpmap --continue"
+                },
+                {
+                    "flag": "-a, --add",
+                    "description": "Add a key to the key file.",
+                    "example": "ftpmap --add=password"
+                },
+                {
+                    "flag": "-r, --remove",
+                    "description": "Remove a key from the key file.",
+                    "example": "ftpmap --remove=password"
+                },
+                {
+                    "flag": "-l, --list",
+                    "description": "Show all the keys in the key file. Defaults to 'false'.",
+                    "example": "ftpmap --list"
+                },
+                {
+                    "flag": "-i, --ip",
+                    "description": "Set the host IP address for the connection.",
+                    "example": "ftpmap --ip=192.168.1.1"
+                }
+            ]
+          }
+      ]
   },
   {
-    "name": "CrackMapExec",
+    "name": "Wfuzz",
+    "installationCommand": "pip install wfuzz",
+    "officialSite": "https://wfuzz.readthedocs.io/en/latest/",
+    "tags": [
+        "Web Fuzzing",
+        "Security",
+        "Brute Forcing"
+    ],
+    "description": "Wfuzz is a flexible tool for brute forcing Internet based applications. It can be used for finding resources not linked, such as directories and servlets, and for brute forcing GET and POST parameters for various types of injections (SQL, XSS, LDAP, etc.).",
     "sections": [
         {
-            "title": "SMB",
-            "description": "CrackMapExec (CME) provides a wide range of capabilities for enumerating and exploiting SMB services on Windows hosts. It is an essential tool for penetration testers and security professionals.",
-            "basicCommand": "crackmapexec smb [options] [targets]",
-            "example": "crackmapexec smb 192.168.1.100 -u usernames.txt -p passwords.txt",
-            "scriptExamples": [
-              {
-                  "title": "SMB Session Enumeration",
-                  "description": "List active sessions on target SMB servers.",
-                  "example": "crackmapexec smb 192.168.1.100 --sessions"
-              },
-              {
-                  "title": "SMB Loggedin Users",
-                  "description": "Enumerate users logged into target SMB servers.",
-                  "example": "crackmapexec smb 192.168.1.100 --loggedon-users"
-              },
-              {
-                  "title": "SMB RID Bruteforce",
-                  "description": "Enumerate users by bruteforcing RIDs (Relative Identifiers).",
-                  "example": "crackmapexec smb 192.168.1.100 --rid-brute"
-              },
-              {
-                  "title": "SMB Password Spraying",
-                  "description": "Attempt to login to multiple accounts using a common password.",
-                  "example": "crackmapexec smb 192.168.1.0/24 -u users.txt -p Password1"
-              },
-              {
-                  "title": "SMB Command Execution",
-                  "description": "Execute a command on the target host via SMB.",
-                  "example": "crackmapexec smb 192.168.1.100 -u username -p password -x 'whoami'"
-              },
-              {
-                  "title": "SMB PowerShell Script Execution",
-                  "description": "Execute a PowerShell script on the target host via SMB.",
-                  "example": "crackmapexec smb 192.168.1.100 -u username -p password --ps-exec 'Get-Process'"
-              },
-              {
-                  "title": "SMB Spider Shares",
-                  "description": "Recursively browse shares to discover files or directories.",
-                  "example": "crackmapexec smb 192.168.1.100 --spider Shares"
-              },
-              {
-                  "title": "SMB File Download",
-                  "description": "Download a file from the SMB share.",
-                  "example": "crackmapexec smb 192.168.1.100 -u username -p password --download 'C:\\Users\\Public\\file.txt'"
-              },
-              {
-                  "title": "SMB File Upload",
-                  "description": "Upload a file to the SMB share.",
-                  "example": "crackmapexec smb 192.168.1.100 -u username -p password --upload 'localfile.txt:C:\\Remote\\Path\\remotefile.txt'"
-              },
-              {
-                  "title": "SMB Mimikatz Execution",
-                  "description": "Execute Mimikatz on the target host to extract credentials.",
-                  "example": "crackmapexec smb 192.168.1.100 -u username -p password --mimikatz"
-              },
-              {
-                  "title": "SMB Pass-the-Hash",
-                  "description": "Perform pass-the-hash to authenticate with NTLM hash.",
-                  "example": "crackmapexec smb 192.168.1.100 -u username --pass-the-hash aad3b435b51404eeaad3b435b51404ee:8846f7eaee8fb117ad06bdd830b7586c"
-              },
-              {
-                  "title": "SMB Kerberos Ticket Pass",
-                  "description": "Use Kerberos ticket to authenticate to the target host.",
-                  "example": "crackmapexec smb 192.168.1.100 --kdcHost 192.168.1.2 --ticket 'ticket.kirbi'"
-              },
-              {
-                  "title": "SMB Local Admin Check",
-                  "description": "Check if provided credentials have local admin access.",
-                  "example": "crackmapexec smb 192.168.1.100 -u username -p password --local-auth"
-              },
-              {
-                  "title": "SMB NULL Session",
-                  "description": "Attempt to authenticate using a NULL session.",
-                  "example": "crackmapexec smb 192.168.1.100 -u '' -p ''"
-              },
-              {
-                  "title": "SMB List Group Members",
-                  "description": "List members of a specific group on the SMB server.",
-                  "example": "crackmapexec smb 192.168.1.100 --group 'Domain Admins'"
-              },
-              {
-                  "title": "SMB System Info",
-                  "description": "Gather system information from the SMB server.",
-                  "example": "crackmapexec smb 192.168.1.100 --system-info"
-              },
-              {
-                  "title": "SMB WMI Query",
-                  "description": "Perform WMI queries on the SMB server.",
-                  "example": "crackmapexec smb 192.168.1.100 --wmi 'SELECT * FROM Win32_Process'"
-              },
-              {
-                  "title": "SMB SAM Dump",
-                  "description": "Dump SAM hashes from the SMB server.",
-                  "example": "crackmapexec smb 192.168.1.100 --sam"
-              },
-              {
-                  "title": "SMB LSA Secrets Dump",
-                  "description": "Dump LSA secrets from the SMB server.",
-                  "example": "crackmapexec smb 192.168.1.100 --lsa"
-              },
-              {
-                  "title": "SMB NTDS Dump",
-                  "description": "Attempt to dump NTDS.dit from the target domain controller.",
-                  "example": "crackmapexec smb 192.168.1.100 --ntds vss"
-              }
-          ]
-          ,
-            "usefulFlags": [
-                {
-                    "flag": "[options]",
-                    "description": "Various options for customizing SMB attacks.",
-                    "example": "--shares, --users, --exploit"
-                },
-                {
-                    "flag": "[targets]",
-                    "description": "Specify target hosts or IP addresses.",
-                    "example": "192.168.1.100"
-                }
-            ]
-        },
-        {
-            "title": "SSH Attack",
-            "description": "CrackMapExec allows security professionals to assess and secure Linux/Unix systems by automating SSH enumeration and exploitation tasks.",
-            "basicCommand": "crackmapexec ssh [options] [targets]",
-            "example": "crackmapexec ssh 192.168.1.200 -u users.txt -p passwords.txt",
+            "title": "Web Content Brute Forcing",
+            "port": "80",
+            "description": "Wfuzz is used to identify hidden resources on a web server, such as directories and servlets.",
+            "basicCommand": "wfuzz -c -z file,wordlist --hc 404 URL/FUZZ",
+            "example": "wfuzz -c -z file,/usr/share/wordlist/common.txt --hc 404 http://example.com/FUZZ",
             "scriptExamples": [
                 {
-                    "title": "SSH User Enumeration",
-                    "description": "Enumerate SSH users on target hosts.",
-                    "example": "crackmapexec ssh 192.168.1.200 --users"
+                    "title": "Fuzzing Hidden Directories",
+                    "description": "Using Wfuzz to discover hidden directories on a web server.",
+                    "example": "wfuzz -c -z file,/usr/share/wordlist/dirbuster/directory-list-2.3-medium.txt --hc 404 http://example.com/FUZZ"
                 },
                 {
-                    "title": "SSH Bruteforce",
-                    "description": "Bruteforce SSH logins using a specified wordlist.",
-                    "example": "crackmapexec ssh 192.168.1.200 -u users.txt -p passwords.txt"
-                },
-                {
-                    "title": "SSH Key-Based Attack",
-                    "description": "Attempt to crack SSH servers using key-based authentication.",
-                    "example": "crackmapexec ssh 192.168.1.200 --key-based"
+                    "title": "Fuzzing for Vulnerabilities",
+                    "description": "Identifying potential SQL injection vulnerabilities using Wfuzz.",
+                    "example": "wfuzz -c -z file,sql_injection_payloads.txt --hc 404 http://example.com/index.php?id=FUZZ"
                 }
             ],
             "usefulFlags": [
                 {
-                    "flag": "[options]",
-                    "description": "Various options for customizing SSH attacks.",
-                    "example": "--users, --key-based"
+                    "flag": "-c",
+                    "description": "Enable colorized output.",
+                    "example": "wfuzz -c -z file,wordlist --hc 404 URL/FUZZ"
                 },
                 {
-                    "flag": "[targets]",
-                    "description": "Specify target hosts or IP addresses.",
-                    "example": "192.168.1.200"
-                }
-            ]
-        },
-        {
-            "title": "HTTP Attack",
-            "description": "CrackMapExec supports HTTP services enumeration and exploitation, making it a valuable tool for web application penetration testing.",
-            "basicCommand": "crackmapexec http [options] [targets]",
-            "example": "crackmapexec http 192.168.1.300",
-            "scriptExamples": [
-                {
-                    "title": "HTTP Enumeration",
-                    "description": "Enumerate HTTP services and vulnerabilities on target hosts.",
-                    "example": "crackmapexec http 192.168.1.300 --enumerate"
+                    "flag": "-z",
+                    "description": "Payload type and resource, e.g., file and wordlist.",
+                    "example": "wfuzz -c -z file,wordlist --hc 404 URL/FUZZ"
                 },
                 {
-                    "title": "HTTP Bruteforce",
-                    "description": "Bruteforce HTTP logins using a specified wordlist.",
-                    "example": "crackmapexec http 192.168.1.300 -u users.txt -p passwords.txt"
-                }
-            ],
-            "usefulFlags": [
-                {
-                    "flag": "[options]",
-                    "description": "Various options for customizing HTTP attacks.",
-                    "example": "--enumerate"
-                },
-                {
-                    "flag": "[targets]",
-                    "description": "Specify target hosts or IP addresses.",
-                    "example": "192.168.1.300"
+                    "flag": "--hc",
+                    "description": "Hide responses with specified HTTP codes.",
+                    "example": "wfuzz -c -z file,wordlist --hc 404 URL/FUZZ"
                 }
             ]
         }
     ]
+},
+{
+  "name": "Patator",
+  "installationCommand": "git clone https://github.com/lanjelot/patator.git",
+  "officialSite": "https://github.com/lanjelot/patator",
+  "tags": [
+      "Brute-force",
+      "Penetration Testing",
+      "Network Security"
+  ],
+  "description": "Patator is a multi-purpose brute-forcer with a modular design, capable of performing brute-force attacks on various services, including FTP, using a variety of methods.",
+  "sections": [
+      {
+          "title": "FTP Brute-force",
+          "port": "21",
+          "description": "Performs brute-force attacks on FTP services to guess valid username and password combinations.",
+          "basicCommand": "patator ftp_login host=IP user=FILE0 0=users.txt password=FILE1 1=passwords.txt -x ignore:mesg='Login incorrect.'",
+          "example": "patator ftp_login host=192.168.1.1 user=FILE0 0=users.txt password=FILE1 1=passwords.txt -x ignore:mesg='Login incorrect.'",
+          "scriptExamples": [
+              {
+                  "title": "Brute-force with Usernames List",
+                  "description": "Using a list of usernames to brute-force the FTP login.",
+                  "example": "patator ftp_login host=192.168.1.1 user=FILE0 0=usernames.txt password=PASS"
+              },
+              {
+                  "title": "Brute-force with Passwords List",
+                  "description": "Using a list of passwords to brute-force the FTP login.",
+                  "example": "patator ftp_login host=192.168.1.1 user=USER password=FILE0 0=passwords.txt"
+              }
+          ],
+          "usefulFlags": [
+              {
+                  "flag": "host",
+                  "description": "Specifies the target IP address or hostname.",
+                  "example": "patator ftp_login host=192.168.1.1 ..."
+              },
+              {
+                  "flag": "user",
+                  "description": "Specifies the username to use for brute-forcing, or a file containing a list of usernames.",
+                  "example": "patator ftp_login host=... user=FILE0 0=users.txt ..."
+              },
+              {
+                  "flag": "password",
+                  "description": "Specifies the password to use for brute-forcing, or a file containing a list of passwords.",
+                  "example": "patator ftp_login host=... password=FILE1 1=passwords.txt ..."
+              },
+              {
+                  "flag": "-x ignore:mesg",
+                  "description": "Ignores responses containing a specific message, useful for filtering out false positives.",
+                  "example": "patator ftp_login host=... -x ignore:mesg='Login incorrect.'"
+              }
+          ]
+      }
+  ]
+},
+{
+  "name": "Medusa",
+  "installationCommand": "sudo apt-get install medusa",
+  "officialSite": "N/A",
+  "tags": [
+      "Password Cracking",
+      "Network Security",
+      "Brute Force"
+  ],
+  "description": "Medusa is a speedy, parallel, and modular, login brute-forcer. The goal is to support as many services which allow remote authentication as possible.",
+  "sections": [
+      {
+          "title": "FTP",
+          "port": "21",
+          "description": "Used for conducting brute-force attacks on FTP services.",
+          "basicCommand": "medusa -h [Target IP] -u [Username] -P [Password list file] -M ftp",
+          "example": "medusa -h 192.168.0.20 -u administrator -P passwords.txt -M ftp",
+          "scriptExamples": [
+              {
+                  "title": "Brute-force Single User",
+                  "description": "Attempting to brute-force a single user's password.",
+                  "example": "medusa -h 192.168.0.20 -u administrator -P passwords.txt -M ftp"
+              },
+              {
+                  "title": "Brute-force with User List",
+                  "description": "Attempting to brute-force passwords for a list of users.",
+                  "example": "medusa -h 192.168.0.20 -U users.txt -P passwords.txt -M ftp"
+              }
+          ],
+          "usefulFlags": [
+              {
+                  "flag": "-h",
+                  "description": "Specifies the target host.",
+                  "example": "medusa -h 192.168.0.20 -u administrator -P passwords.txt -M ftp"
+              },
+              {
+                  "flag": "-u",
+                  "description": "Specifies a single username.",
+                  "example": "medusa -h 192.168.0.20 -u administrator -P passwords.txt -M ftp"
+              },
+              {
+                  "flag": "-U",
+                  "description": "Specifies the file that contains a list of usernames.",
+                  "example": "medusa -h 192.168.0.20 -U users.txt -P passwords.txt -M ftp"
+              },
+              {
+                  "flag": "-P",
+                  "description": "Specifies the file that contains a list of passwords.",
+                  "example": "medusa -h 192.168.0.20 -u administrator -P passwords.txt -M ftp"
+              },
+              {
+                  "flag": "-M",
+                  "description": "Specifies the module to use. For FTP, this is 'ftp'.",
+                  "example": "medusa -h 192.168.0.20 -u administrator -P passwords.txt -M ftp"
+              }
+          ]
+      }
+  ]
+},
+{
+  "name": "Responder",
+  "installationCommand": "sudo apt install responder",
+  "officialSite": "https://github.com/SpiderLabs/Responder",
+  "tags": [
+      "LLMNR",
+      "NBT-NS",
+      "MDNS Poisoner",
+      "Rogue Authentication Server",
+      "Network Security"
+  ],
+  "description": "Responder is a LLMNR, NBT-NS and MDNS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication.",
+  "sections": [
+      {
+          "title": "Network Poisoning",
+          "port": "Various",
+          "description": "Responder can be used for network poisoning attacks and rogue server emulation on multiple protocols.",
+          "basicCommand": "responder -I [interface]",
+          "example": "responder -I eth0 -wrf",
+          "scriptExamples": [
+              {
+                  "title": "Capture NTLMv2 Hash",
+                  "description": "Configuring Responder to capture NTLMv2 authentication hashes.",
+                  "example": "responder -I eth0 -rdw"
+              },
+              {
+                  "title": "Poisoning LLMNR and NBT-NS",
+                  "description": "Running Responder to poison LLMNR and NBT-NS requests.",
+                  "example": "responder -I eth0 -llmnr -nbtns"
+              }
+          ],
+          "usefulFlags": [
+              {
+                  "flag": "-I",
+                  "description": "Specify the network interface to listen on.",
+                  "example": "responder -I eth0"
+              },
+              {
+                  "flag": "-wrf",
+                  "description": "Enable WPAD rogue server, respond to file server requests, and force authentication.",
+                  "example": "responder -I eth0 -wrf"
+              },
+              {
+                  "flag": "--lm",
+                  "description": "Capture LM (LAN Manager) hashes in addition to NTLM.",
+                  "example": "responder -I eth0 --lm"
+              }
+          ]
+      }
+  ]
 }
 
-    
+  
   ]
 }

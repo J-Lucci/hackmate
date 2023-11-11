@@ -1,5 +1,5 @@
 body {
-    font-family:monospace;
+    font-family: monospace;
     background-color: #282a36;
     color: #f8f8f2;
     padding: 2em;
@@ -68,7 +68,7 @@ a:link {
 }
 
 a:visited {
-    color:#ff5555;
+    color: #ff5555;
     text-decoration: none;
 }
 
@@ -136,13 +136,14 @@ pre code:hover {
 
 /* Styles for service links */
 .service-link {
-    color:#ff5555 !important;
-    font-weight:bold;
+    color: #ff5555 !important;
+    font-weight: bold;
 }
 
 /* Styles for tool links */
 .tool-link {
-    color:#ffb86c !important; /* Replace with the specific yellow color you want */
+    color: #ffb86c !important;
+    /* Replace with the specific yellow color you want */
 }
 
 .port-table th {
@@ -164,7 +165,7 @@ pre code:hover {
 }
 
 .step {
-    color:#f8f8f2;
+    color: #f8f8f2;
     font-size: .9em;
 }
 
@@ -201,20 +202,24 @@ pre code:hover {
     display: none;
     position: absolute;
     min-width: 200px;
-    max-height: 800px; /* Adjust this value as needed */
-    overflow-y: auto; /* This makes the content scrollable */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    max-height: 800px;
+    /* Adjust this value as needed */
+    overflow-y: auto;
+    /* This makes the content scrollable */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     text-decoration: none;
     background-color: #6272a4;
 }
 
 #dropdown-content label {
-    color:#ffb86c ;
+    color: #ffb86c;
     padding: auto;
     text-decoration: none;
-    display: flex; /* Change this from block to flex */
-    align-items: center; /* Align the checkbox and text vertically */
+    display: flex;
+    /* Change this from block to flex */
+    align-items: center;
+    /* Align the checkbox and text vertically */
 }
 
 #dropdown-content input {
@@ -228,11 +233,13 @@ pre code:hover {
 
 #dropdown-content {
     /* ...existing styles... */
-    padding: 12px; /* Add some padding to the dropdown content */
+    padding: 12px;
+    /* Add some padding to the dropdown content */
 }
 
 #search {
-    width: calc(100% - 24px); /* Subtract the padding from the width */
+    width: calc(100% - 24px);
+    /* Subtract the padding from the width */
     /* ...existing styles... */
 }
 
@@ -245,18 +252,23 @@ pre code:hover {
     cursor: pointer;
     text-align: left;
     outline: none;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 #dropdown-button:after {
     content: ' ▼';
 }
 
-#dropdown-button:hover, #dropdown-button:focus {
+#dropdown-button:hover,
+#dropdown-button:focus {
     background-color: #ffb86c;
     color: #6272a4;
 }
 
-.tips-style {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.expanded {
+    display: block;
+}
+
+#table-container {
+    position: relative;
 }

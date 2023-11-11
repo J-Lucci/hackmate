@@ -1,0 +1,75 @@
+{
+    "name": "[Tool Name]",
+    "installationCommand": "[Installation Command]",
+    "officialSite": "[Official Site URL]",
+    "tags": [
+        "[Tag1]",
+        "[Tag2]",
+        "[Tag3]"
+    ],
+    "description": "[Tool Description]",
+    "sections": [
+        {
+            "title": "[First service the tool can be used to test. example FTP, SSH, HTML, etc]",
+            "port": "[Port Number]",
+            "description": "[Section Description]",
+            "basicCommand": "[Basic Command]",
+            "example": "[Example Command]",
+            "scriptExamples": [
+                {
+                    "title": "[Script Example Title]",
+                    "description": "[Script Example Description]",
+                    "example": "[Script Example Command]"
+                },
+                {
+                    "title": "[Script Example Title]",
+                    "description": "[Script Example Description]",
+                    "example": "[Script Example Command]"
+                }
+            ],
+            "usefulFlags": [
+                {
+                    "flag": "[Flag]",
+                    "description": "[Flag Description]",
+                    "example": "[Flag Example]"
+                },
+                {
+                    "flag": "[Flag]",
+                    "description": "[Flag Description]",
+                    "example": "[Flag Example]"
+                }
+            ]
+        },
+        {
+            "title": "[Next service the tool can be used to test, duplicate this section with additional functions. example FTP, SSH, HTML, etc]",
+            "port": "[Port Number]",
+            "description": "[Section Description]",
+            "basicCommand": "[Basic Command]",
+            "example": "[Example Command]",
+            "scriptExamples": [
+                {
+                    "title": "[Script Example Title]",
+                    "description": "[Script Example Description]",
+                    "example": "[Script Example Command]"
+                },
+                {
+                    "title": "[Script Example Title]",
+                    "description": "[Script Example Description]",
+                    "example": "[Script Example Command]"
+                }
+            ],
+            "usefulFlags": [
+                {
+                    "flag": "[Flag]",
+                    "description": "[Flag Description]",
+                    "example": "[Flag Example]"
+                },
+                {
+                    "flag": "[Flag]",
+                    "description": "[Flag Description]",
+                    "example": "[Flag Example]"
+                }
+            ]
+        }
+    ]
+}

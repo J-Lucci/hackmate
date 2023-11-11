@@ -15,33 +15,38 @@ function fetchAndPopulateTools() {
 
             // Make sure data.tools is defined and then use the lowercase toolName to find the tool information
             const toolInfo = data.tools && data.tools.find(tool => 
-                (tool.name && tool.name.toLowerCase() === toolName) || 
-                (tool.title && tool.title.toLowerCase() === toolName));
+                (tool.name && tool.name.toLowerCase().replace(/ /g, '-') === toolName) || 
+                (tool.title && tool.title.toLowerCase().replace(/ /g, '-') === toolName));
 
             if (toolInfo) {
-                toolInfoContainer.innerHTML = `<h1>${toolInfo.name || toolInfo.title}</h1>`;
-
+                    toolInfoContainer.innerHTML = `<h1>${toolInfo.name || toolInfo.title}</h1>`;
+                    toolInfoContainer.innerHTML += `<p>${toolInfo.description}</p>
+                    <p><a href="${toolInfo.officialSite}">Official Site</a></p>
+                    <p>Installation Command: <pre style="margin-left: 20px; display: inline-block;"><code>${toolInfo.installationCommand}</code></pre></p>
+                `;
                 // Use a Set to ensure unique flags and their descriptions
                 const uniqueFlagsSet = new Set();
 
                 // Make sure to check for undefined properties before calling toLowerCase()
                 const checkAndLower = (text) => text && text.toLowerCase();
              
-                    toolInfo.sections.forEach(section => {
+                    toolInfo.sections.forEach((section, index) => {
                         if (section.usefulFlags) {
                             section.usefulFlags.forEach(flagItem => {
                                 uniqueFlagsSet.add(JSON.stringify(flagItem)); // Use stringified object for uniqueness
                             });
                         }
 
+                        const sectionClass = toolInfo.sections.length === 1 ? 'section expanded' : 'section';
+
                         toolInfoContainer.innerHTML += `
                             <h2>${section.title} <span class="port-style">${section.port ? `-p ${section.port}` : ""}</span></h2>
-                            <div class="section">
+                            <div class="${sectionClass}">
                                 <p>${section.description}</p>
-                                ${section.basicCommand ? `<h4>Basic Commands:</h4><pre><code>${section.basicCommand}</code></pre>` : ""}
-                                ${section.example ? `<pre><code>${section.example}</code></pre>` : ""}
+                                ${section.basicCommand ? `<h4>Basic Commands:</h4><pre style="margin-left: 20px; display: inline-block;"><code>${section.basicCommand}</code></pre>` : ""}
+                                ${section.example ? `<pre style="margin-left: 20px; display: inline-block;"><code>${section.example}</code></pre>` : ""}
                                 ${section.advancedUsage ? `<h4>Advanced Usage:</h4><blockquote><p>${section.advancedUsage}</p></blockquote>` : ""}
-                                ${section.scriptExamples ? section.scriptExamples.map(script => `<h4>${script.title}:</h4><blockquote><p>${script.description}</p><pre><code>${script.example}</code></pre></blockquote>`).join('') : ""}
+                                ${section.scriptExamples ? section.scriptExamples.map(script => `<h4>${script.title}: <span style="font-weight: normal; color: white;">${script.description}</span></h4><pre style="margin-left: 20px; display: inline-block;"><code>${script.example}</code></pre>`).join('') : ""}
                                 ${section.usefulFlags ? `
                                 <table class="port-table">
                                     <h4>Useful Flags</h4>
@@ -84,7 +89,7 @@ function fetchAndPopulateTools() {
                 attachCodeBlockCopyListeners();
             } else {
                 console.error(`Tool not found: ${toolName}`);
-                toolInfoContainer.innerHTML = `<p>Tool not found: ${toolName}</p>`;
+                toolInfoContainer.innerHTML = `<p>This is still under construction, sorry! : ${toolName}</p>`;
             }
         })
         .catch(error => console.error('Error fetching data:', error));
