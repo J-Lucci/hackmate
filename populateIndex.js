@@ -1,3 +1,5 @@
+let allPorts;
+
 window.onload = function () {
     fetch('ports.json')
         .then(response => response.json())
@@ -5,6 +7,9 @@ window.onload = function () {
             const tableBody = document.getElementById('port-table-body');
             const dropdownContent = document.getElementById('dropdown-content');
             const toolsSet = new Set();
+
+
+            allPorts = data.services;
 
             data.services.forEach(service => {
                 const row = document.createElement('tr');
@@ -119,4 +124,40 @@ window.onload = function () {
                 }
             });
         });
+};
+
+// Add this line after defining the filterPorts function
+document.getElementById('portInput').addEventListener('input', filterPorts);
+
+function filterPorts() {
+    // Get the user input
+    let userInput = document.getElementById('portInput').value.trim();
+    
+    // If the user input is empty, show all the rows and return
+    if (userInput === '') {
+        let tableRows = document.querySelectorAll('#port-table-body tr');
+        tableRows.forEach(row => {
+            row.style.display = '';
+        });
+        return;
+    }
+    
+    // Split the user input by commas to get the ports
+    let userPorts = userInput.split(',').map(port => port.trim()); // Trim whitespace from user input
+    
+    // Get all the table rows
+    let tableRows = document.querySelectorAll('#port-table-body tr');
+    
+    // Loop through the table rows
+    tableRows.forEach(row => {
+        // Get the port number from the first cell of the row
+        let portNumber = row.cells[0].textContent.split('/')[0].trim(); // Trim whitespace from port number
+        
+        // If the last user port starts with the port number or any of the other user ports is the port number, show the row, otherwise hide it
+        if (portNumber.startsWith(userPorts[userPorts.length - 1]) || userPorts.slice(0, -1).includes(portNumber)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
 }

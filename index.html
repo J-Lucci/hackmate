@@ -16,6 +16,11 @@
     <br>
     <p>Click a tool to view the tool's page which has tons of examples, flags, and information on how to use that tool
         to pentest specific services</p>
+    
+
+        <input type="text" id="portInput" placeholder="Enter ports separated by commas: ex 80,443,8080,8443">
+
+        <div id="portList"></div>
 
     <div id="table-container">
         <table class="port-table">
@@ -30,9 +35,6 @@
                 <!-- JavaScript will populate this table body -->
             </tbody>
         </table>
-
-        <!-- Vote button -->
-        <button id="vote-button" class="vote-button">Vote for the best tool</button>
     </div>
 
     <div id="tool-dropdown" class="dropdown-top-right">

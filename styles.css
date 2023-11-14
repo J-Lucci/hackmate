@@ -122,16 +122,21 @@ pre code:hover {
 
 .port-table {
     width: auto;
-    margin: 30px auto;
+    margin: 10px auto;
     border-collapse: collapse;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
-.port-table th,
-.port-table td {
+.port-table th,td {
     border: 1px solid #44475a;
     padding: 5px 10px;
     text-align: center;
+}
+.port-table th {
+    background-color: #50515e;
+}
+.port-table tr:hover {
+    background-color: #50515e;
 }
 
 /* Styles for service links */
@@ -144,19 +149,6 @@ pre code:hover {
 .tool-link {
     color: #ffb86c !important;
     /* Replace with the specific yellow color you want */
-}
-
-.port-table th {
-    background-color: #44475a;
-    color: #f8f8f2;
-}
-
-.port-table tr {
-    background-color: #37384470;
-}
-
-.port-table tr:hover {
-    background-color: #50515e;
 }
 
 .port-style {
@@ -271,4 +263,14 @@ pre code:hover {
 
 #table-container {
     position: relative;
+}
+
+#portInput {
+    display: block;
+    margin: 10px auto 0; /* 20px bottom margin to separate it from the table */
+    background-color:#282a36;
+    color:#f1fa8c;
+    border: 1px solid #50fa7b;
+    padding: 5px;
+    width: 25%; /* Adjust as needed */
 }
