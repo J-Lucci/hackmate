@@ -12,6 +12,10 @@ window.onload = function () {
             allPorts = data.services;
 
             data.services.forEach(service => {
+                // If the service is empty, skip this iteration
+                if (!service.service) {
+                    return;
+                }
                 const row = document.createElement('tr');
                 const toolContainer = document.createElement('div');
                 toolContainer.className = 'tool-container';
@@ -132,7 +136,7 @@ document.getElementById('portInput').addEventListener('input', filterPorts);
 function filterPorts() {
     // Get the user input
     let userInput = document.getElementById('portInput').value.trim();
-    
+
     // If the user input is empty, show all the rows and return
     if (userInput === '') {
         let tableRows = document.querySelectorAll('#port-table-body tr');
@@ -141,18 +145,18 @@ function filterPorts() {
         });
         return;
     }
-    
+
     // Split the user input by commas to get the ports
     let userPorts = userInput.split(',').map(port => port.trim()); // Trim whitespace from user input
-    
+
     // Get all the table rows
     let tableRows = document.querySelectorAll('#port-table-body tr');
-    
+
     // Loop through the table rows
     tableRows.forEach(row => {
         // Get the port number from the first cell of the row
         let portNumber = row.cells[0].textContent.split('/')[0].trim(); // Trim whitespace from port number
-        
+
         // If the last user port starts with the port number or any of the other user ports is the port number, show the row, otherwise hide it
         if (portNumber.startsWith(userPorts[userPorts.length - 1]) || userPorts.slice(0, -1).includes(portNumber)) {
             row.style.display = '';

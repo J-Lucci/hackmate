@@ -228,6 +228,7 @@
                 "Investigate the server’s adherence to HTTP Strict Transport Security (HSTS) and whether it forces encrypted connections over HTTPS."
             ],
             "tips": [
+                "Admins will sometimes run an alternative branch on ports 81-89, make sure to scan these if you find port 80 is open.",
                 "HTTP services often have weak or default credentials. Always test for these.",
                 "HTTP services can sometimes be vulnerable to user enumeration. Keep this in mind during your testing.",
                 "Many HTTP servers do not implement account lockout policies, making them susceptible to brute force attacks. Always attempt these.",

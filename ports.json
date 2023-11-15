@@ -198,38 +198,80 @@
             "port": "26 / TCP",
             "service": "Alternative SMTP",
             "tools": [
-              {"name": "Nmap", "link": "tools.json#nmap"},
-              {"name": "Metasploit", "link": "tools.json#metasploit"},
-              {"name": "Wireshark", "link": "tools.json#wireshark"},
-              {"name": "Swaks", "link": "tools.json#swaks"},
-              {"name": "Telnet", "link": "tools.json#telnet"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Swaks",
+                    "link": "tools.json#swaks"
+                },
+                {
+                    "name": "Telnet",
+                    "link": "tools.json#telnet"
+                }
             ]
-          }
-          ,
-          {
+        },
+        {
             "port": "37 / TCP",
             "service": "Time Protocol",
             "tools": [
-              {"name": "Nmap", "link": "tools.json#nmap"},
-              {"name": "Wireshark", "link": "tools.json#wireshark"},
-              {"name": "hping3", "link": "tools.json#hping3"},
-              {"name": "Netcat", "link": "tools.json#netcat"},
-              {"name": "Scapy", "link": "tools.json#scapy"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "hping3",
+                    "link": "tools.json#hping3"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Scapy",
+                    "link": "tools.json#scapy"
+                }
             ]
-          }
-          ,
-          {
+        },
+        {
             "port": "49 / TCP",
             "service": "TACACS",
             "tools": [
-              {"name": "Nmap", "link": "tools.json#nmap"},
-              {"name": "Metasploit", "link": "tools.json#metasploit"},
-              {"name": "Wireshark", "link": "tools.json#wireshark"},
-              {"name": "Hydra", "link": "tools.json#hydra"},
-              {"name": "tacplus", "link": "tools.json#tacplus"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "tacplus",
+                    "link": "tools.json#tacplus"
+                }
             ]
-          }
-          ,
+        },
         {
             "port": "53 / UDP",
             "service": "DNS",
@@ -276,50 +318,106 @@
             "port": "67 / UDP",
             "service": "DHCP Server",
             "tools": [
-              {"name": "Nmap", "link": "tools.json#nmap"},
-              {"name": "Wireshark", "link": "tools.json#wireshark"},
-              {"name": "dhcpdump", "link": "tools.json#dhcpdump"},
-              {"name": "Metasploit", "link": "tools.json#metasploit"},
-              {"name": "Yersinia", "link": "tools.json#yersinia"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "dhcpdump",
+                    "link": "tools.json#dhcpdump"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Yersinia",
+                    "link": "tools.json#yersinia"
+                }
             ]
-          }
-          ,
-          {
+        },
+        {
             "port": "68 / UDP",
             "service": "DHCP Client",
             "tools": [
-              {"name": "Nmap", "link": "tools.json#nmap"},
-              {"name": "Wireshark", "link": "tools.json#wireshark"},
-              {"name": "dhcpdump", "link": "tools.json#dhcpdump"},
-              {"name": "Metasploit", "link": "tools.json#metasploit"},
-              {"name": "Yersinia", "link": "tools.json#yersinia"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "dhcpdump",
+                    "link": "tools.json#dhcpdump"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Yersinia",
+                    "link": "tools.json#yersinia"
+                }
             ]
-          }
-          ,
-          {
+        },
+        {
             "port": "69 / UDP",
             "service": "TFTP",
             "tools": [
-              {"name": "Nmap", "link": "tools.json#nmap"},
-              {"name": "Wireshark", "link": "tools.json#wireshark"},
-              {"name": "tftp-bruteforce", "link": "tools.json#tftp-bruteforce"},
-              {"name": "Metasploit", "link": "tools.json#metasploit"},
-              {"name": "atftp", "link": "tools.json#atftp"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "tftp-bruteforce",
+                    "link": "tools.json#tftp-bruteforce"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "atftp",
+                    "link": "tools.json#atftp"
+                }
             ]
-          }
-          ,
-          {
+        },
+        {
             "port": "79 / TCP",
             "service": "Finger",
             "tools": [
-              {"name": "Nmap", "link": "tools.json#nmap"},
-              {"name": "Metasploit", "link": "tools.json#metasploit"},
-              {"name": "Netcat", "link": "tools.json#netcat"},
-              {"name": "Wireshark", "link": "tools.json#wireshark"},
-              {"name": "Finger-user-enum", "link": "tools.json#finger-user-enum"}
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Finger-user-enum",
+                    "link": "tools.json#finger-user-enum"
+                }
             ]
-          }
-          ,
+        },
         {
             "port": "80 / TCP",
             "service": "HTTP",
@@ -363,51 +461,30 @@
             ]
         },
         {
-            "port": "81 / TCP",
-            "service": "Alternative HTTP",
-            "tools": [
-              {"name": "Nmap", "link": "tools.json#nmap"},
-              {"name": "Wireshark", "link": "tools.json#wireshark"},
-              {"name": "Burp Suite", "link": "tools.json#burpsuite"},
-              {"name": "OWASP ZAP", "link": "tools.json#owaspzap"},
-              {"name": "Nikto", "link": "tools.json#nikto"}
-            ]
-          }
-          ,
-        {
-            "port": "82 / TCP",
-            "service": "",
-            "tools": []
-        },
-        {
-            "port": "83 / TCP",
-            "service": "",
-            "tools": []
-        },
-        {
-            "port": "84 / TCP",
-            "service": "",
-            "tools": []
-        },
-        {
-            "port": "85 / TCP",
-            "service": "",
-            "tools": []
-        },
-        {
-            "port": "88 / TCP",
-            "service": "",
-            "tools": []
-        },
-        {
-            "port": "89 / TCP",
-            "service": "",
-            "tools": []
-        },
-        {
             "port": "106 / TCP",
-            "service": "",
-            "tools": []
+            "service": "POP3PW",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Hydra",
+                    "link": "tools.json#hydra"
+                },
+                {
+                    "name": "Medusa",
+                    "link": "tools.json#medusa"
+                },
+                {
+                    "name": "Patator",
+                    "link": "tools.json#patator"
+                }
+            ]
         },
         {
             "port": "110 / TCP",
@@ -495,18 +572,81 @@
         },
         {
             "port": "113 / TCP",
-            "service": "",
-            "tools": []
+            "service": "Ident",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Metasploit",
+                    "link": "tools.json#metasploit"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "Amap",
+                    "link": "tools.json#amap"
+                },
+                {
+                    "name": "THC-Hydra",
+                    "link": "tools.json#thc-hydra"
+                }
+            ]
         },
         {
             "port": "119 / TCP",
-            "service": "",
-            "tools": []
+            "service": "NNTP (Network News Transfer Protocol)",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Nessus",
+                    "link": "tools.json#nessus"
+                },
+                {
+                    "name": "Netcat",
+                    "link": "tools.json#netcat"
+                },
+                {
+                    "name": "ZMap",
+                    "link": "tools.json#zmap"
+                },
+                {
+                    "name": "Masscan",
+                    "link": "tools.json#masscan"
+                }
+            ]
         },
         {
             "port": "123 / UDP",
-            "service": "",
-            "tools": []
+            "service": "NTP (Network Time Protocol)",
+            "tools": [
+                {
+                    "name": "Nmap",
+                    "link": "tools.json#nmap"
+                },
+                {
+                    "name": "Wireshark",
+                    "link": "tools.json#wireshark"
+                },
+                {
+                    "name": "Hping",
+                    "link": "tools.json#hping"
+                },
+                {
+                    "name": "Scapy",
+                    "link": "tools.json#scapy"
+                },
+                {
+                    "name": "Tshark",
+                    "link": "tools.json#tshark"
+                }
+            ]
         },
         {
             "port": "135 / TCP",
