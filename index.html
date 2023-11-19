@@ -11,40 +11,52 @@
 </head>
 
 <body>
-    <h1>Ports, Services, and Penetration Testing Tools</h1>
+    <div id="navbar-container"></div>
+
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data)
+            .catch(error => console.error(error));
+    </script>
+
+
+
     <p>Click a service to view some tips on how to pentest that service.</p>
     <br>
     <p>Click a tool to view the tool's page which has tons of examples, flags, and information on how to use that tool
         to pentest specific services</p>
-    
 
-        <input type="text" id="portInput" placeholder="Enter ports separated by commas: ex 80,443,8080,8443">
+    <div id="portList"></div>
 
-        <div id="portList"></div>
+    <div id="table-wrapper">
+        <div id="port-filter" class="filter-top-left">
+            <input type="text" id="portInput" placeholder="Enter ports separated by commas: ex 80,443,8080,8443">
+        </div>
+        <div id="tool-dropdown" class="dropdown-top-right">
+            <div id="dropdown-button">Tool Filter</div>
+            <div id="dropdown-content" class="dropdown-content">
+                <input type="text" id="search" placeholder="Search for tools...">
+                <!-- Checkboxes will be added here by JavaScript -->
+            </div>
+        </div>
 
-    <div id="table-container">
-        <table class="port-table">
-            <thead>
-                <tr>
-                    <th>Port</th>
-                    <th>Service</th>
-                    <th>Tools</th>
-                </tr>
-            </thead>
-            <tbody id="port-table-body">
-                <!-- JavaScript will populate this table body -->
-            </tbody>
-        </table>
-    </div>
-
-    <div id="tool-dropdown" class="dropdown-top-right">
-        <div id="dropdown-button">Select tools to display</div>
-        <div id="dropdown-content" class="dropdown-content">
-            <input type="text" id="search" placeholder="Search for tools...">
-            <!-- Checkboxes will be added here by JavaScript -->
+        <div id="table-container">
+            <table class="port-table">
+                <thead>
+                    <tr>
+                        <th>Port</th>
+                        <th>Service</th>
+                        <th>Tools</th>
+                    </tr>
+                </thead>
+                <tbody id="port-table-body">
+                    <!-- JavaScript will populate this table body -->
+                </tbody>
+            </table>
         </div>
     </div>
-
     <script src="populateIndex.js"></script>
 </body>
 

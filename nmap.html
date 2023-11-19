@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nmap Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+    <a href="index.html">Return to Index</a>
+    <div id="nmap-guide-info">
+        <header>
+            <h1>Welcome to the Nmap Guide</h1>
+        </header>
+        <section>
+            <h2>Introduction to Nmap</h2>
+            <p>Nmap (Network Mapper) is a free and open-source network scanner created by Gordon Lyon. It is one of the
+                most powerful tools in a penetration testers kit. It is used to discover hosts and services on a
+                computer network by sending packets and analyzing the responses.</p>
+        </section>
+        <section>
+            <h2>Key Features of Nmap</h2>
+            <ul>
+                <li>Host Discovery & Port Scanning- Identifies hosts on a network.</li>
+                <li>Port Scanning - Enumerates open ports on target hosts.</li>
+                <li>Version Detection - Determines software version of network services.</li>
+                <li>OS Detection - Identifies the operating system on target hosts.</li>
+                <li>Scriptable Interaction - Uses Nmap Scripting Engine (NSE) for more advanced discovery.</li>
+            </ul>
+        </section>
+    </div>
+    <div id="nmap-scan-guide">
+        <section>
+            <h2>Nmap Port Scanning and Enumeration Guide</h2>
+
+            <h3>Step 1: Initial Sweep for Open Ports</h3>
+            <p>
+                Begin with a basic Nmap scan to identify open ports on the target system. This will provide a list of
+                ports that are responsive.
+            </p>
+            <code>nmap -p- <i>target_ip</i></code>
+            <p>
+                Example: <code>nmap -p- 192.168.1.1</code>
+            </p>
+
+            <h3>Step 2: Targeted Service Scans</h3>
+            <p>
+                Once you have a list of open ports, perform a more detailed scan on those specific ports to identify the
+                services running on them.
+            </p>
+            <code>
+        nmap -sV -p <i>open_ports</i> <i>target_ip</i>
+    </code>
+            <p>
+                Example: <code>nmap -sV -p 80,443,22 192.168.1.1</code>
+            </p>
+
+            <h3>Step 3: Script Scans for Identified Services</h3>
+            <p>
+                For services identified in the previous step, use Nmap's scripting engine to run specific scripts for
+                more detailed enumeration.
+            </p>
+            <p>
+                For HTTP services (port 80/443):
+            </p>
+            <code>
+        nmap --script=http-enum -p 80,443 <i>target_ip</i>
+    </code>
+            <p>
+                Example: <code>nmap --script=http-enum -p 80,443 192.168.1.1</code>
+            </p>
+            <p>
+                For SSH services (port 22):
+            </p>
+            <code>
+        nmap --script=ssh-auth-methods -p 22 <i>target_ip</i>
+    </code>
+            <p>
+                Example: <code>nmap --script=ssh-auth-methods -p 22 192.168.1.1</code>
+            </p>
+
+            <h2>Conclusion</h2>
+            <p>
+                This guide outlines a basic approach to scanning a system with Nmap, beginning with a broad sweep and
+                narrowing down to specific services for more detailed information. Adjustments and additional scans may
+                be required based on the specific context and findings.
+            </p>
+        </section>
+    </div>
+    <button id="show-flags-btn">Flags and Switches</button>
+
+    <div id="flags-modal" class="modal">
+        <table class="special-tool-table">
+            <thead>
+                <tr>
+                    <th>Flag</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script src="showFlags.js" defer></script>
+    <script src="fetchNmapFlags.js"></script>
+</body>
+
+</html>

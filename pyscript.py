@@ -1,15 +1,17 @@
 import json
 
 # Load the data from the JSON file
-with open('ports.json', 'r') as f:
+with open('tools.json', 'r') as f:
     data = json.load(f)
 
-# Extract the list of ports
-ports = list(data.values())[0]
+# Find the 'Nmap' tool and its 'Flags' section
+nmap_data = next(tool for tool in data['tools'] if tool['name'] == 'Nmap')
+flags_section = next(section for section in nmap_data['sections'] if section['title'] == 'Flags')
 
-# Find the ports that have "" as service
-empty_service_ports = [port for port in ports if port['service'] == ""]
+# Remove duplicate entries
+seen = set()
+flags_section['content'] = [x for x in flags_section['content'] if str(x) not in seen and not seen.add(str(x))]
 
-# Print the ports that have "" as service
-for port in empty_service_ports:
-    print(port['port'])
+# Write the result back to the JSON file
+with open('tools.json', 'w') as f:
+    json.dump(data, f, indent=4)
