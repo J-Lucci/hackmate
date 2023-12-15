@@ -26,7 +26,12 @@ window.onload = function () {
                     // Create a tool link
                     const toolLink = document.createElement('a');
                     toolLink.className = 'tool-link';
-                    toolLink.href = `tool.html#${tool.name.toLowerCase().replace(/ /g, '-')}`;
+                    // Check if the tool name is 'nmap'
+                    if (tool.name.toLowerCase() === 'nmap') {
+                        toolLink.href = `nmap.html`;
+                    } else {
+                        toolLink.href = `tool.html#${tool.name.toLowerCase().replace(/ /g, '-')}`;
+                    }
                     toolLink.textContent = tool.name;
 
                     // Add the tool link to the tool container

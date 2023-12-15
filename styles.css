@@ -19,18 +19,10 @@ h2 {
     margin-bottom: 20px;
 }
 
-h5 {
-    color: #50fa7b;
-    border-bottom: 1px dashed #6272a4;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-}
-
-
 h3 {
     color: #ff5555;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 h4 {
@@ -44,6 +36,14 @@ h5 {
     padding-bottom: 10px;
     margin-bottom: 20px;
     font-size: 1.5em;
+}
+
+h6 {
+    color: #ffb86c;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 1.0em;
 }
 
 pre {
@@ -388,30 +388,38 @@ body {
     padding-top: 50px; /* Adjust as needed */
 }
 
-#table-container {
-    position: relative;
-    width: fit-content;
-    margin: auto;
+
+
+#tool-dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    z-index: 1000;
 }
 
 #table-wrapper {
     position: relative;
     width: fit-content;
     margin: auto;
+    padding: 50px 0 0 0;
+    /* border: 1px solid red; /* Debugging line */
 }
 
-#tool-dropdown {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translateY(-100%);
-    z-index: 1000;
+#table-container {
+    width: 100%;
+    /* border: 1px solid blue; /* Debugging line */
 }
 
 #port-filter {
     position: absolute;
-    top: 0;
+    top: 40px;
     left: 0;
-    transform: translateY(-100%);
-    z-index: 1000;    
+    z-index: 1000;
+    /* border: 1px solid green; /* Debugging line */
+}
+
+#port-filter input {
+    margin: 0;
+    padding: 0;
+    width: 350px;
 }
