@@ -14,16 +14,18 @@
     <a href="index.html">Return to Index</a>
     <div id="nmap-guide-info">
         <header>
-            <h1>Nmap Guide</h1>
+            <h1>Nmap</h1>
         </header>
+        
         <section>
-            <h2>Introduction to Nmap</h2>
+                        <h5>Introduction to Nmap</h5>
             <p>Nmap (Network Mapper) is a free and open-source network scanner created by Gordon Lyon. It is one of the
                 most powerful tools in a penetration testers kit, used to discover hosts and services on a
                 computer network by sending packets and analyzing the responses.</p>
         </section>
+        
         <section>
-            <h2>Key Features of Nmap</h2>
+            <h5>Key Features of Nmap</h5>
             <ul>
                 <li>Host Discovery & Port Scanning- Identifies hosts on a network.</li>
                 <li>Port Scanning - Enumerates open ports on target hosts.</li>
@@ -32,64 +34,83 @@
                 <li>Scriptable Interaction - Uses Nmap Scripting Engine (NSE) for more advanced discovery.</li>
             </ul>
         </section>
+
     </div>
     <div id="nmap-scan-guide">
         <section>
-            <h2>Nmap Port Scanning and Enumeration Guide</h2>
+            <h5>Scanning Methods</h5>
 
-            <h3>Step 1: Initial Sweep for Open Ports</h3>
-            <h6>Begin with a basic Nmap scan to identify open ports on the target system. This will provide a list of ports that are responsive.</h6>                
-            <code>nmap <i>target_ip</i></code> - Scan the 1000 most common ports
-            <br>
-            <code>nmap --top-ports=100 <i>target_ip</i></code> - Scan the 100 most common ports
-            <br>
-            <code>nmap -p80-100,443,8080 <i>target_ip</i></code> - Scan specific ports (80-100, 443, 8080)
-            <br>
-            <code>nmap -p- <i>target_ip</i></code> - Scan all 65535 ports
-            <br>
-            <code>nmap -pN <i>target_ip</i></code> - Scan with TCP Null scan - this will scan for open ports without sending any packets, suited for systems that block all packets by default
+            <h3>Initial Sweep for Open Ports</h3>
+                <h6>Begin with a basic Nmap scan to identify open ports on the target system. This will provide a list of ports that are responsive.</h6>                
+                    <code>nmap &lt;target_ip&gt;</code> - Scan the 1000 most common ports
+                    <br>
+                    <code>nmap --top-ports=100 &lt;target_ip&gt;</code> - Scan the 100 most common ports
+                    <br>
+                    <code>nmap -p80-100,443,8080 &lt;target_ip&gt;</code> - Scan specific ports (80-100, 443, 8080)
+                    <br>
+                    <code>nmap -p- &lt;target_ip&gt;</code> - Scan all 65535 ports
+                    <br>
+                    <code>nmap -pN &lt;target_ip&gt;</code> - Scan with TCP Null scan - this will scan for open ports without sending any packets, suited for systems that block all packets by default
             
-            <h3>Step 2: Targeted Service Scans</h3>
-            <h6>Once you have a list of open ports, perform a more detailed scan on those specific ports to identify the services running on them.</h6>
-            <code>nmap -sV <i>target_ip</i></code> - Scan with service version detection
-            <br>
-            <code>nmap -O <i>target_ip</i></code> - Scan with OS detection
-            <br>
-            <code>nmap -A <i>target_ip</i></code> - Scan with OS detection, service version detection, and default scripts
-            <br>
+            <h3>Targeted Service Scans</h3>
+                <h6>Once you have a list of open ports, perform a more detailed scan on those specific ports to identify the services running on them.</h6>
+                    <code>nmap -sV &lt;target_ip&gt;</code> - Scan with service version detection
+                    <br>
+                    <code>nmap -O &lt;target_ip&gt;</code> - Scan with OS detection
+                    <br>
+                    <code>nmap -A &lt;target_ip&gt;</code> - Scan with OS detection, service version detection, and default scripts
+                    <br>
 
-            <h3>Step 3: Script Scans for Identified Services</h3>
-            <h6>For services identified in the previous step, use Nmap's scripting engine to run specific scripts for more detailed enumeration.</h6>
-            <code>nmap -sC <i>target_ip</i></code> - Scan with default scripts
-            <br>
-            <code>nmap --script=http-enum -p 80,443 <i>target_ip</i></code> - for HTTP services (port 80/443)
-            <br>
-            <code>nmap --script=ssh-auth-methods -p 22 <i>target_ip</i></code> - for SSH services (port 22)
+            <h3>Script Scans for Identified Services</h3>
+                <h6>For services identified in the previous step, use Nmap's scripting engine to run specific scripts for more detailed enumeration.</h6>
+                    <code>nmap -sC &lt;target_ip&gt;</code> - Scan with default scripts
+                    <br>
+                    <code>nmap --script=http-enum -p 80,443 &lt;target_ip&gt;</code> - for HTTP services (port 80/443)
+                    <br>
+                    <code>nmap --script=ssh-auth-methods -p 22 &lt;target_ip&gt;</code> - for SSH services (port 22)
 
-            <h3>Step 4: Combine them all</h3>
-            <code>nmap -sCV -Pn -p21,80,443-445 <i>target_ip</i></code> - Scan with service version detection and default scripts while skipping host discovery and scanning specific ports (21, 80, 443-445)
+            <h3>Combined</h3>
+                <code>nmap -sCV -Pn -p21,80,443-445 &lt;target_ip&gt;</code> - Scan with service version detection and default scripts while skipping host discovery and scanning specific ports (21, 80, 443-445)
 
-            <h3>Additional Methods</h3>
+                <h3>Additional Methods</h3>
+                <h6>You can use more complex combinations to automate discovery and more advanced scanning.</h6>
+                    <code>nmap -p- -T4 &lt;target_ip&gt; | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//' | xargs -I ports nmap -p ports -sCV &lt;target_ip&gt; -Pn</code> - Scan all ports then scan each port individually with version detection and default scripts
+                    <br>
+                    <code>masscan -p1-65535 &lt;target_ip&gt; --rate=1000 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//' | xargs -I ports nmap -p ports -sCV &lt;target_ip&gt; -Pn</code> - Combination with masscan results
+            
+        </section>
+        </div>
+
+        <section>
+            <h5>Scripts For Everything! (mostly)</h5>
             <p>
-                You can use more complex combinations to automate discovery and more advanced scanning. For example:
+                Nmap has a massive library of over 600 scripts that can be used to automate discovery and enumeration. Implementing Nmap scripts into your workflow is a powerful skill that can save hours of time and effort during a penetration test.
+                <h6>You should always check the <a href="https://nmap.org/nsedoc/scripts">Nmap NSE Scripts section of their website</a> for any scripts that may be useful for your specific context</h6>
+                The following are some examples of useful scripts:
                 <ul>
-                    <li>
-                        Scan all ports then scan each port individually with version detection and default scripts: <code>nmap -p- -T4 &lt;target_ip&gt; | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//' | xargs -I ports nmap -p ports -sCV &lt;target_ip&gt; -Pn</code>
-                    </li>
-                    <li>
-                        Combination with masscan results: <code>masscan -p1-65535 &lt;target_ip&gt; --rate=1000 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//' | xargs -I ports nmap -p ports -sCV &lt;target_ip&gt; -Pn</code>
-
-                    </li>
+                    <li>HTTP services, like Tomcat: <code>--script=http-default-accounts</code> to check for default credentials, or <code>--script=http-*</code> to run all http specific scripts</li>
+                    <li>SSH services: <code>--script=ssh-auth-methods</code> to check for allowed authentication methods</li>
+                    <li>SMTP services: <code>--script=smtp-commands</code> to check for allowed commands</li>
+                    <li>SNMP services: <code>--script=snmp-info</code> to check for SNMP information</li>
+                    <li>MySQL services: <code>--script=mysql-enum</code> to check for MySQL information</li>
+                    <li>PostgreSQL services: <code>--script=pgsql-brute</code> to brute force PostgreSQL credentials</li>
+                    <li>Oracle services: <code>--script=oracle-brute</code> to brute force Oracle credentials</li>
+                    <li>FTP services: <code>--script=ftp-anon</code> to check for anonymous FTP access</li>
+                    <li>RPC services: <code>--script=rpcinfo</code> to check for RPC information</li>
+                    <li>SMB services: <code>--script=smb-enum*</code> to run all SMB specific scripts</li>
                 </ul>
+
             </p>
-            <h2>Conclusion</h2>
+        </section>
+
+        <section>
+            <h5>Conclusion</h5>
             <p>
                 This guide outlines a basic approach to scanning a system with Nmap, beginning with a broad sweep and
                 narrowing down to specific services for more detailed information. Adjustments and additional scans may
                 be required based on the specific context and findings.
             </p>
         </section>
-    </div>
     <button id="show-flags-btn">Flags and Switches</button>
 
     <div id="flags-modal" class="modal">
@@ -106,6 +127,8 @@
 
     <script src="showFlags.js" defer></script>
     <script src="fetchNmapFlags.js"></script>
+    <script src="clipboard.js" defer></script>
+    <script src="ipReplace.js" defer></script>
 </body>
 
 </html>

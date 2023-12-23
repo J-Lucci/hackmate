@@ -33,7 +33,7 @@ function copyToClipboard(e, text) {
 }
 
 function attachCodeBlockCopyListeners() {
-    document.querySelectorAll('pre code').forEach(codeBlock => {
+    document.querySelectorAll('code, pre code').forEach(codeBlock => {
         console.log('Found a code block, attaching event.');
 
         codeBlock.addEventListener('click', (e) => {
@@ -44,4 +44,7 @@ function attachCodeBlockCopyListeners() {
 }
 
 // Attach the copy listeners initially (for code blocks visible on page load).
-attachCodeBlockCopyListeners();
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Attach the copy listeners initially (for code blocks visible on page load).
+    attachCodeBlockCopyListeners();
+});

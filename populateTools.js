@@ -22,7 +22,7 @@ function fetchAndPopulateTools() {
                     toolInfoContainer.innerHTML = `<h1>${toolInfo.name || toolInfo.title}</h1>`;
                     toolInfoContainer.innerHTML += `<p>${toolInfo.description}</p>
                     <p><a href="${toolInfo.officialSite}">Official Site</a></p>
-                    <p>Installation Command: <pre style="margin-left: 20px; display: inline-block;"><code>${toolInfo.installationCommand}</code></pre></p>
+                    <p>Installation Command: <code>${toolInfo.installationCommand}</code></p>
                 `;
                 // Use a Set to ensure unique flags and their descriptions
                 const uniqueFlagsSet = new Set();
@@ -43,10 +43,10 @@ function fetchAndPopulateTools() {
                             <h2>${section.title} <span class="port-style">${section.port ? `-p ${section.port}` : ""}</span></h2>
                             <div class="${sectionClass}">
                                 <p>${section.description}</p>
-                                ${section.basicCommand ? `<h4>Basic Commands:</h4><pre style="margin-left: 20px; display: inline-block;"><code>${section.basicCommand}</code></pre>` : ""}
-                                ${section.example ? `<pre style="margin-left: 20px; display: inline-block;"><code>${section.example}</code></pre>` : ""}
+                                ${section.basicCommand ? `<h4>Basic Commands:</h4><code>${section.basicCommand}</code><br>` : ""}
+                                ${section.example ? `<code>${section.example}</code>` : ""}
                                 ${section.advancedUsage ? `<h4>Advanced Usage:</h4><blockquote><p>${section.advancedUsage}</p></blockquote>` : ""}
-                                ${section.scriptExamples ? section.scriptExamples.map(script => `<h4>${script.title}: <span style="font-weight: normal; color: white;">${script.description}</span></h4><pre style="margin-left: 20px; display: inline-block;"><code>${script.example}</code></pre>`).join('') : ""}
+                                ${section.scriptExamples ? section.scriptExamples.map(script => `<h4>${script.title}: <span style="font-weight: normal; color: white;">${script.description}</span></h4><code>${script.example}</code>`).join('') : ""}
                                 ${section.usefulFlags ? `
                                 <table class="port-table">
                                     <h4>Useful Flags</h4>
