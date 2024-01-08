@@ -2,17 +2,29 @@
 <html>
 <head>
     <title>Navbar</title>
+
 </head>
 <body>
     <div id="navbar">
         <h1>Ports, Services, and Penetration Testing Tools</h1>
+        <div class="center">
+            <input type="text" id="navbarSearchBox" class="search-box" placeholder="Search...">
+            <div class="dropdown-content"></div>
+        </div>
+
+        
+        <script src="search.js"></script>
+
+
         <div class="dropdown">
             <button class="dropbtn">Guides</button>
             <div class="dropdown-content">
                 <a href="scanning.html">Scanning Guide</a>
                 <a href="others.html">Very Helpful Tools</a>
+                <a href="reverse-shells.html">Reverse Shells</a>
             </div>
         </div>
     </div>
+
 </body>
 </html>
