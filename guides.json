@@ -24,7 +24,8 @@
                 "Check for default files and directories (e.g., README, backups) that may contain sensitive information using tools like Nikto or manually with ls -a.",
                 "Evaluate the FTP server's response to various commands, including LIST, RETR, STOR, DELE, and others, using tools like Telnet or Netcat.",
                 "Inspect the FTP server's response codes for potential vulnerabilities or misconfigurations.",
-                "Document all findings, vulnerabilities, and remediation recommendations in a detailed report."
+                "Document all findings, vulnerabilities, and remediation recommendations in a detailed report.",
+                "hurd likes boys"
             ],
             "tips": [
                 "Weak or default credentials are common in FTP services. Always test for these.",
